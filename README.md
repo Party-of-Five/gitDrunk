@@ -55,4 +55,4 @@ SO THAT I can manage my time effectively
 
 <h2>🎉 The following animation demonstrates the application functionality:</h2>
 
-![day planner demo](TBD)
+![day planner demo](https://github.com/Party-of-Five/gitDrunk/blob/master/GitDrunk)
