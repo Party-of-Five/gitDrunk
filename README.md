@@ -64,6 +64,9 @@ SO THAT I don't have to make my own decision
 <ul>
     <li><a href='https://www.patreon.com/thedatadb' target='_blank'>The datadb Team </a></li>
 </ul>
+<h2> Project Board</h2>
+
+https://github.com/Party-of-Five/gitDrunk/projects/1?add_cards_query=is%3Aopen
 
 <h2>⚓ Acceptance Criteria / MVP</h2>
 
