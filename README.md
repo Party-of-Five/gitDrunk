@@ -7,15 +7,15 @@
 <h2> ✨User Story</h2>
 
 ```
-AS A HOST with only a handlful of ingredients on hand
+AS A HOST with only a handful of ingredients on hand
 I WANT to find what cocktails I can make based on the ingredients
 SO THAT I don't have to go to the store
 
 AS A DRINKER with a specific cocktail in mind
-I WANT the drink recipe
-SO THAT I can make the drink
+I WANT the ingredients and steps to make that cocktail
+SO THAT I can make the cocktail I want
 
-AS AN INDECISIVE HUMAN that only knows what kind of liquor they want
+AS AN INDECISIVE PERSON that only knows what kind of liquor they want
 I WANT someone to pick a drink/recipe for me
 SO THAT I don't have to make my own decision 
 ```
@@ -37,7 +37,9 @@ SO THAT I don't have to make my own decision
     <li>VS Code</li>
     <li>Draw.io</li>
     <li>Postman</li>
+    <br/>
     <li>thecocktaildb.com/api.php</li>
+    <li>https://www.myfitnesspal.com/api</li>
 
 </ul>
 <h2>📓 Contributor(s)</h2>
@@ -63,7 +65,7 @@ SO THAT I don't have to make my own decision
     <li><a href='https://www.patreon.com/thedatadb' target='_blank'>The datadb Team </a></li>
 </ul>
 
-<h2>⚓ Acceptance Criteria</h2>
+<h2>⚓ Acceptance Criteria / MVP</h2>
 
 - GIVEN I am looking to make a cocktail
 - WHEN I open the app
