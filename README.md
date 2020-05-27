@@ -24,6 +24,11 @@ SO THAT I can manage my time effectively
 <h2>📓 Contributor(s)</h2>
 
 <h3>Ashley Lerma</h3>
+<ul>
+    <li><a href='https://github.com/AshleyLerma?tab=repositories' target='_blank'>GitHub</a></li> 
+    <li><a href='https://www.linkedin.com/in/ashleylerma/' target='_blank'>LinkedIn</a></li> 
+    <li>lerma.scout@gmail.com</li> 
+</ul>
 <h3>Dre Lajara</h3>
 <ul>
     <li><a href='https://github.com/juanlajara/juanlajara.github.io' target='_blank'>GitHub</a></li>
