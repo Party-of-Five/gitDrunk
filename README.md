@@ -12,6 +12,14 @@ I WANT to find what cocktails I can make based on the ingredients
 SO THAT I can manage my time effectively
 ```
 
+<details>
+<summary>✅ White board and wireframes</summary>
+<img src="./assets/img/GitDrunk1.PNG">
+<img src="./assets/img/GitDrunk2.PNG">
+<img src="./assets/img/GitDrunk3.PNG">
+<img src="./assets/img/GitDrunk4.PNG">
+</details>
+
 <h2>⚙️ List of Technologies Used</h2>
 <ul>
     <li>HTML</li>
@@ -54,5 +62,4 @@ SO THAT I can manage my time effectively
 - THEN I am presented with timeblocks for standard business hours
 
 <h2>🎉 The following animation demonstrates the application functionality:</h2>
-
-![Home Page Wire Frame](assets/img/GitDrunk1.PNG)
+![Home Page Wire Frame](TBD)
