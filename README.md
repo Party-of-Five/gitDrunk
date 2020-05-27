@@ -9,7 +9,15 @@
 ```
 AS A HOST with only a handlful of ingredients on hand
 I WANT to find what cocktails I can make based on the ingredients
-SO THAT I can manage my time effectively
+SO THAT I don't have to go to the store
+
+AS A DRINKER with a specific cocktail in mind
+I WANT the drink recipe
+SO THAT I can make the drink
+
+AS AN INDECISIVE HUMAN that only knows what kind of liquor they want
+I WANT someone to pick a drink/recipe for me
+SO THAT I don't have to make my own decision 
 ```
 
 <details>
@@ -26,6 +34,9 @@ SO THAT I can manage my time effectively
     <li>CSS</li>
     <li>JavaScript</li>
     <li>JQuery</li>
+    <li>VS Code</li>
+    <li>Draw.io</li>
+    <li>Postman</li>
     <li>thecocktaildb.com/api.php</li>
 
 </ul>
@@ -54,12 +65,30 @@ SO THAT I can manage my time effectively
 
 <h2>⚓ Acceptance Criteria</h2>
 
-- GIVEN I am using a daily planner to create a schedule
-- WHEN I open the planner
-- THEN the current day is displayed at the top of the calendar
+- GIVEN I am looking to make a cocktail
+- WHEN I open the app
+- THEN I am given the option of 3 pages 
 
-- WHEN I scroll down
-- THEN I am presented with timeblocks for standard business hours
+- WHEN I want to search by ingredients
+- THEN I can enter what I have 
+
+- WHEN I click submit
+- THEN I am given a list of possible cocktails
+
+- WHEN I choose the cocktail I want
+- THEN I am given the recipe and photo
+
+- WHEN I want a specific cocktail
+- THEN I can search the cocktail name
+
+- WHEN I search a specific cocktail
+- THEN I am given the recipe and photo
+
+- WHEN I want a random cocktail
+- THEN I am given 5 base liqour options
+
+- WHEN I click my preferred liquor
+- THEN I am given a random cocktail recipe using that liquor 
 
 <h2>🎉 The following animation demonstrates the application functionality:</h2>
 
