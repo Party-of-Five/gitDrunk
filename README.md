@@ -55,4 +55,4 @@ SO THAT I can manage my time effectively
 
 <h2>🎉 The following animation demonstrates the application functionality:</h2>
 
-![Home Page Wire Frame](assets/img/assets/img/GitDrunk1.PNG)
+![Home Page Wire Frame](assets/img/GitDrunk1.PNG)
