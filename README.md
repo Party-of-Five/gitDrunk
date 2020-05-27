@@ -62,4 +62,8 @@ SO THAT I can manage my time effectively
 - THEN I am presented with timeblocks for standard business hours
 
 <h2>🎉 The following animation demonstrates the application functionality:</h2>
-![Home Page Wire Frame](TBD)
+
+![Home Page Wire Frame](assets/img/GitDrunk1.PNG)
+![Page 2 Wire Frame](assets/img/GitDrunk2.PNG)
+![Page 3 Wire Frame](assets/img/GitDrunk3.PNG)
+![Page 4 Wire Frame](assets/img/GitDrunk4.PNG)
