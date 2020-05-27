@@ -39,7 +39,7 @@ SO THAT I don't have to make my own decision
     <li>Postman</li>
     <br/>
     <li>thecocktaildb.com/api.php</li>
-    <li>https://www.myfitnesspal.com/api</li>
+    <li>https://platform.fatsecret.com/api/</li>
 
 </ul>
 <h2>📓 Contributor(s)</h2>
