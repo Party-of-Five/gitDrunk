@@ -64,6 +64,9 @@ SO THAT I don't have to make my own decision
 </ul>
 <h3>Frazer Hughes</h3>
 <h3>Joshua Bogart</h3>
+    <li><a href='https://github.com/joshuabogart?tab=repositories' target='_blank'>GitHub</a></li> 
+    <li><a href='https://www.linkedin.com/in/joshua-bogart-97026b117/' target='_blank'>LinkedIn</a></li> 
+    <li>joshua.bogart.ndt@gmail.com</li>
 
 <h2>💡 Special Thanks</h2>
 <ul>
