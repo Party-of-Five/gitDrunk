@@ -1,11 +1,12 @@
 $("#cocktailSubBtn").click(function (event) {
 	event.preventDefault();
-	searchCocktail();
+	cocktailInput = $("#cocktailInput").val().trim();
+	searchCocktail(cocktailInput);
 });
 
-function searchCocktail() {
+function searchCocktail(cocktailVal) {
 	var settings = {
-		url: "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita",
+		url: `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${cocktailVal}`,
 		method: "GET",
 		timeout: 0,
 		headers: {},
