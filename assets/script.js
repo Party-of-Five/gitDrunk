@@ -1,9 +1,21 @@
+// TODO:
+// Get personal API Key
+// Create on click for each search result button
+// With on click render recipe to screen
+// Render photo to screen?
+// Only one recipe / photo should show at a time
+// If a new search is entered clear and replace results
+
+// When you click the search button
 $("#cocktailSubBtn").click(function (event) {
   event.preventDefault();
+  // Input taken and assigned to variable
   cocktailInput = $("#cocktailInput").val().trim();
+  // Call search cocktail function
   searchCocktail(cocktailInput);
 });
 
+// Uses the input to search the API
 function searchCocktail(cocktailVal) {
   var settings = {
     url: `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${cocktailVal}`,
@@ -15,15 +27,13 @@ function searchCocktail(cocktailVal) {
   $.ajax(settings).done(function (response) {
     console.log(response);
     let allDrinks = response.drinks;
-    // loop through the api response
-    // create button for each drink in array
-    // name the button correctly
-    // id/value equal to spot in array
-    // append to #searchResults
+    // Creates a button for each search result
     for (let i = 0; i < allDrinks.length; i++) {
       console.log(allDrinks[i].strDrink);
       let drinkName = allDrinks[i].strDrink;
-      let drinkBtn = $("<button>");
+      $("#searchResults").append(
+        `<li><button id="drink${i}" type="submit">${drinkName}</button></li>`
+      );
     }
   });
 }
