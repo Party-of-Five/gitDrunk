@@ -1,0 +1,39 @@
+body {
+    background-color:black;
+    background-image: url("/assets/img/classyDrinks.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* position: center; */
+    vertical-align: middle;
+}
+
+.logo {
+    text-align: center;
+    font-size: 100px;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.nav-wrapper {
+    background-color: #a30707;
+}
+
+.btn {
+    background-color: transparent;
+}
+
+.hero-image {
+    
+}
+
+.page-footer {
+    text-align: center;
+    background-color: #a30707;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem; 
+}
+
