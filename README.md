@@ -1,7 +1,7 @@
 <h1 align='center'>gitDrunk</h1>
 <h2>💡 Project Overview</h2>
 <p>Create an App that Looks up cocktails based on the ingredients you have at home.
-<a href='https://juanlajara.github.io/Day-Planner/' target='_blank'>Live Link</a>
+<a href='https://party-of-five.github.io/gitDrunk/' target='_blank'>Live Link</a>
 </p>
 
 <h2> ✨User Story</h2>
@@ -39,6 +39,7 @@ SO THAT I don't have to make my own decision
     <li>Postman</li>
     <br/>
     <li>thecocktaildb.com/api.php</li>
+    <li>https://materializecss.com/</li>
     <li>https://platform.fatsecret.com/api/</li>
 
 </ul>
@@ -105,4 +106,4 @@ https://github.com/Party-of-Five/gitDrunk/projects/1?add_cards_query=is%3Aopen
 
 <h2>🎉 The following animation demonstrates the application functionality:</h2>
 
-![Gif of Actualy App](TBD)
+![PlaceHolder](TBD)
