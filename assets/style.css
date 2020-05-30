@@ -1,6 +1,6 @@
 body {
     background-color:black;
-    background-image: url("https://github.com/Party-of-Five/gitDrunk/blob/master/assets/img/classyDrinks.jpg?raw=true");
+    background-image: url("../assets/img/classyDrinks.jpg?raw=true");
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
