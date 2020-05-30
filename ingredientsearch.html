@@ -33,11 +33,35 @@
 		  </ul>
 		</div>
 	  </nav>
-	
-	<div class="main transbox">
-		<p>Welcome to GitDrunk.  A site to find recipes by ingredients, cocktail name or to randomly pick a cocktail for you when you are undecided.</p>
-	</div>
-
+        
+      <div class="container">
+        <div class="row">
+            <!-- input search box -->
+            <div class="col l4 pull-s8">
+                <p>Type Ingredient Below <input type="text" class="ingredientInfo"></text></p>
+                <p><button class="ingredientSubBtn">Search</button></p>
+            </div>
+            <!-- list of ingredients appended -->
+            <div class="col l8 push-s4">
+                <div class="listContainer">
+                <ul>list of ingredients</ul>
+                </div>
+            
+            <!-- list of cocktails -->
+            
+                <div class="listContainer">
+                <ul class="ingResults">list of drinks</ul>
+                </div>
+            </div>
+            <!-- information on selected cocktail -->
+            <div class="col l12">
+                <div class="featureInfo">
+                    <div class="featureText"></div>
+                    <div class="featureImage"></div>
+                </div>
+            </div>
+        </div>
+        </div>
 	<footer class="page-footer">
 		  <div class="credits">About</div>
 	  </footer>
