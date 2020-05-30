@@ -38,6 +38,9 @@ function searchCocktail(cocktailVal) {
   });
 }
 
+// TODO: See why all .liquorSelect buttons are getting the same data-name
+// Append: Drink name and pull recipe + photo to post on page in  correct area
+
 // Random drink generator based on liquor button clicked
 $(".liquorSelect").click(function () {
   event.preventDefault();
