@@ -1,11 +1,10 @@
 body {
     background-color:black;
-    background-image: url("/assets/img/classyDrinks.jpg");
+    background-image: url("../assets/img/classyDrinks.jpg?raw=true");
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    /* position: center; */
     vertical-align: middle;
 }
 
@@ -24,10 +23,6 @@ body {
     background-color: transparent;
 }
 
-.hero-image {
-    
-}
-
 .page-footer {
     text-align: center;
     background-color: #a30707;
@@ -37,3 +32,36 @@ body {
     height: 2.5rem; 
 }
 
+div.transbox {
+    margin-top: 30px;
+    background-color: #ffffff;
+    border: 1px solid black;
+    opacity: 0.4;
+}
+  
+div.transbox p {
+    margin: 5%;
+    font-weight: bold;
+    color: #000000;
+    font-size: 25px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.container {
+    padding: 20px;
+    width: 100%;
+    background-color: white;
+    border: 1px solid black;
+    font-size: 15px;
+}
+
+.listContainer {
+    background-color: orange;
+    height: 250px;
+    overflow: auto;
+}
+
+.featureInfo {
+    background-color:red;
+    height: 400px;
+}
