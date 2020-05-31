@@ -39,11 +39,48 @@ function searchCocktail(cocktailVal) {
 }
 
 
+<<<<<<< HEAD
 $(".ingredientAddBtn").click(function(){
   let value = $(".ingredientInfo").val().trim();
   $(".listIng").append("<li>"+value+"</li>");
 });
 
+=======
+// TODO: See why all .liquorSelect buttons are getting the same data-name
+// Append: Drink name and pull recipe + photo to post on page in  correct area
+
+// Random drink generator based on liquor button clicked
+$(".liquorSelect").click(function () {
+  event.preventDefault();
+  // WHY?? Every liquor button is showing as vodka
+  let liquor = $(".liquorSelect").attr("data-name");
+  console.log(liquor);
+
+  getCocktail(liquor);
+});
+
+function getCocktail(liquor) {
+  var settings = {
+    async: true,
+    crossDomain: true,
+    url: "https://the-cocktail-db.p.rapidapi.com/filter.php?i=" + liquor,
+    method: "GET",
+    headers: {
+      "x-rapidapi-host": "the-cocktail-db.p.rapidapi.com",
+      "x-rapidapi-key": "fec2323914msh6be937a2ff5cba0p1cc78ejsn762f18f5e051",
+    },
+  };
+
+  $.ajax(settings).done(function (response) {
+    let possibleDrinks = response.drinks;
+    // Randomly chooses a cocktail from the array of drinks containing that liquor
+    var randomCocktail =
+      possibleDrinks[Math.floor(Math.random() * possibleDrinks.length)];
+    // Console log random selection
+    console.log(randomCocktail.strDrink);
+  }
+
+>>>>>>> master
 $(".ingredientSubBtn").click(function(){
   event.preventDefault();
   let value = $(".ingredientInfo").val().trim();
@@ -76,6 +113,7 @@ function searchIngredient(value) {
         `<li><button id="identifyDrink drink${i}" type="submit">${drinkName}</button></li>`
       );
     }
+
 
   });
 }
