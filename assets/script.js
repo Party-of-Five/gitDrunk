@@ -38,6 +38,7 @@ function searchCocktail(cocktailVal) {
   });
 }
 
+
 // TODO: See why all .liquorSelect buttons are getting the same data-name
 // Append: Drink name and pull recipe + photo to post on page in  correct area
 
@@ -70,5 +71,41 @@ function getCocktail(liquor) {
       possibleDrinks[Math.floor(Math.random() * possibleDrinks.length)];
     // Console log random selection
     console.log(randomCocktail.strDrink);
+  }
+
+$(".ingredientSubBtn").click(function(){
+  // event.preventDefault();
+  let value = $(".ingredientInfo").val();
+  console.log(value);
+
+  searchIngredient(value);
+});
+
+function searchIngredient(value) {
+  var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "https://the-cocktail-db.p.rapidapi.com/filter.php?i="+value,
+    "method": "GET",
+    "headers": {
+      "x-rapidapi-host": "the-cocktail-db.p.rapidapi.com",
+      "x-rapidapi-key": "fec2323914msh6be937a2ff5cba0p1cc78ejsn762f18f5e051"
+    }
+  }
+  
+  $.ajax(settings).done(function (response) {
+    console.log(response);
+    
+    let allDrinks = response.drinks;
+    // Creates a button for each search result
+    for (let i = 0; i < allDrinks.length; i++) {
+      console.log(allDrinks[i].strDrink);
+      let drinkName = allDrinks[i].strDrink;
+      $(".ingResults").append(
+        `<li><button id="drink${i}" type="submit">${drinkName}</button></li>`
+      );
+    }
+
+
   });
 }
