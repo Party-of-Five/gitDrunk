@@ -40,8 +40,8 @@ function searchCocktail(cocktailVal) {
 
 
 $(".ingredientSubBtn").click(function(){
-  // event.preventDefault();
-  let value = $(".ingredientInfo").val();
+  event.preventDefault();
+  let value = $(".ingredientInfo").val().trim();
   console.log(value);
 
   searchIngredient(value);
