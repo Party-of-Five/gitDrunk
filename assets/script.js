@@ -48,7 +48,7 @@ $(".ingredientSubBtn").click(function(){
   event.preventDefault();
   let value = $(".ingredientInfo").val().trim();
   console.log(value);
-
+// find out how to pull from multiple ingredients at once.  redo search to use listed ingredients as criteria.
   searchIngredient(value);
 });
 
@@ -73,9 +73,12 @@ function searchIngredient(value) {
       console.log(allDrinks[i].strDrink);
       let drinkName = allDrinks[i].strDrink;
       $(".ingResults").append(
-        `<li><button id="drink${i}" type="submit">${drinkName}</button></li>`
+        `<li><button id="identifyDrink drink${i}" type="submit">${drinkName}</button></li>`
       );
     }
 
   });
 }
+
+// create function for #identifyDrink to pull up information by drink id and display it in .featureText and .featureImage
+
