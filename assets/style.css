@@ -73,4 +73,11 @@ div.transbox p {
 
 .listHeader {
     text-decoration: underline;
+    margin-bottom: 10px;
+}
+
+.ingredientSubBtn {
+    position: absolute;
+    right:    0;
+    bottom:   0;
 }

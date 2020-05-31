@@ -39,6 +39,11 @@ function searchCocktail(cocktailVal) {
 }
 
 
+$(".ingredientAddBtn").click(function(){
+  let value = $(".ingredientInfo").val().trim();
+  $(".listIng").append("<li>"+value+"</li>");
+});
+
 $(".ingredientSubBtn").click(function(){
   event.preventDefault();
   let value = $(".ingredientInfo").val().trim();
