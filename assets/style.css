@@ -59,9 +59,18 @@ div.transbox p {
     background-color: orange;
     height: 250px;
     overflow: auto;
+    margin: 10px;
+    border-radius: 25px;
+    border: 2px solid black;
+    padding: 10px;
 }
 
 .featureInfo {
     background-color:red;
     height: 400px;
+    border-radius: 25px;
+}
+
+.listHeader {
+    text-decoration: underline;
 }
