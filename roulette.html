@@ -27,10 +27,28 @@
     <nav>
       <div class="nav-wrapper">
         <ul class="left hide-on-med-and-down">
-        <li><a href="./index.html" class="waves-effect waves-light btn">Home<i class="material-icons left">home</i></a></li>
-        <li><a href="./ingredientsearch.html" class="waves-effect waves-light btn">Suggestions<i class="material-icons left">local_drink</i></a></li>
-        <li><a href="./drinksearch.html" class="waves-effect waves-light btn">Cocktail<i class="material-icons left">local_bar</i></a></li>
-        <li><a href="./roulette.html" class="waves-effect waves-light btn">Roulette <i class="material-icons left">casino</i></a></li>
+          <li>
+            <a href="./index.html" class="waves-effect waves-light btn"
+              >Home<i class="material-icons left">home</i></a
+            >
+          </li>
+          <li>
+            <a
+              href="./ingredientsearch.html"
+              class="waves-effect waves-light btn"
+              >Suggestions<i class="material-icons left">local_drink</i></a
+            >
+          </li>
+          <li>
+            <a href="./drinksearch.html" class="waves-effect waves-light btn"
+              >Cocktail<i class="material-icons left">local_bar</i></a
+            >
+          </li>
+          <li>
+            <a href="./roulette.html" class="waves-effect waves-light btn"
+              >Roulette <i class="material-icons left">casino</i></a
+            >
+          </li>
         </ul>
       </div>
     </nav>
@@ -39,22 +57,24 @@
       <div class="row">
         <!-- liquor selection buttons -->
         <div class="col l4 pull-s8">
-          <p>Select your base liquor from the below options.</p>
+          <p class="whiteText">
+            Select your base liquor from the below options.
+          </p>
           <ul>
             <li>
-              <button data-name="Vodka" class="liquorSelect">Vodka</button>
+              <button data-name="Vodka" id="vodka">Vodka</button>
             </li>
             <li>
-              <button data-name="Tequila" class="liquorSelect">Tequila</button>
+              <button data-name="Tequila" id="tequila">Tequila</button>
             </li>
-            <li><button data-name="Gin" class="liquorSelect">Gin</button></li>
+            <li><button data-name="Gin" id="gin">Gin</button></li>
             <li>
-              <button data-name="Whiskey" class="liquorSelect">Whiskey</button>
+              <button data-name="Whiskey" id="whiskey">Whiskey</button>
             </li>
-            <li><button data-name="Rum" class="liquorSelect">Rum</button></li>
+            <li><button data-name="Rum" id="rum">Rum</button></li>
             <li>
-              <button id="supriseSelect" class="liquorSelect">
-                Suprise Me
+              <button id="surpriseSelect">
+                Surprise Me
               </button>
             </li>
           </ul>
