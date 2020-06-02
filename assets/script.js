@@ -44,10 +44,13 @@ function searchCocktail(cocktailVal) {
 
 $(".ingredientAddBtn").click(function () {
 	let value = $(".ingredientInfo").val().trim();
-	$(".listIng").append("<li>" + value + "</li>");
-	$("#searchBtn").append(
-		`<p><button class="ingredientSubBtn">Search</button></p>`
-	);
+	if (value === "") {
+	} else {
+		$(".listIng").append("<li>" + value + "</li>");
+		$("#searchBtn").append(
+			`<p><button class="ingredientSubBtn">Search</button></p>`
+		);
+	}
 });
 
 $(".ingredientSubBtn").click(function () {
