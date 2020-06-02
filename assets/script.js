@@ -81,17 +81,13 @@ function searchIngredient(ingredient) {
 }
 
 // JS FOR ROULETTE PAGE
-
-// TODO: See why all .liquorSelect buttons are getting the same data-name
-// Append: Drink name and pull recipe + photo to post on page in  correct area
-
 // Random drink generator based on liquor button clicked
+
 // TODO: Dry up code by dynamically generating buttons with on click attached?
 
 $("#vodka").click(function () {
   event.preventDefault();
   let liquor = $("#vodka").attr("data-name");
-  console.log(liquor);
 
   getCocktail(liquor);
 });
@@ -99,7 +95,6 @@ $("#vodka").click(function () {
 $("#tequila").click(function () {
   event.preventDefault();
   let liquor = $("#tequila").attr("data-name");
-  console.log(liquor);
 
   getCocktail(liquor);
 });
@@ -107,7 +102,6 @@ $("#tequila").click(function () {
 $("#gin").click(function () {
   event.preventDefault();
   let liquor = $("#gin").attr("data-name");
-  console.log(liquor);
 
   getCocktail(liquor);
 });
@@ -115,7 +109,6 @@ $("#gin").click(function () {
 $("#whiskey").click(function () {
   event.preventDefault();
   let liquor = $("#whiskey").attr("data-name");
-  console.log(liquor);
 
   getCocktail(liquor);
 });
@@ -123,18 +116,18 @@ $("#whiskey").click(function () {
 $("#rum").click(function () {
   event.preventDefault();
   let liquor = $("#rum").attr("data-name");
-  console.log(liquor);
 
   getCocktail(liquor);
 });
 
-function getCocktail(liquor) {
+// API call for cocktail using specified liqours
+function getCocktail(liquorChoice) {
   var settings = {
     async: true,
     crossDomain: true,
     url:
       "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=" +
-      liquor,
+      liquorChoice,
     method: "GET",
     headers: {},
   };
@@ -144,7 +137,7 @@ function getCocktail(liquor) {
     // Randomly chooses a cocktail from the array of drinks containing that liquor
     var randomCocktail =
       possibleDrinks[Math.floor(Math.random() * possibleDrinks.length)];
-    // Console log random selection
+    // Show random selection in feature box
     $(".featureText").text(randomCocktail.strDrink);
   });
 }
