@@ -44,9 +44,12 @@ function searchCocktail(cocktailVal) {
 
 $(".ingredientAddBtn").click(function () {
 	let value = $(".ingredientInfo").val().trim();
+	// Only add ingredient if TextArea has a value
 	if (value === "") {
 	} else {
+		// Render Ingeredient to Page
 		$(".listIng").append("<li>" + value + "</li>");
+		// Add Search Button
 		$("#searchBtn").append(
 			`<p><button class="ingredientSubBtn">Search</button></p>`
 		);
