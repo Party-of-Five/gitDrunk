@@ -40,7 +40,7 @@ SO THAT I don't have to make my own decision
     <br/>
     <li>thecocktaildb.com/api.php</li>
     <li>https://materializecss.com/</li>
-    <li>https://platform.fatsecret.com/api/</li>
+    <li>https://api.punkapi.com/v2/beers</li>
 
 </ul>
 <h2>📓 Contributor(s)</h2>
