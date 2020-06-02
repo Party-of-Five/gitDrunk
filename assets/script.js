@@ -75,11 +75,17 @@ function searchIngredient(ingredient) {
       console.log(allDrinks[i].strDrink);
       let drinkName = allDrinks[i].strDrink;
       $(".ingResults").append(
-        `<li><button id="identifyDrink drink${i}" type="submit">${drinkName}</button></li>`
+        `<li><button id="drink${i}" class="identifyDrink" onClick="drinkSelector(drink${i})" type="submit">${drinkName}</button></li>`
       );
     }
   });
 }
+// create function for #identifyDrink to pull up information by drink id and display it in .featureText and .featureImage
+
+function drinkSelector(drink) {
+  var findDrink = drink.innerHTML;
+  console.log(findDrink)
+};
 
 // JS FOR ROULETTE PAGE
 
@@ -118,4 +124,4 @@ function getCocktail(liquor) {
   });
 }
 
-// create function for #identifyDrink to pull up information by drink id and display it in .featureText and .featureImage
+
