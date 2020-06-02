@@ -1,5 +1,4 @@
 // TODO:
-// Get personal API Key
 // Create on click for each search result button
 // With on click render recipe to screen
 // Render photo to screen?
@@ -17,7 +16,7 @@ $("#cocktailSubBtn").click(function (event) {
 	searchCocktail(cocktailInput);
 });
 
-// Uses the input to search the API
+// Uses the input to search the Coctail API
 function searchCocktail(cocktailVal) {
 	var settings = {
 		url: `https://www.thecocktaildb.com/api/json/v2/9973533/search.php?s=${cocktailVal}`,
@@ -49,15 +48,13 @@ $(".ingredientAddBtn").click(function () {
 	} else {
 		// Render Ingeredient to Page
 		$(".listIng").append("<li>" + value + "</li>");
-		// Add Search Button
-		$("#searchBtn").append(
-			`<p><button class="ingredientSubBtn">Search</button></p>`
-		);
+		$(".ingredientInfo").val("");
 	}
 });
 
-$(".ingredientSubBtn").click(function () {
+$("#ingredientSubBtn").click(function () {
 	event.preventDefault();
+	// Combine all the Ingredients >>>>>>>>>
 	value = $(".ingredientInfo").val().trim();
 	console.log(value);
 	// find out how to pull from multiple ingredients at once.  redo search to use listed ingredients as criteria.
