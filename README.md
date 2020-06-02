@@ -4,7 +4,7 @@
 <a href='https://party-of-five.github.io/gitDrunk/' target='_blank'>Live Link</a>
 </p>
 
-<h2> ✨User Story</h2>
+<h2>✨ User Story</h2>
 
 ```
 AS A HOST with only a handful of ingredients on hand
@@ -34,11 +34,10 @@ SO THAT I don't have to make my own decision
     <li>CSS</li>
     <li>JavaScript</li>
     <li>JQuery</li>
-    <li>VS Code</li>
     <li>Draw.io</li>
     <li>Postman</li>
     <br/>
-    <li>thecocktaildb.com/api.php</li>
+    <li>https://www.thecocktaildb.com/api.php</li>
     <li>https://materializecss.com/</li>
     <li>https://api.punkapi.com/v2/beers</li>
 
