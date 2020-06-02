@@ -10,74 +10,74 @@
 
 // When you click the search button
 $("#cocktailSubBtn").click(function (event) {
-	event.preventDefault();
-	// Input taken and assigned to variable
-	cocktailInput = $("#cocktailInput").val().trim();
-	// Call search cocktail function
-	searchCocktail(cocktailInput);
+  event.preventDefault();
+  // Input taken and assigned to variable
+  cocktailInput = $("#cocktailInput").val().trim();
+  // Call search cocktail function
+  searchCocktail(cocktailInput);
 });
 
 // Uses the input to search the API
 function searchCocktail(cocktailVal) {
-	var settings = {
-		url: `https://www.thecocktaildb.com/api/json/v2/9973533/search.php?s=${cocktailVal}`,
-		method: "GET",
-		timeout: 0,
-		headers: {},
-	};
+  var settings = {
+    url: `https://www.thecocktaildb.com/api/json/v2/9973533/search.php?s=${cocktailVal}`,
+    method: "GET",
+    timeout: 0,
+    headers: {},
+  };
 
-	$.ajax(settings).done(function (response) {
-		console.log(response);
-		let allDrinks = response.drinks;
-		// Creates a button for each search result
-		for (let i = 0; i < allDrinks.length; i++) {
-			console.log(allDrinks[i].strDrink);
-			let drinkName = allDrinks[i].strDrink;
-			$("#searchResults").append(
-				`<li><button id="drink${i}" type="submit">${drinkName}</button></li>`
-			);
-		}
-	});
+  $.ajax(settings).done(function (response) {
+    console.log(response);
+    let allDrinks = response.drinks;
+    // Creates a button for each search result
+    for (let i = 0; i < allDrinks.length; i++) {
+      console.log(allDrinks[i].strDrink);
+      let drinkName = allDrinks[i].strDrink;
+      $("#searchResults").append(
+        `<li><button id="drink${i}" type="submit">${drinkName}</button></li>`
+      );
+    }
+  });
 }
 
 // JS FOR SEARCH BY INGREDIENT PAGE
 
 $(".ingredientAddBtn").click(function () {
-	let value = $(".ingredientInfo").val().trim();
-	$(".listIng").append("<li>" + value + "</li>");
+  let value = $(".ingredientInfo").val().trim();
+  $(".listIng").append("<li>" + value + "</li>");
 });
 
 $(".ingredientSubBtn").click(function () {
-	event.preventDefault();
-	value = $(".ingredientInfo").val().trim();
-	console.log(value);
-	// find out how to pull from multiple ingredients at once.  redo search to use listed ingredients as criteria.
-	searchIngredient(value);
+  event.preventDefault();
+  value = $(".ingredientInfo").val().trim();
+  console.log(value);
+  // find out how to pull from multiple ingredients at once.  redo search to use listed ingredients as criteria.
+  searchIngredient(value);
 });
 
 function searchIngredient(ingredient) {
-	var settings = {
-		async: true,
-		crossDomain: true,
-		url:
-			"https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=" +
-			ingredient,
-		method: "GET",
-		headers: {},
-	};
-	$.ajax(settings).done(function (response) {
-		console.log(response);
+  var settings = {
+    async: true,
+    crossDomain: true,
+    url:
+      "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=" +
+      ingredient,
+    method: "GET",
+    headers: {},
+  };
+  $.ajax(settings).done(function (response) {
+    console.log(response);
 
-		let allDrinks = response.drinks;
-		// Creates a button for each search result
-		for (let i = 0; i < allDrinks.length; i++) {
-			console.log(allDrinks[i].strDrink);
-			let drinkName = allDrinks[i].strDrink;
-			$(".ingResults").append(
-				`<li><button id="identifyDrink drink${i}" type="submit">${drinkName}</button></li>`
-			);
-		}
-	});
+    let allDrinks = response.drinks;
+    // Creates a button for each search result
+    for (let i = 0; i < allDrinks.length; i++) {
+      console.log(allDrinks[i].strDrink);
+      let drinkName = allDrinks[i].strDrink;
+      $(".ingResults").append(
+        `<li><button id="identifyDrink drink${i}" type="submit">${drinkName}</button></li>`
+      );
+    }
+  });
 }
 
 // JS FOR ROULETTE PAGE
@@ -86,34 +86,63 @@ function searchIngredient(ingredient) {
 // Append: Drink name and pull recipe + photo to post on page in  correct area
 
 // Random drink generator based on liquor button clicked
-$(".liquorSelect").click(function () {
-	event.preventDefault();
-	// WHY?? Every liquor button is showing as vodka
-	let liquor = $(".liquorSelect").attr("data-name");
-	console.log(liquor);
+// TODO: Dry up code by dynamically generating buttons with on click attached?
 
-	getCocktail(liquor);
+$("#vodka").click(function () {
+  event.preventDefault();
+  let liquor = $("#vodka").attr("data-name");
+  console.log(liquor);
+
+  getCocktail(liquor);
+});
+$("#tequila").click(function () {
+  event.preventDefault();
+  let liquor = $("#tequila").attr("data-name");
+  console.log(liquor);
+
+  getCocktail(liquor);
+});
+$("#gin").click(function () {
+  event.preventDefault();
+  let liquor = $("#gin").attr("data-name");
+  console.log(liquor);
+
+  getCocktail(liquor);
+});
+$("#whiskey").click(function () {
+  event.preventDefault();
+  let liquor = $("#whiskey").attr("data-name");
+  console.log(liquor);
+
+  getCocktail(liquor);
+});
+$("#rum").click(function () {
+  event.preventDefault();
+  let liquor = $("#rum").attr("data-name");
+  console.log(liquor);
+
+  getCocktail(liquor);
 });
 
 function getCocktail(liquor) {
-	var settings = {
-		async: true,
-		crossDomain: true,
-		url:
-			"https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=" +
-			liquor,
-		method: "GET",
-		headers: {},
-	};
+  var settings = {
+    async: true,
+    crossDomain: true,
+    url:
+      "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=" +
+      liquor,
+    method: "GET",
+    headers: {},
+  };
 
-	$.ajax(settings).done(function (response) {
-		let possibleDrinks = response.drinks;
-		// Randomly chooses a cocktail from the array of drinks containing that liquor
-		var randomCocktail =
-			possibleDrinks[Math.floor(Math.random() * possibleDrinks.length)];
-		// Console log random selection
-		console.log(randomCocktail.strDrink);
-	});
+  $.ajax(settings).done(function (response) {
+    let possibleDrinks = response.drinks;
+    // Randomly chooses a cocktail from the array of drinks containing that liquor
+    var randomCocktail =
+      possibleDrinks[Math.floor(Math.random() * possibleDrinks.length)];
+    // Console log random selection
+    console.log(randomCocktail.strDrink);
+  });
 }
 
 // create function for #identifyDrink to pull up information by drink id and display it in .featureText and .featureImage
