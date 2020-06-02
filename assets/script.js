@@ -81,10 +81,10 @@ function searchIngredient(ingredient) {
 }
 
 // JS FOR ROULETTE PAGE
-// Random drink generator based on liquor button clicked
 
-// TODO: Dry up code by dynamically generating buttons with on click attached?
+// TODO: Dry up code by dynamically generating buttons with on click attached
 
+// Assign on click to each liquor button using the data name as a value to pass into the getCocktal function
 $("#vodka").click(function () {
   event.preventDefault();
   let liquor = $("#vodka").attr("data-name");
