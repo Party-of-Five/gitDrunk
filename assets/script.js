@@ -95,6 +95,7 @@ $("#vodka").click(function () {
 
   getCocktail(liquor);
 });
+
 $("#tequila").click(function () {
   event.preventDefault();
   let liquor = $("#tequila").attr("data-name");
@@ -102,6 +103,7 @@ $("#tequila").click(function () {
 
   getCocktail(liquor);
 });
+
 $("#gin").click(function () {
   event.preventDefault();
   let liquor = $("#gin").attr("data-name");
@@ -109,6 +111,7 @@ $("#gin").click(function () {
 
   getCocktail(liquor);
 });
+
 $("#whiskey").click(function () {
   event.preventDefault();
   let liquor = $("#whiskey").attr("data-name");
@@ -116,6 +119,7 @@ $("#whiskey").click(function () {
 
   getCocktail(liquor);
 });
+
 $("#rum").click(function () {
   event.preventDefault();
   let liquor = $("#rum").attr("data-name");
@@ -141,7 +145,7 @@ function getCocktail(liquor) {
     var randomCocktail =
       possibleDrinks[Math.floor(Math.random() * possibleDrinks.length)];
     // Console log random selection
-    console.log(randomCocktail.strDrink);
+    $(".featureText").text(randomCocktail.strDrink);
   });
 }
 
