@@ -1,13 +1,5 @@
+
 body {
-<<<<<<< HEAD
-    background-color:black;
-    background-image: url("../assets/img/classyDrinks.jpg?raw=true");
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100%;
-    vertical-align: middle;
-=======
   background-color: black;
   background-image: url("../assets/img/classyDrinks.jpg?raw=true");
   background-attachment: fixed;
@@ -15,7 +7,6 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   vertical-align: middle;
->>>>>>> master
 }
 
 .logo {
@@ -101,3 +92,4 @@ div.transbox p {
   text-align: center;
   padding: 20px;
 }
+
