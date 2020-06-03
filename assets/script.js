@@ -50,34 +50,58 @@ $(".ingredientAddBtn").click(function () {
 $(".ingredientSubBtn").click(function () {
   event.preventDefault();
   value = $(".ingredientInfo").val().trim();
-  console.log(value);
   // find out how to pull from multiple ingredients at once.  redo search to use listed ingredients as criteria.
   searchIngredient(value);
 });
+
+
+var drinksArr = []
 
 function searchIngredient(ingredient) {
   var settings = {
     async: true,
     crossDomain: true,
-    url:
-      "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=" +
-      ingredient,
+    url: `https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=`+ ingredient,
     method: "GET",
+    timeout: 0,
     headers: {},
   };
   $.ajax(settings).done(function (response) {
-    console.log(response);
-
+    drinksArr.push(response);
+    console.log(drinksArr)
     let allDrinks = response.drinks;
     // Creates a button for each search result
     for (let i = 0; i < allDrinks.length; i++) {
-      console.log(allDrinks[i].strDrink);
       let drinkName = allDrinks[i].strDrink;
       $(".ingResults").append(
-        `<li><button id="identifyDrink drink${i}" type="submit">${drinkName}</button></li>`
+        `<li><button class="identifyDrink" id="${i}" onClick="getDrink(${i})" type="submit">${drinkName}</button></li>`
       );
     }
   });
+}
+
+function getDrink(drink) {
+  console.log(drinksArr[0].drinks[drink])
+  var idLookup = idDrink
+  var unirest = require("unirest");
+  var req = unirest("GET", "https://the-cocktail-db.p.rapidapi.com/lookup.php");
+
+  req.query({
+	  i: "11007"
+  });
+
+  req.headers({
+	  "x-rapidapi-host": "the-cocktail-db.p.rapidapi.com",
+	  "x-rapidapi-key": "fec2323914msh6be937a2ff5cba0p1cc78ejsn762f18f5e051",
+	  "useQueryString": true
+  });
+
+
+req.end(function (res) {
+	if (res.error) throw new Error(res.error);
+
+	console.log(res.body);
+});
 }
 
 // JS FOR ROULETTE PAGE
