@@ -117,3 +117,5 @@ function getCocktail(liquor) {
 }
 
 // create function for #identifyDrink to pull up information by drink id and display it in .featureText and .featureImage
+
+// create ABV function to look up beers based on ABV and display options w/ pics
