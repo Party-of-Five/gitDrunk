@@ -88,7 +88,7 @@ function searchIngredient(ingredient) {
 			// console.log(allDrinks[i].strDrink);
 			var drinkName = allDrinks[i].strDrink;
 			$(".ingResults").append(
-				`<li><button class="identifyDrink" id="${i}" onClick="getDrink(${i})" type="submit">${drinkName}</button></li>`
+				`<li><button id="identifyDrink ${i}" onClick="getDrink(${i})" type="submit">${drinkName}</button></li>`
 			);
 			listOfCocktailVal.push(drinkName);
 		}
@@ -96,7 +96,7 @@ function searchIngredient(ingredient) {
 }
 function getDrink(drink) {
 	console.log(drinksArr[0].drinks[drink]);
-	var idLookup = idDrink;
+	// var idLookup = idDrink;
 	var unirest = require("unirest");
 	var req = unirest("GET", "https://the-cocktail-db.p.rapidapi.com/lookup.php");
 
