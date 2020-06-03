@@ -86,3 +86,13 @@ div.transbox p {
     right:    0;
     bottom:   0;
 }
+
+.beer {
+    background-color:black;
+    background-image: url("../assets/img/pintglass.jpg?raw=true");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    vertical-align: middle;
+}
