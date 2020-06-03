@@ -6,7 +6,8 @@
 // If a new search is entered clear and replace results
 
 // JS FOR SEARCH BY COCKTAIL
-
+// Variables
+var listOfCocktailVal = [];
 // When you click the search button
 $("#cocktailSubBtn").click(function (event) {
 	event.preventDefault();
@@ -26,11 +27,11 @@ function searchCocktail(cocktailVal) {
 	};
 
 	$.ajax(settings).done(function (response) {
-		console.log(response);
+		// console.log(response);
 		let allDrinks = response.drinks;
 		// Creates a button for each search result
 		for (let i = 0; i < allDrinks.length; i++) {
-			console.log(allDrinks[i].strDrink);
+			// console.log(allDrinks[i].strDrink);
 			let drinkName = allDrinks[i].strDrink;
 			$("#searchResults").append(
 				`<li><button id="drink${i}" type="submit">${drinkName}</button></li>`
@@ -47,18 +48,23 @@ $(".ingredientAddBtn").click(function () {
 	if (value === "") {
 	} else {
 		// Render Ingeredient to Page
-		$(".listIng").append("<li>" + value + "</li>");
+		$(".listIng").append(`<li class="ingLi">${value}</li>`);
 		$(".ingredientInfo").val("");
 	}
 });
 
 $("#ingredientSubBtn").click(function () {
 	event.preventDefault();
-	// Combine all the Ingredients >>>>>>>>>
-	value = $(".ingredientInfo").val().trim();
-	console.log(value);
-	// find out how to pull from multiple ingredients at once.  redo search to use listed ingredients as criteria.
-	searchIngredient(value);
+	// Get Cocktails for each Ingredients >>>>>>>>>
+	$(".ingLi").each(function () {
+		value = $(this).text();
+		// Get Cocktails for each Ingredients
+
+		searchIngredient(value);
+	});
+	console.log(listOfCocktailVal);
+	// value = $(".ingredientInfo").val().trim();
+	// console.log(value);
 });
 
 function searchIngredient(ingredient) {
@@ -74,14 +80,15 @@ function searchIngredient(ingredient) {
 	$.ajax(settings).done(function (response) {
 		console.log(response);
 
-		let allDrinks = response.drinks;
+		var allDrinks = response.drinks;
 		// Creates a button for each search result
 		for (let i = 0; i < allDrinks.length; i++) {
-			console.log(allDrinks[i].strDrink);
-			let drinkName = allDrinks[i].strDrink;
+			// console.log(allDrinks[i].strDrink);
+			var drinkName = allDrinks[i].strDrink;
 			$(".ingResults").append(
 				`<li><button id="identifyDrink drink${i}" type="submit">${drinkName}</button></li>`
 			);
+			listOfCocktailVal.push(drinkName);
 		}
 	});
 }
@@ -96,7 +103,7 @@ $(".liquorSelect").click(function () {
 	event.preventDefault();
 	// WHY?? Every liquor button is showing as vodka
 	let liquor = $(".liquorSelect").attr("data-name");
-	console.log(liquor);
+	// console.log(liquor);
 
 	getCocktail(liquor);
 });
@@ -118,7 +125,7 @@ function getCocktail(liquor) {
 		var randomCocktail =
 			possibleDrinks[Math.floor(Math.random() * possibleDrinks.length)];
 		// Console log random selection
-		console.log(randomCocktail.strDrink);
+		// console.log(randomCocktail.strDrink);
 	});
 }
 
