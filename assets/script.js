@@ -61,12 +61,10 @@ function searchIngredient(ingredient) {
   var settings = {
     async: true,
     crossDomain: true,
-    url: "https://the-cocktail-db.p.rapidapi.com/filter.php?i=" + ingredient,
+    url: `https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=`+ ingredient,
     method: "GET",
-    headers: {
-      "x-rapidapi-host": "the-cocktail-db.p.rapidapi.com",
-      "x-rapidapi-key": "fec2323914msh6be937a2ff5cba0p1cc78ejsn762f18f5e051",
-    },
+    timeout: 0,
+    headers: {},
   };
   $.ajax(settings).done(function (response) {
     drinksArr.push(response);
@@ -84,7 +82,26 @@ function searchIngredient(ingredient) {
 
 function getDrink(drink) {
   console.log(drinksArr[0].drinks[drink])
-  console.log("test")
+  var idLookup = idDrink
+  var unirest = require("unirest");
+  var req = unirest("GET", "https://the-cocktail-db.p.rapidapi.com/lookup.php");
+
+  req.query({
+	  i: "11007"
+  });
+
+  req.headers({
+	  "x-rapidapi-host": "the-cocktail-db.p.rapidapi.com",
+	  "x-rapidapi-key": "fec2323914msh6be937a2ff5cba0p1cc78ejsn762f18f5e051",
+	  "useQueryString": true
+  });
+
+
+req.end(function (res) {
+	if (res.error) throw new Error(res.error);
+
+	console.log(res.body);
+});
 }
 
 // JS FOR ROULETTE PAGE
