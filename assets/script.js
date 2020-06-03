@@ -166,4 +166,27 @@ function getCocktail(liquorChoice) {
   });
 }
 
+$("#surpriseSelect").click(function () {
+  event.preventDefault();
 
+  getRandom();
+});
+
+// API call for random cocktail
+function getRandom() {
+  var settings = {
+    async: true,
+    crossDomain: true,
+    url: "https://www.thecocktaildb.com/api/json/v1/1/random.php",
+    method: "GET",
+    headers: {},
+  };
+
+  $.ajax(settings).done(function (response) {
+    let randomSurprise = response.drinks[0].strDrink;
+    // Show random selection in feature box
+    $(".featureText").text(randomSurprise);
+  });
+}
+
+// create function for #identifyDrink to pull up information by drink id and display it in .featureText and .featureImage
