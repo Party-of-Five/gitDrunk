@@ -44,7 +44,7 @@ function searchCocktail(cocktailVal) {
 
 $(".ingredientAddBtn").click(function () {
   let value = $(".ingredientInfo").val().trim();
-  $(".listIng").append("<li>" + value + "</li>");
+  $(".listIng").append("<li class=xxxx>" + value + "</li>");
 });
 
 $(".ingredientSubBtn").click(function () {
@@ -53,6 +53,7 @@ $(".ingredientSubBtn").click(function () {
   // find out how to pull from multiple ingredients at once.  redo search to use listed ingredients as criteria.
   searchIngredient(value);
 });
+
 
 
 var drinksArr = []
@@ -85,9 +86,10 @@ function getDrink(drink) {
   var idLookup = idDrink
   var unirest = require("unirest");
   var req = unirest("GET", "https://the-cocktail-db.p.rapidapi.com/lookup.php");
+  console.log(idLookup)
 
   req.query({
-	  i: "11007"
+	  i: idLookup
   });
 
   req.headers({
