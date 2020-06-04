@@ -86,11 +86,18 @@ function searchIngredient(ingredient) {
 		// Creates a button for each search result
 		for (let i = 0; i < allDrinks.length; i++) {
 			// console.log(allDrinks[i].strDrink);
-			var drinkName = allDrinks[i].strDrink;
+			var drinkObject = {
+				name: allDrinks[i].strDrink,
+				id: allDrinks[i].idDrink,
+			};
 			$(".ingResults").append(
-				`<li><button id="identifyDrink ${i}" onClick="getDrink(${i})" type="submit">${drinkName}</button></li>`
+				`<li><button id="identifyDrink${i}" drinkId="${
+					allDrinks[i].idDrink
+				}" onClick="getDrink(${
+					i /*put the actual id or drink name, whatever your getDrink function is taking as a paraemeter, inside here instead of I*/
+				})" type="submit">${drinkObject.name}</button></li>`
 			);
-			listOfCocktailVal.push(drinkName);
+			listOfCocktailVal.push(drinkObject);
 		}
 	});
 }
@@ -200,3 +207,11 @@ function getRandom() {
 // create function for #identifyDrink to pull up information by drink id and display it in .featureText and .featureImage
 
 // create ABV function to look up beers based on ABV and display options w/ pics
+
+// function ingredientSearch(){numberOfIngredients++)
+// 	numberOfIngredients = 5
+// 	for(i=arrayoFdrinks.lnegth-1;i>-1;i--{
+// 	  if(
+// 	(arrayOfDrinks.indexOf("ingredient",4))>0){
+// 	arrayOfDrinks[i].push(finalListOfDrinks)}
+// 	}
