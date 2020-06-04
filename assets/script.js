@@ -70,6 +70,7 @@ $("#ingredientSubBtn").click(function () {
 
 var drinksArr = [];
 var ingredArr = [];
+var ingredList = "";
 
 function searchIngredient(ingredient) {
 	var settings = {
@@ -144,8 +145,12 @@ function getDrink(drink) {
     if (response.drinks[0].strIngredient15 != null) {
       ingredArr.push(" " + response.drinks[0].strIngredient15 + " " + response.drinks[0].strMeasure15) };
     
-    
-    $(".featureIngredients").text(ingredArr)
+    $(".featureIngredients").innerHTML = "";
+    for (var i = 0; i < ingredArr.length; i++) {
+      ingredList = "<li>" + ingredArr[i] + "</li>";
+      console.log(ingredList)
+      $(".featureIngredients").append(ingredList)
+    }
     var image = $(`<img src="${response.drinks[0].strDrinkThumb}" width="350" height="350"/>`);
     $(".featureImage").html(image);
   });
