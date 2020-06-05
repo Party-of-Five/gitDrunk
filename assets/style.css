@@ -20,6 +20,8 @@ body {
   background-color: #a30707;
 }
 
+
+
 .btn {
   background-color: transparent;
 }
@@ -104,7 +106,7 @@ div.transbox p {
   color: white;
 }
 
-.featureIngredients {
+#featureIngredients {
   text-align: left;
   padding: 20px;
   color: white;
