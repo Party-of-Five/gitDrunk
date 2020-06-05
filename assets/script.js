@@ -352,10 +352,19 @@ function getBeer(abv) {
 		//var randomCocktail =
 		// possibleDrinks[Math.floor(Math.random() * possibleDrinks.length)];
 		// response[]
-		possibleBeers[Math.floor(Math.random() * possibleBeers.length)];
+		let randomBeer =
+			possibleBeers[Math.floor(Math.random() * possibleBeers.length)];
 		// Show random selection in feature box
 		//$(".featureText").text(randomCocktail.strDrink);
-		console.log(response);
+		console.log(randomBeer);
+		console.log(randomBeer.name);
+		console.log(randomBeer.tagline);
+		console.log(randomBeer.first_brewed);
+		console.log(randomBeer.description);
+		console.log(randomBeer.image_url);
+		console.log(randomBeer.abv);
+
+		// $("");
 	});
 }
 //#endregion
