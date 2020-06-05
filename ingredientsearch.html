@@ -22,18 +22,39 @@
 		<link rel="stylesheet" href="assets/style.css" />
 	</head>
 
-
-	<body>
+	<body onload="getAllIngList()">
 		<header class="logo">gitDrunk</header>
 		<nav>
 			<div class="nav-wrapper">
-		  <ul class="left hide-on-med-and-down">
-			<li><a href="./index.html" class="waves-effect waves-light btn">Home<i class="material-icons left">home</i></a></li>
-			<li><a href="./ingredientsearch.html" class="waves-effect waves-light btn">Suggestions<i class="material-icons left">local_drink</i></a></li>
-			<li><a href="./drinksearch.html" class="waves-effect waves-light btn">Cocktail<i class="material-icons left">local_bar</i></a></li>
-      <li><a href="./roulette.html" class="waves-effect waves-light btn">Roulette <i class="material-icons left">casino</i></a></li>
-      <li><a href="./thepub.html" class="waves-effect waves-light btn">Pub <i class="material-icons left">local_hospital</i></a></li>
-		  </ul>
+				<ul class="left hide-on-med-and-down">
+					<li>
+						<a href="./index.html" class="waves-effect waves-light btn"
+							>Home<i class="material-icons left">home</i></a
+						>
+					</li>
+					<li>
+						<a
+							href="./ingredientsearch.html"
+							class="waves-effect waves-light btn"
+							>Suggestions<i class="material-icons left">local_drink</i></a
+						>
+					</li>
+					<li>
+						<a href="./drinksearch.html" class="waves-effect waves-light btn"
+							>Cocktail<i class="material-icons left">local_bar</i></a
+						>
+					</li>
+					<li>
+						<a href="./roulette.html" class="waves-effect waves-light btn"
+							>Roulette <i class="material-icons left">casino</i></a
+						>
+					</li>
+					<li>
+						<a href="./thepub.html" class="waves-effect waves-light btn"
+							>Pub <i class="material-icons left">local_hospital</i></a
+						>
+					</li>
+				</ul>
 			</div>
 		</nav>
 
@@ -44,8 +65,8 @@
 					<h6>
 						Select Ingredient Below
 					</h6>
-          <button class="ingredientAddBtn">Add</button>
-          <button>Clear List</button>
+					<button class="ingredientAddBtn">Add</button>
+					<button>Clear List</button>
 					<form action="/action_page.php" method="get" id="searchBtn">
 						<input
 							class="ingredientInfo whiteText"
@@ -55,13 +76,13 @@
 							id="ingredient"
 						/>
 						<datalist id="ingredients">
-							<option value="Gin"> </option>
+							<!-- <option value="Gin"> </option>
 							<option value="Vodka"> </option>
 							<option value="Tequila"> </option>
 							<option value="Bourbon"> </option>
 							<option value="Sugar"> </option>
 							<option value="Lemon"> </option>
-							<option value="Bitters"> </option>
+							<option value="Bitters"> </option> -->
 						</datalist>
 						<input type="submit" id="ingredientSubBtn" />
 					</form>
@@ -85,17 +106,14 @@
 				<!-- information on selected cocktail -->
 				<div class="col l12 container">
 					<div class="featureInfo row">
-            <div class="col l8">
-              <ul id="featureIngredients"></ul>
-              <div class="featureText"></div>
-            </div>
-            <div class="featureImage col l4"></div>
-            
-						
+						<div class="col l8">
+							<ul id="featureIngredients"></ul>
+							<div class="featureText"></div>
+						</div>
+						<div class="featureImage col l4"></div>
 					</div>
 				</div>
 			</div>
-
 		</div>
 
 		<footer class="page-footer">
