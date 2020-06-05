@@ -1,16 +1,9 @@
-// TODO:
-// Create on click for each search result button
-// With on click render recipe to screen
-// Render photo to screen?
-// Only one recipe / photo should show at a time
-// If a new search is entered clear and replace results
-
 // JS FOR SEARCH BY COCKTAIL
 
 // Mobile NavBar
-$(document).ready(function () {
-	$(".sidenav").sidenav();
-});
+// $(document).ready(function () {
+// 	$(".sidenav").sidenav();
+// });
 // Variables
 var listOfCocktailVal = [];
 // When you click the search button
