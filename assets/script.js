@@ -341,16 +341,18 @@ function getBeer(abv) {
 	var settings = {
 		async: true,
 		crossDomain: true,
-		url: "https://api.punkapi.com/v2/beers?abv_lt=" + abv,
+		url: `https://api.punkapi.com/v2/beers?abv_lt=${abv}`,
 		method: "GET",
 		headers: {},
 	};
 
 	$.ajax(settings).done(function (response) {
-		//let possibleBeers = response.drinks;
+		let possibleBeers = response;
 		// Randomly chooses a cocktail from the array of drinks containing that liquor
 		//var randomCocktail =
-		//possibleDrinks[Math.floor(Math.random() * possibleDrinks.length)];
+		// possibleDrinks[Math.floor(Math.random() * possibleDrinks.length)];
+		// response[]
+		possibleBeers[Math.floor(Math.random() * possibleBeers.length)];
 		// Show random selection in feature box
 		//$(".featureText").text(randomCocktail.strDrink);
 		console.log(response);
