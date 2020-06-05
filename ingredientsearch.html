@@ -1,31 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GitDrunk</title>
-    <!-- CSS Links -->
-    <link rel="stylesheet" href="assets/reset.css" />
-    <!-- Materialize CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-    />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-	/>
-	<!-- JQuery link -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <!-- Project specific CSS Links -->
-    <link rel="stylesheet" href="assets/style.css" />
-  </head>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>gitDrunk</title>
+		<!-- CSS Links -->
+		<link rel="stylesheet" href="assets/reset.css" />
+		<!-- Materialize CSS -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+		/>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+		<link
+			href="https://fonts.googleapis.com/icon?family=Material+Icons"
+			rel="stylesheet"
+		/>
+		<!-- JQuery link -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<!-- Project specific CSS Links -->
+		<link rel="stylesheet" href="assets/style.css" />
+	</head>
 
-  <body>
-	<header class="logo">GitDrunk</header>
-	<nav>
-		<div class="nav-wrapper">
+
+	<body>
+		<header class="logo">gitDrunk</header>
+		<nav>
+			<div class="nav-wrapper">
 		  <ul class="left hide-on-med-and-down">
 			<li><a href="./index.html" class="waves-effect waves-light btn">Home<i class="material-icons left">home</i></a></li>
 			<li><a href="./ingredientsearch.html" class="waves-effect waves-light btn">Suggestions<i class="material-icons left">local_drink</i></a></li>
@@ -33,54 +34,76 @@
       <li><a href="./roulette.html" class="waves-effect waves-light btn">Roulette <i class="material-icons left">casino</i></a></li>
       <li><a href="./thepub.html" class="waves-effect waves-light btn">Pub <i class="material-icons left">local_hospital</i></a></li>
 		  </ul>
+			</div>
+		</nav>
+
+		<div class="container">
+			<div class="row">
+				<!-- input search box -->
+				<div class="col l4 pull-s8 whiteText">
+					<h6>
+						Select Ingredient Below
+					</h6>
+					<button class="ingredientAddBtn">Add</button>
+					<form action="/action_page.php" method="get" id="searchBtn">
+						<input
+							class="ingredientInfo whiteText"
+							type="text"
+							list="ingredients"
+							name="ingredient"
+							id="ingredient"
+						/>
+						<datalist id="ingredients">
+							<option value="Gin"> </option>
+							<option value="Vodka"> </option>
+							<option value="Tequila"> </option>
+							<option value="Bourbon"> </option>
+							<option value="Sugar"> </option>
+							<option value="Lemon"> </option>
+							<option value="Bitters"> </option>
+						</datalist>
+						<input type="submit" id="ingredientSubBtn" />
+					</form>
+				</div>
+				<!-- list of ingredients appended -->
+				<div class="col l8 push-s4 whiteText">
+					<div class="listContainer">
+						<ul class="listIng">
+							<li class="listHeader">List of Ingredients</li>
+						</ul>
+					</div>
+
+					<!-- list of cocktails -->
+
+					<div class="listContainer">
+						<ul class="ingResults">
+							<li class="listHeader">Select a Drink</li>
+						</ul>
+					</div>
+				</div>
+				<!-- information on selected cocktail -->
+				<div class="col l12 container">
+					<div class="featureInfo row">
+            <div class="col l8">
+              <ul id="featureIngredients"></ul>
+              <div class="featureText"></div>
+            </div>
+            <div class="featureImage col l4"></div>
+            
+						
+					</div>
+				</div>
+			</div>
+
 		</div>
-	  </nav>
-        
-      <div class="container">
-        <div class="row">
-            <!-- input search box -->
-            <div class="col l4 pull-s8 whiteText">
-                <p>Type Ingredient Below <input type="text" class="ingredientInfo whiteText"></text></p>
-                <p><button class="ingredientAddBtn">Add</button></p>
-                <div>
-                    <p><button class="ingredientSubBtn">Search</button></p>
-                </div>
-            </div>
-            <!-- list of ingredients appended -->
-            <div class="col l8 push-s4 whiteText">
-                <div class="listContainer">
-                <ul class="listIng">
-                    <p class="listHeader">List of Ingredients</p>
-                    
-                </ul>
-                </div>
-            
-            <!-- list of cocktails -->
-            
-                <div class="listContainer">
-                <ul class="ingResults">
-                    <p class="listHeader">Select a Drink</p>
-                </ul>
-                </div>
-            </div>
-            <!-- information on selected cocktail -->
-            <div class="col l12">
-                <div class="featureInfo">
-                    <div class="featureText"></div>
-                    <div class="featureImage"></div>
-                </div>
-            </div>
-        </div>
-        </div>
 
-	  <footer class="page-footer">
-		  <div>
-        <a href="./about.html" class="credits">About</a>
-      </div>
-	  </footer>
-	
+		<footer class="page-footer">
+			<div>
+				<a href="./about.html" class="credits">About</a>
+			</div>
+		</footer>
 
-    <!-- JS Links -->
-    <script src="assets/script.js"></script>
-  </body>
+		<!-- JS Links -->
+		<script src="assets/script.js"></script>
+	</body>
 </html>
