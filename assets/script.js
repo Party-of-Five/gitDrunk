@@ -69,6 +69,7 @@ $("#ingredientSubBtn").click(function () {
 });
 
 var drinksArr = [];
+var ingredArr = [];
 
 function searchIngredient(ingredient) {
 	var settings = {
@@ -95,26 +96,59 @@ function searchIngredient(ingredient) {
 	});
 }
 function getDrink(drink) {
-	console.log(drinksArr[0].drinks[drink]);
-	// var idLookup = idDrink;
-	var unirest = require("unirest");
-	var req = unirest("GET", "https://the-cocktail-db.p.rapidapi.com/lookup.php");
-
-	req.query({
-		i: "11007",
-	});
-
-	req.headers({
-		"x-rapidapi-host": "the-cocktail-db.p.rapidapi.com",
-		"x-rapidapi-key": "fec2323914msh6be937a2ff5cba0p1cc78ejsn762f18f5e051",
-		useQueryString: true,
-	});
-
-	req.end(function (res) {
-		if (res.error) throw new Error(res.error);
-
-		console.log(res.body);
-	});
+  var idLookup = drinksArr[0].drinks[drink].idDrink;
+  
+  var settings = {
+    async: true,
+    crossDomain: true,
+    url: "https://the-cocktail-db.p.rapidapi.com/lookup.php?i="+idLookup,
+    method: "GET",
+    headers: {
+      "x-rapidapi-host": "the-cocktail-db.p.rapidapi.com",
+      "x-rapidapi-key": "fec2323914msh6be937a2ff5cba0p1cc78ejsn762f18f5e051"
+    }
+  };
+  
+  $.ajax(settings).done(function (response) {
+    console.log(response);
+    console.log(response.drinks[0].strInstructions);
+    $(".featureText").text(response.drinks[0].strInstructions);
+    if (response.drinks[0].strIngredient1 != null) {
+      ingredArr.push(response.drinks[0].strIngredient1 + " " + response.drinks[0].strMeasure1) };
+    if (response.drinks[0].strIngredient2 != null) {
+      ingredArr.push(" " + response.drinks[0].strIngredient2 + " " + response.drinks[0].strMeasure2) };
+    if (response.drinks[0].strIngredient3 != null) {
+      ingredArr.push(" " + response.drinks[0].strIngredient3 + " " + response.drinks[0].strMeasure3) };
+    if (response.drinks[0].strIngredient4 != null) {
+      ingredArr.push(" " + response.drinks[0].strIngredient4 + " " + response.drinks[0].strMeasure4) };
+    if (response.drinks[0].strIngredient5 != null) {
+      ingredArr.push(" " + response.drinks[0].strIngredient5 + " " + response.drinks[0].strMeasure5) };
+    if (response.drinks[0].strIngredient6 != null) {
+      ingredArr.push(" " + response.drinks[0].strIngredient6 + " " + response.drinks[0].strMeasure6) };
+    if (response.drinks[0].strIngredient7 != null) {
+      ingredArr.push(" " + response.drinks[0].strIngredient7 + " " + response.drinks[0].strMeasure7) };
+    if (response.drinks[0].strIngredient8 != null) {
+      ingredArr.push(" " + response.drinks[0].strIngredient8 + " " + response.drinks[0].strMeasure8) };
+    if (response.drinks[0].strIngredient9 != null) {
+      ingredArr.push(" " + response.drinks[0].strIngredient9 + " " + response.drinks[0].strMeasure9) };
+    if (response.drinks[0].strIngredient10 != null) {
+      ingredArr.push(" " + response.drinks[0].strIngredient10 + " " + response.drinks[0].strMeasure10) };
+    if (response.drinks[0].strIngredient11 != null) {
+      ingredArr.push(" " + response.drinks[0].strIngredient11 + " " + response.drinks[0].strMeasure11) };
+    if (response.drinks[0].strIngredient12 != null) {
+      ingredArr.push(" " + response.drinks[0].strIngredient12 + " " + response.drinks[0].strMeasure12) };
+    if (response.drinks[0].strIngredient13 != null) {
+      ingredArr.push(" " + response.drinks[0].strIngredient13 + " " + response.drinks[0].strMeasure13) };
+    if (response.drinks[0].strIngredient14 != null) {
+      ingredArr.push(" " + response.drinks[0].strIngredient14 + " " + response.drinks[0].strMeasure14) };
+    if (response.drinks[0].strIngredient15 != null) {
+      ingredArr.push(" " + response.drinks[0].strIngredient15 + " " + response.drinks[0].strMeasure15) };
+    
+    
+    $(".featureIngredients").text(ingredArr)
+    var image = $(`<img src="${response.drinks[0].strDrinkThumb}" width="350" height="350"/>`);
+    $(".featureImage").html(image);
+  });
 }
 
 // JS FOR ROULETTE PAGE
