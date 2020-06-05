@@ -6,6 +6,11 @@
 // If a new search is entered clear and replace results
 
 // JS FOR SEARCH BY COCKTAIL
+
+// Mobile NavBar
+$(document).ready(function () {
+	$(".sidenav").sidenav();
+});
 // Variables
 var listOfCocktailVal = [];
 // When you click the search button

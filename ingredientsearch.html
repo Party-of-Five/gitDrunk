@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>gitDrunk</title>
+		<title>Ingredient Search</title>
 		<!-- CSS Links -->
 		<link rel="stylesheet" href="assets/reset.css" />
 		<!-- Materialize CSS -->
@@ -22,18 +22,45 @@
 		<link rel="stylesheet" href="assets/style.css" />
 	</head>
 
-
 	<body>
-		<header class="logo">gitDrunk</header>
+		<header class="logo">Ingredient Search</header>
 		<nav>
 			<div class="nav-wrapper">
-		  <ul class="left hide-on-med-and-down">
-			<li><a href="./index.html" class="waves-effect waves-light btn">Home<i class="material-icons left">home</i></a></li>
-			<li><a href="./ingredientsearch.html" class="waves-effect waves-light btn">Suggestions<i class="material-icons left">local_drink</i></a></li>
-			<li><a href="./drinksearch.html" class="waves-effect waves-light btn">Cocktail<i class="material-icons left">local_bar</i></a></li>
-      <li><a href="./roulette.html" class="waves-effect waves-light btn">Roulette <i class="material-icons left">casino</i></a></li>
-      <li><a href="./thepub.html" class="waves-effect waves-light btn">Pub <i class="material-icons left">local_hospital</i></a></li>
-		  </ul>
+				<ul class="left hide-on-med-and-down">
+					<a
+						href="./index.html"
+						data-target="mobile-demo"
+						class="sidenav-trigger"
+						><i class="material-icons">menu</i></a
+					>
+					<li>
+						<a href="./index.html" class="waves-effect waves-light btn"
+							>Home<i class="material-icons left">home</i></a
+						>
+					</li>
+					<li>
+						<a
+							href="./ingredientsearch.html"
+							class="waves-effect waves-light btn"
+							>Suggestions<i class="material-icons left">local_drink</i></a
+						>
+					</li>
+					<li>
+						<a href="./drinksearch.html" class="waves-effect waves-light btn"
+							>Cocktail<i class="material-icons left">local_bar</i></a
+						>
+					</li>
+					<li>
+						<a href="./roulette.html" class="waves-effect waves-light btn"
+							>Roulette <i class="material-icons left">casino</i></a
+						>
+					</li>
+					<li>
+						<a href="./thepub.html" class="waves-effect waves-light btn"
+							>Pub <i class="material-icons left">local_hospital</i></a
+						>
+					</li>
+				</ul>
 			</div>
 		</nav>
 
@@ -84,17 +111,14 @@
 				<!-- information on selected cocktail -->
 				<div class="col l12 container">
 					<div class="featureInfo row">
-            <div class="col l8">
-              <ul id="featureIngredients"></ul>
-              <div class="featureText"></div>
-            </div>
-            <div class="featureImage col l4"></div>
-            
-						
+						<div class="col l8">
+							<ul id="featureIngredients"></ul>
+							<div class="featureText"></div>
+						</div>
+						<div class="featureImage col l4"></div>
 					</div>
 				</div>
 			</div>
-
 		</div>
 
 		<footer class="page-footer">
