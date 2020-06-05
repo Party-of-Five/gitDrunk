@@ -55,7 +55,8 @@ $(".ingredientAddBtn").click(function () {
 });
 
 $("#ingredientSubBtn").click(function () {
-	event.preventDefault();
+  event.preventDefault();
+  drinksArr = [];
 	// Get Cocktails for each Ingredients >>>>>>>>>
 	$(".ingLi").each(function () {
 		value = $(this).text();
