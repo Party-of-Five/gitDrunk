@@ -16,6 +16,8 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
+    <!-- JQuery link -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Project specific CSS Links -->
     <link rel="stylesheet" href="assets/style.css" />
   </head>
@@ -43,12 +45,22 @@
           placeholder="Cocktail"
         />
       </div>
-      <button id="cocktailSubBtn" type="submit" class="btn btn-primary mb-2">
+      <button id="cocktailSubBtn" type="button" class="btn btn-primary mb-2">
         Submit
       </button>
-      <ul id="searchResults"></ul>
+      <ul id="searchResults" class="ingResults"></ul>
     </form>
 
+    <div class="col l12 container">
+      <div class="featureInfo row">
+        <div class="col l8">
+          <ul id="featureIngredients"></ul>
+          <div class="featureText"></div>
+        </div>
+        <div class="featureImage col l4"></div>
+      </div>
+    </div>
+      
     <footer class="page-footer">
       <div>
         <a href="./about.html" class="credits">About</a>
