@@ -94,11 +94,18 @@ function searchIngredient(ingredient) {
 		// Creates a button for each search result
 		for (let i = 0; i < allDrinks.length; i++) {
 			// console.log(allDrinks[i].strDrink);
-			var drinkName = allDrinks[i].strDrink;
+			var drinkObject = {
+				name: allDrinks[i].strDrink,
+				id: allDrinks[i].idDrink,
+			};
 			$(".ingResults").append(
-				`<li><button id="identifyDrink ${i}" onClick="getDrink(${i})" type="submit">${drinkName}</button></li>`
+				`<li><button id="identifyDrink${i}" drinkId="${
+					allDrinks[i].idDrink
+				}" onClick="getDrink(${
+					i /*put the actual id or drink name, whatever your getDrink function is taking as a paraemeter, inside here instead of I*/
+				})" type="submit">${drinkObject.name}</button></li>`
 			);
-			listOfCocktailVal.push(drinkName);
+			listOfCocktailVal.push(drinkObject);
 		}
 	});
 }
@@ -115,65 +122,139 @@ function getDrink(drink) {
   };
   
 
-  $.ajax(settings).done(function (response) {
-    console.log(response);
-    console.log(response.drinks[0].strInstructions);
-    $(".featureText").text(response.drinks[0].strInstructions);
-    if (response.drinks[0].strIngredient1 != null) {
-      ingredArr.push(response.drinks[0].strIngredient1 + " " + response.drinks[0].strMeasure1)
-    };
-    if (response.drinks[0].strIngredient2 != null) {
-      ingredArr.push(" " + response.drinks[0].strIngredient2 + " " + response.drinks[0].strMeasure2)
-    };
-    if (response.drinks[0].strIngredient3 != null) {
-      ingredArr.push(" " + response.drinks[0].strIngredient3 + " " + response.drinks[0].strMeasure3)
-    };
-    if (response.drinks[0].strIngredient4 != null) {
-      ingredArr.push(" " + response.drinks[0].strIngredient4 + " " + response.drinks[0].strMeasure4)
-    };
-    if (response.drinks[0].strIngredient5 != null) {
-      ingredArr.push(" " + response.drinks[0].strIngredient5 + " " + response.drinks[0].strMeasure5)
-    };
-    if (response.drinks[0].strIngredient6 != null) {
-      ingredArr.push(" " + response.drinks[0].strIngredient6 + " " + response.drinks[0].strMeasure6)
-    };
-    if (response.drinks[0].strIngredient7 != null) {
-      ingredArr.push(" " + response.drinks[0].strIngredient7 + " " + response.drinks[0].strMeasure7)
-    };
-    if (response.drinks[0].strIngredient8 != null) {
-      ingredArr.push(" " + response.drinks[0].strIngredient8 + " " + response.drinks[0].strMeasure8)
-    };
-    if (response.drinks[0].strIngredient9 != null) {
-      ingredArr.push(" " + response.drinks[0].strIngredient9 + " " + response.drinks[0].strMeasure9)
-    };
-    if (response.drinks[0].strIngredient10 != null) {
-      ingredArr.push(" " + response.drinks[0].strIngredient10 + " " + response.drinks[0].strMeasure10)
-    };
-    if (response.drinks[0].strIngredient11 != null) {
-      ingredArr.push(" " + response.drinks[0].strIngredient11 + " " + response.drinks[0].strMeasure11)
-    };
-    if (response.drinks[0].strIngredient12 != null) {
-      ingredArr.push(" " + response.drinks[0].strIngredient12 + " " + response.drinks[0].strMeasure12)
-    };
-    if (response.drinks[0].strIngredient13 != null) {
-      ingredArr.push(" " + response.drinks[0].strIngredient13 + " " + response.drinks[0].strMeasure13)
-    };
-    if (response.drinks[0].strIngredient14 != null) {
-      ingredArr.push(" " + response.drinks[0].strIngredient14 + " " + response.drinks[0].strMeasure14)
-    };
-    if (response.drinks[0].strIngredient15 != null) {
-      ingredArr.push(" " + response.drinks[0].strIngredient15 + " " + response.drinks[0].strMeasure15)
-    };
-    
-    $("#featureIngredients").innerHTML = "";
-    for (var i = 0; i < ingredArr.length; i++) {
-      ingredList = "<li>" + ingredArr[i] + "</li>";
-      console.log(ingredList)
-      $("#featureIngredients").append(ingredList)
-    }
-    var image = $(`<img src="${response.drinks[0].strDrinkThumb}" width="350" height="350"/>`);
-    $(".featureImage").html(image);
-  });
+	$.ajax(settings).done(function (response) {
+		console.log(response);
+		console.log(response.drinks[0].strInstructions);
+		$(".featureText").text(response.drinks[0].strInstructions);
+		if (response.drinks[0].strIngredient1 != null) {
+			ingredArr.push(
+				response.drinks[0].strIngredient1 + " " + response.drinks[0].strMeasure1
+			);
+		}
+		if (response.drinks[0].strIngredient2 != null) {
+			ingredArr.push(
+				" " +
+					response.drinks[0].strIngredient2 +
+					" " +
+					response.drinks[0].strMeasure2
+			);
+		}
+		if (response.drinks[0].strIngredient3 != null) {
+			ingredArr.push(
+				" " +
+					response.drinks[0].strIngredient3 +
+					" " +
+					response.drinks[0].strMeasure3
+			);
+		}
+		if (response.drinks[0].strIngredient4 != null) {
+			ingredArr.push(
+				" " +
+					response.drinks[0].strIngredient4 +
+					" " +
+					response.drinks[0].strMeasure4
+			);
+		}
+		if (response.drinks[0].strIngredient5 != null) {
+			ingredArr.push(
+				" " +
+					response.drinks[0].strIngredient5 +
+					" " +
+					response.drinks[0].strMeasure5
+			);
+		}
+		if (response.drinks[0].strIngredient6 != null) {
+			ingredArr.push(
+				" " +
+					response.drinks[0].strIngredient6 +
+					" " +
+					response.drinks[0].strMeasure6
+			);
+		}
+		if (response.drinks[0].strIngredient7 != null) {
+			ingredArr.push(
+				" " +
+					response.drinks[0].strIngredient7 +
+					" " +
+					response.drinks[0].strMeasure7
+			);
+		}
+		if (response.drinks[0].strIngredient8 != null) {
+			ingredArr.push(
+				" " +
+					response.drinks[0].strIngredient8 +
+					" " +
+					response.drinks[0].strMeasure8
+			);
+		}
+		if (response.drinks[0].strIngredient9 != null) {
+			ingredArr.push(
+				" " +
+					response.drinks[0].strIngredient9 +
+					" " +
+					response.drinks[0].strMeasure9
+			);
+		}
+		if (response.drinks[0].strIngredient10 != null) {
+			ingredArr.push(
+				" " +
+					response.drinks[0].strIngredient10 +
+					" " +
+					response.drinks[0].strMeasure10
+			);
+		}
+		if (response.drinks[0].strIngredient11 != null) {
+			ingredArr.push(
+				" " +
+					response.drinks[0].strIngredient11 +
+					" " +
+					response.drinks[0].strMeasure11
+			);
+		}
+		if (response.drinks[0].strIngredient12 != null) {
+			ingredArr.push(
+				" " +
+					response.drinks[0].strIngredient12 +
+					" " +
+					response.drinks[0].strMeasure12
+			);
+		}
+		if (response.drinks[0].strIngredient13 != null) {
+			ingredArr.push(
+				" " +
+					response.drinks[0].strIngredient13 +
+					" " +
+					response.drinks[0].strMeasure13
+			);
+		}
+		if (response.drinks[0].strIngredient14 != null) {
+			ingredArr.push(
+				" " +
+					response.drinks[0].strIngredient14 +
+					" " +
+					response.drinks[0].strMeasure14
+			);
+		}
+		if (response.drinks[0].strIngredient15 != null) {
+			ingredArr.push(
+				" " +
+					response.drinks[0].strIngredient15 +
+					" " +
+					response.drinks[0].strMeasure15
+			);
+		}
+
+		$("#featureIngredients").innerHTML = "";
+		for (var i = 0; i < ingredArr.length; i++) {
+			ingredList = "<li>" + ingredArr[i] + "</li>";
+			console.log(ingredList);
+			$("#featureIngredients").append(ingredList);
+		}
+		var image = $(
+			`<img src="${response.drinks[0].strDrinkThumb}" width="350" height="350"/>`
+		);
+		$(".featureImage").html(image);
+	});
 }
 
 // JS FOR ROULETTE PAGE
@@ -256,7 +337,14 @@ function getRandom() {
 	});
 }
 
-
 // create function for #identifyDrink to pull up information by drink id and display it in .featureText and .featureImage
 
 // create ABV function to look up beers based on ABV and display options w/ pics
+
+// function ingredientSearch(){numberOfIngredients++)
+// 	numberOfIngredients = 5
+// 	for(i=arrayoFdrinks.lnegth-1;i>-1;i--{
+// 	  if(
+// 	(arrayOfDrinks.indexOf("ingredient",4))>0){
+// 	arrayOfDrinks[i].push(finalListOfDrinks)}
+// 	}
