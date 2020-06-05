@@ -192,3 +192,33 @@ function getRandom() {
 // create function for #identifyDrink to pull up information by drink id and display it in .featureText and .featureImage
 
 // create ABV function to look up beers based on ABV and display options w/ pics
+$(".beerSelect").click(function () {
+	event.preventDefault();
+	//let abv = $(4).attr("abv");
+	let abv = 4;
+
+	getBeer(abv);
+  });
+
+
+  function getBeer(abv) {
+	var settings = {
+	  async: true,
+	  crossDomain: true,
+	  url:
+		"https://api.punkapi.com/v2/beers?abv_lt=" +
+		abv,
+	  method: "GET",
+	  headers: {},
+	};
+  
+	$.ajax(settings).done(function (response) {
+	  //let possibleBeers = response.drinks;
+	  // Randomly chooses a cocktail from the array of drinks containing that liquor
+	  //var randomCocktail =
+		//possibleDrinks[Math.floor(Math.random() * possibleDrinks.length)];
+	  // Show random selection in feature box
+	  //$(".featureText").text(randomCocktail.strDrink);
+	  console.log (response);
+	});
+  }
