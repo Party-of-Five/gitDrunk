@@ -409,6 +409,11 @@ function getCocktail(liquorChoice) {
       possibleDrinks[Math.floor(Math.random() * possibleDrinks.length)];
     // Show random selection in feature box
     $(".featureText").text(randomCocktail.strDrink);
+
+    // Target ID
+    let randomCocktailID = randomCocktail.idDrink;
+    // TODO line 130 doesn't work because array structure is different - alternative way to pass in ID? or write new function?
+    getDrink(randomCocktailID);
   });
 }
 
