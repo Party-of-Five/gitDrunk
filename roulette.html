@@ -1,108 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Cocktail Roulette</title>
-		<!-- CSS Links -->
-		<link rel="stylesheet" href="assets/reset.css" />
-		<!-- Materialize CSS -->
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-		/>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-		<link
-			href="https://fonts.googleapis.com/icon?family=Material+Icons"
-			rel="stylesheet"
-		/>
-		<!-- JQuery link -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-		<!-- Project specific CSS Links -->
-		<link rel="stylesheet" href="assets/style.css" />
-	</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cocktail Roulette</title>
+    <!-- CSS Links -->
+    <link rel="stylesheet" href="assets/reset.css" />
+    <!-- Materialize CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!-- JQuery link -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Project specific CSS Links -->
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
 
-	<body>
-		<header class="logo">Cocktail Roulette</header>
-		<nav>
-			<div class="nav-wrapper">
-				<ul class="left hide-on-med-and-down">
-					<li>
-						<a href="./index.html" class="waves-effect waves-light btn"
-							>Home<i class="material-icons left">home</i></a
-						>
-					</li>
-					<li>
-						<a
-							href="./ingredientsearch.html"
-							class="waves-effect waves-light btn"
-							>Suggestions<i class="material-icons left">local_drink</i></a
-						>
-					</li>
-					<li>
-						<a href="./drinksearch.html" class="waves-effect waves-light btn"
-							>Cocktail<i class="material-icons left">local_bar</i></a
-						>
-					</li>
-					<li>
-						<a href="./roulette.html" class="waves-effect waves-light btn"
-							>Roulette <i class="material-icons left">casino</i></a
-						>
-					</li>
-					<li>
-						<a href="./thepub.html" class="waves-effect waves-light btn"
-							>Pub <i class="material-icons left">local_hospital</i></a
-						>
-					</li>
-				</ul>
-			</div>
-		</nav>
+  <body>
+    <header class="logo">Cocktail Roulette</header>
+    <nav>
+      <div class="nav-wrapper">
+        <ul class="left hide-on-med-and-down">
+          <li>
+            <a href="./index.html" class="waves-effect waves-light btn"
+              >Home<i class="material-icons left">home</i></a
+            >
+          </li>
+          <li>
+            <a
+              href="./ingredientsearch.html"
+              class="waves-effect waves-light btn"
+              >Suggestions<i class="material-icons left">local_drink</i></a
+            >
+          </li>
+          <li>
+            <a href="./drinksearch.html" class="waves-effect waves-light btn"
+              >Cocktail<i class="material-icons left">local_bar</i></a
+            >
+          </li>
+          <li>
+            <a href="./roulette.html" class="waves-effect waves-light btn"
+              >Roulette <i class="material-icons left">casino</i></a
+            >
+          </li>
+          <li>
+            <a href="./thepub.html" class="waves-effect waves-light btn"
+              >Pub <i class="material-icons left">local_hospital</i></a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
 
-		<div class="container">
-			<div class="row">
-				<!-- liquor selection buttons -->
-				<div class="col l4 pull-s8">
-					<p class="whiteText">
-						Select your base liquor from the below options.
-					</p>
-					<ul>
-						<li>
-							<button data-name="Vodka" id="vodka">Vodka</button>
-						</li>
-						<li>
-							<button data-name="Tequila" id="tequila">Tequila</button>
-						</li>
-						<li><button data-name="Gin" id="gin">Gin</button></li>
-						<li>
-							<button data-name="Whiskey" id="whiskey">Whiskey</button>
-						</li>
-						<li><button data-name="Rum" id="rum">Rum</button></li>
-						<li>
-							<button id="surpriseSelect" class="liquorSelect">
-								Surprise Me
-							</button>
-						</li>
-					</ul>
-				</div>
-				<!-- information on randomly selected cocktail -->
-				<div class="col l12">
-					<div class="featureInfo">
-						<div class="featureText"></div>
-						<div class="featureImage"></div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<footer class="page-footer">
-			<div>
-				<a href="./about.html" class="credits">About</a>
-			</div>
-		</footer>
-		<!-- Materialize JS -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-		<!-- JQuery link -->
-		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-		<!-- project JS link -->
-		<script src="./assets/script.js"></script>
-	</body>
+    <div class="container">
+      <div class="row">
+        <!-- liquor selection buttons -->
+        <div class="col l4 pull-s8">
+          <p class="whiteText">
+            Select your base liquor from the below options.
+          </p>
+          <ul>
+            <li>
+              <button type="button" data-name="Vodka" id="vodka">Vodka</button>
+            </li>
+            <li>
+              <button type="button" data-name="Tequila" id="tequila">
+                Tequila
+              </button>
+            </li>
+            <li><button type="button" data-name="Gin" id="gin">Gin</button></li>
+            <li>
+              <button type="button" data-name="Whiskey" id="whiskey">
+                Whiskey
+              </button>
+            </li>
+            <li><button type="button" data-name="Rum" id="rum">Rum</button></li>
+            <li>
+              <button type="button" id="surpriseSelect" class="liquorSelect">
+                Surprise Me
+              </button>
+            </li>
+          </ul>
+        </div>
+        <!-- information on randomly selected cocktail -->
+        <div class="col l12">
+          <div class="featureInfo">
+            <div class="featureText"></div>
+            <div class="featureImage"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <div>
+        <a href="./about.html" class="credits">About</a>
+      </div>
+    </footer>
+    <!-- Materialize JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- JQuery link -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- project JS link -->
+    <script src="./assets/script.js"></script>
+  </body>
 </html>
