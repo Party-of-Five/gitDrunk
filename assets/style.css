@@ -1,115 +1,112 @@
-
 body {
-  background-color: black;
-  background-image: url("../assets/img/classyDrinks.jpg?raw=true");
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 100%;
-  vertical-align: middle;
+	background-color: black;
+	background-image: url("../assets/img/classyDrinks.jpg?raw=true");
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 100%;
+	vertical-align: middle;
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+main {
+	flex: 1 0 auto;
 }
 
 .logo {
-  text-align: center;
-  font-size: 100px;
-  color: white;
-  font-family: "Times New Roman", Times, serif;
+	text-align: center;
+	font-size: 100px;
+	color: white;
+	font-family: "Times New Roman", Times, serif;
 }
 
 .nav-wrapper {
-  background-color: #a30707;
+	background-color: #a30707;
 }
 
-
-
 .btn {
-  background-color: transparent;
+	background-color: transparent;
 }
 
 .page-footer {
-  text-align: center;
-  background-color: #a30707;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 2.5rem;
+	text-align: center;
+	background-color: #a30707;
 }
 
 div.transbox {
-  margin-top: 30px;
-  background-color: #ffffff;
-  border: 1px solid black;
-  opacity: 0.4;
+	margin-top: 30px;
+	background-color: #ffffff;
+	border: 1px solid black;
+	opacity: 0.4;
 }
 
 div.transbox p {
-  margin: 5%;
-  font-weight: bold;
-  color: #000000;
-  font-size: 25px;
-  font-family: "Times New Roman", Times, serif;
+	margin: 5%;
+	font-weight: bold;
+	color: #000000;
+	font-size: 25px;
+	font-family: "Times New Roman", Times, serif;
 }
 
 .container {
-  padding: 20px;
-  width: 100%;
-  font-size: 15px;
-  font-family: "Times New Roman", Times, serif;
+	padding: 20px;
+	width: 100%;
+	font-size: 15px;
+	font-family: "Times New Roman", Times, serif;
 }
 
 .whiteText {
-  color: white;
+	color: white;
 }
 
 .listContainer {
-  background-color: #a30707be;
-  height: 250px;
-  overflow: auto;
-  margin: 10px;
-  border-radius: 25px;
-  border: 2px solid black;
-  padding: 10px;
-  opacity: 0.7;
+	background-color: #a30707be;
+	height: 250px;
+	overflow: auto;
+	margin: 10px;
+	border-radius: 25px;
+	border: 2px solid black;
+	padding: 10px;
+	opacity: 0.7;
 }
 
 .featureInfo {
-  background-color: #a30707be;
-  height: 400px;
-  border-radius: 25px;
-  padding: 20px;
+	background-color: #a30707be;
+	height: 400px;
+	border-radius: 25px;
+	padding: 20px;
 }
 
 .listHeader {
-  text-decoration: underline;
-  margin-bottom: 10px;
+	text-decoration: underline;
+	margin-bottom: 10px;
 }
 
 .ingredientSubBtn {
-    position: absolute;
-    right:    0;
-    bottom:   0;
+	position: absolute;
+	right: 0;
+	bottom: 0;
 }
 
 .beer {
-    background-color:black;
-    background-image: url("../assets/img/pintglass.jpg?raw=true");
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    vertical-align: middle;
+	background-color: black;
+	background-image: url("../assets/img/pintglass.jpg?raw=true");
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	vertical-align: middle;
 }
 
 .featureText {
-  text-align: left;
-  padding: 20px;
-  color: white;
+	text-align: left;
+	padding: 20px;
+	color: white;
 }
 
 #featureIngredients {
-  text-align: left;
-  padding: 20px;
-  color: white;
-  
+	text-align: left;
+	padding: 20px;
+	color: white;
 }
-
