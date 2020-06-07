@@ -18,7 +18,6 @@ function getAllIngList() {
 		let allIng = response.drinks;
 		// Creates a button for each search result
 		for (let i = 0; i < allIng.length; i++) {
-			// console.log(allDrinks[i].strDrink);
 			let IngName = allIng[i].strIngredient1;
 			// render Ingredients to droplist
 			$("#ingredients").append(`<option value="${IngName}"> </option>`);
@@ -45,12 +44,10 @@ function searchCocktail(cocktailVal) {
 	};
 
 	$.ajax(settings).done(function (response) {
-		// console.log(response);
 		drinksArr.push(response);
 		var allDrinks = response.drinks;
 		// Creates a button for each search result
 		for (let i = 0; i < allDrinks.length; i++) {
-			// console.log(allDrinks[i].strDrink);
 			var drinkName = allDrinks[i].strDrink;
 			$(".ingResults").append(
 				`<li><button id="identifyDrink ${i}" onClick="getDrink(${i})" type="button">${drinkName}</button></li>`
@@ -70,7 +67,6 @@ $(".ingredientAddBtn").click(function () {
 	} else {
 		// Render Ingeredient to Page
 		$(".listIng").append(`<li class="ingLi">${value}</li>`);
-		// $(".listIng").append("<li class="ingLi">" + value + "</li>");
 		$(".ingredientInfo").val("");
 	}
 });
@@ -86,8 +82,6 @@ $("#ingredientSubBtn").click(function () {
 		searchIngredient(value);
 	});
 	console.log(listOfCocktailVal);
-	// value = $(".ingredientInfo").val().trim();
-	// console.log(value);
 });
 
 // variables to hold the arrays
@@ -107,7 +101,6 @@ function searchIngredient(ingredient) {
 		var allDrinks = response.drinks;
 		// Creates a button for each search result
 		for (let i = 0; i < allDrinks.length; i++) {
-			// console.log(allDrinks[i].strDrink);
 			var drinkObject = {
 				name: allDrinks[i].strDrink,
 				id: allDrinks[i].idDrink,
@@ -123,6 +116,7 @@ function searchIngredient(ingredient) {
 		}
 	});
 }
+//#region Render Ingredients onto page (Please Dry Up)
 function getDrink(drink) {
 	$("#featureIngredients").empty();
 	ingredArr = [];
@@ -138,8 +132,6 @@ function getDrink(drink) {
 	};
 
 	$.ajax(settings).done(function (response) {
-		console.log(response);
-		console.log(response.drinks[0].strInstructions);
 		$(".featureText").text(response.drinks[0].strInstructions);
 		if (
 			response.drinks[0].strIngredient1 != null &&
@@ -337,7 +329,7 @@ function getDrink(drink) {
 		$("#featureIngredients").innerHTML = "";
 		for (var i = 0; i < ingredArr.length; i++) {
 			ingredList = "<li>" + ingredArr[i] + "</li>";
-			console.log(ingredList);
+
 			$("#featureIngredients").append(ingredList);
 		}
 		var image = $(
@@ -346,8 +338,9 @@ function getDrink(drink) {
 		$(".featureImage").html(image);
 	});
 }
+//#endregion
 
-// JS FOR ROULETTE PAGE
+//#region  JS FOR ROULETTE PAGE
 
 // TODO: Dry up code by dynamically generating buttons with on click attached
 
@@ -426,6 +419,7 @@ function getRandom() {
 		$(".featureText").text(randomSurprise);
 	});
 }
+//#endregion
 
 // create function for #identifyDrink to pull up information by drink id and display it in .featureText and .featureImage
 
