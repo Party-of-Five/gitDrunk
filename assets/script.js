@@ -1,5 +1,7 @@
 // Variables
 var listOfCocktailVal = [];
+var IngSrchCocktailNames = [];
+var IngSrchCocktailIDs = [];
 var drinksArr = [];
 var ingredArr = [];
 var ingredList = "";
@@ -82,7 +84,8 @@ $("#ingredientSubBtn").click(function () {
 		// Get Cocktails for each Ingredients
 		searchIngredient(value);
 	});
-	console.log(listOfCocktailVal);
+	console.log(IngSrchCocktailNames);
+	console.log(IngSrchCocktailIDs);
 });
 
 function searchIngredient(ingredient) {
@@ -98,12 +101,19 @@ function searchIngredient(ingredient) {
 	$.ajax(settings).done(function (response) {
 		drinksArr.push(response);
 		var allDrinks = response.drinks;
-		// Creates a button for each search result
 		for (let i = 0; i < allDrinks.length; i++) {
-			var drinkObject = {
-				name: allDrinks[i].strDrink,
-				id: allDrinks[i].idDrink,
-			};
+			// Create two arrays one with just CocktailID and 2nd with CocktailName
+			// var drinkObject = {
+			// 	name: allDrinks[i].strDrink,
+			// 	id: allDrinks[i].idDrink,
+			// };
+			// listOfCocktailVal.push(drinkObject);
+			IngSrchCocktailNames.push(allDrinks[i].strDrink);
+			IngSrchCocktailIDs.push(allDrinks[i].idDrink);
+		}
+		// Creates a button for each Grouped search result
+		// Placeholder -- Add a loop for each item in the Grouped array
+		for (let i = 0; i < listOfCocktailVal.length; i++) {
 			$(".ingResults").append(
 				`<li><button id="identifyDrink${i}" drinkId="${
 					allDrinks[i].idDrink
@@ -111,11 +121,7 @@ function searchIngredient(ingredient) {
 					i /*put the actual id or drink name, whatever your getDrink function is taking as a paraemeter, inside here instead of I*/
 				})" type="button">${drinkObject.name}</button></li>`
 			);
-			listOfCocktailVal.push(drinkObject);
 		}
-		// Create two arrays one with just CocktailID and 2nd with CocktailName
-		// listOfCocktailVal.forEach((element) => {});
-
 		// Group the listOfCocktails by CocktailName and/or ID
 		// listOfCocktailVal.reduce()
 	});
