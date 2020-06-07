@@ -1,5 +1,7 @@
 // Variables
 var listOfCocktailVal = [];
+var IngSrchCocktailNamesGrped = {};
+var IngSrchCocktailIdGrped = {};
 var IngSrchCocktailNames = [];
 var IngSrchCocktailIDs = [];
 var drinksArr = [];
@@ -84,8 +86,8 @@ $("#ingredientSubBtn").click(function () {
 		// Get Cocktails for each Ingredients
 		searchIngredient(value);
 	});
-	console.log(IngSrchCocktailNames);
-	console.log(IngSrchCocktailIDs);
+	// IngSrchCocktailNamesGrped = IngSrchCocktailNames.reduce(groupByIDs, {});
+	// IngSrchCocktailIdGrped = IngSrchCocktailIDs.reduce(groupByIDs, {})
 });
 
 function searchIngredient(ingredient) {
