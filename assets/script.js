@@ -1,10 +1,21 @@
-// JS FOR SEARCH BY COCKTAIL
 // Variables
 var listOfCocktailVal = [];
 var drinksArr = [];
 var ingredArr = [];
 var ingredList = "";
 
+//#region JS FOR SEARCH BY COCKTAIL
+// When you click the search button
+$("#cocktailSubBtn").click(function (event) {
+	event.preventDefault();
+	// Input taken and assigned to variable
+	cocktailInput = $("#cocktailInput").val().trim();
+	// Call search cocktail function
+	searchCocktail(cocktailInput);
+});
+//#endregion
+
+//#region Ingredients Page JS
 // Get All the Ingredients from the DB API
 function getAllIngList() {
 	var settings = {
@@ -25,16 +36,7 @@ function getAllIngList() {
 	});
 }
 
-// When you click the search button
-$("#cocktailSubBtn").click(function (event) {
-	event.preventDefault();
-	// Input taken and assigned to variable
-	cocktailInput = $("#cocktailInput").val().trim();
-	// Call search cocktail function
-	searchCocktail(cocktailInput);
-});
-
-// Uses the input to search the Coctail API
+// Uses the input to search the Cocktail API
 function searchCocktail(cocktailVal) {
 	var settings = {
 		url: `https://www.thecocktaildb.com/api/json/v2/9973533/search.php?s=${cocktailVal}`,
@@ -52,20 +54,19 @@ function searchCocktail(cocktailVal) {
 			$(".ingResults").append(
 				`<li><button id="identifyDrink ${i}" onClick="getDrink(${i})" type="button">${drinkName}</button></li>`
 			);
-			listOfCocktailVal.push(drinkName);
+			// listOfCocktailVal.push(drinkName);
 		}
 	});
 }
 
-// JS FOR SEARCH BY INGREDIENT PAGE
-
 $(".ingredientAddBtn").click(function () {
+	// Prevent Onclick event from refreshing page
 	event.preventDefault();
+	// Get Users Ingredients and Only add ingredient if TextArea has a value
 	let value = $(".ingredientInfo").val().trim();
-	// Only add ingredient if TextArea has a value
 	if (value === "") {
 	} else {
-		// Render Ingeredient to Page
+		// Render Ingeredient(s) to Page
 		$(".listIng").append(`<li class="ingLi">${value}</li>`);
 		$(".ingredientInfo").val("");
 	}
@@ -78,13 +79,10 @@ $("#ingredientSubBtn").click(function () {
 	$(".ingLi").each(function () {
 		value = $(this).text();
 		// Get Cocktails for each Ingredients
-
 		searchIngredient(value);
 	});
 	console.log(listOfCocktailVal);
 });
-
-// variables to hold the arrays
 
 function searchIngredient(ingredient) {
 	var settings = {
@@ -114,8 +112,15 @@ function searchIngredient(ingredient) {
 			);
 			listOfCocktailVal.push(drinkObject);
 		}
+		// Create two arrays one with just CocktailID and 2nd with CocktailName
+		// listOfCocktailVal.forEach((element) => {});
+
+		// Group the listOfCocktails by CocktailName and/or ID
+		// listOfCocktailVal.reduce()
 	});
 }
+//#endregion
+
 //#region Render Ingredients onto page (Please Dry Up)
 function getDrink(drink) {
 	$("#featureIngredients").empty();
