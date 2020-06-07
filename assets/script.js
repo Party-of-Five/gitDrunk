@@ -113,15 +113,15 @@ function searchIngredient(ingredient) {
 		}
 		// Creates a button for each Grouped search result
 		// Placeholder -- Add a loop for each item in the Grouped array
-		for (let i = 0; i < listOfCocktailVal.length; i++) {
-			$(".ingResults").append(
-				`<li><button id="identifyDrink${i}" drinkId="${
-					allDrinks[i].idDrink
-				}" onClick="getDrink(${
-					i /*put the actual id or drink name, whatever your getDrink function is taking as a paraemeter, inside here instead of I*/
-				})" type="button">${drinkObject.name}</button></li>`
-			);
-		}
+		// for (let i = 0; i < listOfCocktailVal.length; i++) {
+		// 	$(".ingResults").append(
+		// 		`<li><button id="identifyDrink${i}" drinkId="${
+		// 			allDrinks[i].idDrink
+		// 		}" onClick="getDrink(${
+		// 			i /*put the actual id or drink name, whatever your getDrink function is taking as a paraemeter, inside here instead of I*/
+		// 		})" type="button">${drinkObject.name}</button></li>`
+		// 	);
+		// }
 		// Group the listOfCocktails by CocktailName and/or ID
 		// listOfCocktailVal.reduce()
 	});
