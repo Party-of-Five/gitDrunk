@@ -8,6 +8,33 @@ var drinksArr = [];
 var ingredArr = [];
 var ingredList = "";
 
+// General Use Functions
+function groupByIDs(acc, current) {
+	// console.log("acc", acc, "current", current);
+
+	if (!acc[current]) {
+		// if (!acc[current]) {
+		acc[current] = 1;
+	} else {
+		acc[current] = Number(acc[current]) + 1;
+	}
+	// console.log("acc", acc);
+	return acc;
+}
+
+async function processArray(array) {
+	// array = $(".ingLi")
+	for (const item of array) {
+		var value = item.innerText;
+		await searchIngredient(value);
+	}
+	// for (let i = 0; i < $(".ingLi").length; i++) {
+	// 	var value = $(".ingLi")[i].innerText;
+	// await searchIngredient(value);
+	// }
+	// console.log("Done!");
+}
+
 //#region JS FOR SEARCH BY COCKTAIL
 // When you click the search button
 $("#cocktailSubBtn").click(function (event) {
@@ -77,20 +104,19 @@ $(".ingredientAddBtn").click(function () {
 	}
 });
 
-$("#ingredientSubBtn").click(function () {
+$("#ingredientSubBtn").click(async function () {
 	event.preventDefault();
 	drinksArr = [];
 	// Get Cocktails for each Ingredients >>>>>>>>>
-	$(".ingLi").each(function () {
-		value = $(this).text();
-		// Get Cocktails for each Ingredients
+	processArray($(".ingLi"));
+	for (let i = 0; i < $(".ingLi").length; i++) {
+		var value = $(".ingLi")[i].innerText;
 		searchIngredient(value);
-	});
-	// IngSrchCocktailNamesGrped = IngSrchCocktailNames.reduce(groupByIDs, {});
-	// IngSrchCocktailIdGrped = IngSrchCocktailIDs.reduce(groupByIDs, {})
+	}
+	IngSrchCocktailNamesGrped = IngSrchCocktailNames.reduce(groupByIDs, {});
+	IngSrchCocktailIdGrped = IngSrchCocktailIDs.reduce(groupByIDs, {});
 });
-
-function searchIngredient(ingredient) {
+async function searchIngredient(ingredient) {
 	var settings = {
 		async: true,
 		crossDomain: true,
@@ -100,7 +126,7 @@ function searchIngredient(ingredient) {
 		method: "GET",
 		headers: {},
 	};
-	$.ajax(settings).done(function (response) {
+	await $.ajax(settings).done(function (response) {
 		drinksArr.push(response);
 		var allDrinks = response.drinks;
 		for (let i = 0; i < allDrinks.length; i++) {
