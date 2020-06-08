@@ -109,13 +109,14 @@ $("#ingredientSubBtn").click(async function () {
 	drinksArr = [];
 	// Get Cocktails for each Ingredients >>>>>>>>>
 	processArray($(".ingLi"));
-	for (let i = 0; i < $(".ingLi").length; i++) {
-		var value = $(".ingLi")[i].innerText;
-		searchIngredient(value);
-	}
+	// for (let i = 0; i < $(".ingLi").length; i++) {
+	// 	var value = $(".ingLi")[i].innerText;
+	// 	searchIngredient(value);
+	// }
 	IngSrchCocktailNamesGrped = IngSrchCocktailNames.reduce(groupByIDs, {});
 	IngSrchCocktailIdGrped = IngSrchCocktailIDs.reduce(groupByIDs, {});
 });
+
 async function searchIngredient(ingredient) {
 	var settings = {
 		async: true,
@@ -126,7 +127,8 @@ async function searchIngredient(ingredient) {
 		method: "GET",
 		headers: {},
 	};
-	await $.ajax(settings).done(function (response) {
+	// await
+	$.ajax(settings).done(function (response) {
 		drinksArr.push(response);
 		var allDrinks = response.drinks;
 		for (let i = 0; i < allDrinks.length; i++) {
