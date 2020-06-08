@@ -104,9 +104,14 @@ $(".ingredientAddBtn").click(function () {
 	}
 });
 
-$("#ingredientSubBtn").click(async function () {
+$(".clearList").click(function () {
+	$(".listIng").empty();
+});
+
+$("#ingredientSubBtn").click(function () {
 	event.preventDefault();
 	drinksArr = [];
+	$(".ingResults").empty();
 	// Get Cocktails for each Ingredients >>>>>>>>>
 	processArray($(".ingLi"));
 	// for (let i = 0; i < $(".ingLi").length; i++) {
