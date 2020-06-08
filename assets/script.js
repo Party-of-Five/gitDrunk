@@ -29,6 +29,8 @@ function getAllIngList() {
 // When you click the search button
 $("#cocktailSubBtn").click(function (event) {
 	event.preventDefault();
+	$(".ingResults").empty()
+	drinksArr = [];
 	// Input taken and assigned to variable
 	cocktailInput = $("#cocktailInput").val().trim();
 	// Call search cocktail function
@@ -75,9 +77,14 @@ $(".ingredientAddBtn").click(function () {
 	}
 });
 
+$(".clearList").click(function() {
+	$(".listIng").empty()
+});
+
 $("#ingredientSubBtn").click(function () {
 	event.preventDefault();
 	drinksArr = [];
+	$(".ingResults").empty()
 	// Get Cocktails for each Ingredients >>>>>>>>>
 	$(".ingLi").each(function () {
 		value = $(this).text();
@@ -123,6 +130,8 @@ function searchIngredient(ingredient) {
 		}
 	});
 }
+
+
 function getDrink(drink) {
 	$("#featureIngredients").empty();
 	ingredArr = [];
