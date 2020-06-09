@@ -1,55 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>gitDrunk</title>
-    <!-- CSS Links -->
-    <link rel="stylesheet" href="assets/reset.css" />
-    <!-- Materialize CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-    />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-	/>
-	<!-- JQuery link -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <!-- Project specific CSS Links -->
-    <link rel="stylesheet" href="assets/style.css" />
-  </head>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>gitDrunk</title>
+		<!-- CSS Links -->
+		<link rel="stylesheet" href="assets/reset.css" />
+		<!-- Materialize CSS -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+		/>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+		<link
+			href="https://fonts.googleapis.com/icon?family=Material+Icons"
+			rel="stylesheet"
+		/>
+		<!-- JQuery link -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<!-- Project specific CSS Links -->
+		<link rel="stylesheet" href="assets/style.css" />
+	</head>
 
-  <body>
-	<header class="logo">gitDrunk</header>
-	<nav>
-		<div class="nav-wrapper">
-      
-    <ul class="left hide-on-med-and-down">
-			<li><a href="./index.html" class="waves-effect waves-light btn">Home<i class="material-icons left">home</i></a></li>
-			<li><a href="./ingredientsearch.html" class="waves-effect waves-light btn">Suggestions<i class="material-icons left">local_drink</i></a></li>
-			<li><a href="./drinksearch.html" class="waves-effect waves-light btn">Cocktail<i class="material-icons left">local_bar</i></a></li>
-      <li><a href="./roulette.html" class="waves-effect waves-light btn">Roulette <i class="material-icons left">casino</i></a></li>
-      <li><a href="./thepub.html" class="waves-effect waves-light btn">Pub <i class="material-icons left">local_hospital</i></a></li>
-    </ul>
-		</div>
-  </nav>
-  
-  	
-	<div class="main transbox">
-		<p>Welcome to GitDrunk.  A site to find recipes by ingredients, cocktail name or to randomly pick a cocktail for you when you are undecided.</p>
-	</div>
+	<body>
+		<header class="logo">gitDrunk</header>
+		<nav>
+			<div class="nav-wrapper">
+				<ul class="left hide-on-med-and-down">
+					<li>
+						<a href="./index.html" class="waves-effect waves-light btn"
+							>Home<i class="material-icons left">home</i></a
+						>
+					</li>
+					<li>
+						<a
+							href="./ingredientsearch.html"
+							class="waves-effect waves-light btn"
+							>Suggestions<i class="material-icons left">local_drink</i></a
+						>
+					</li>
+					<li>
+						<a href="./drinksearch.html" class="waves-effect waves-light btn"
+							>Cocktail<i class="material-icons left">local_bar</i></a
+						>
+					</li>
+					<li>
+						<a href="./roulette.html" class="waves-effect waves-light btn"
+							>Roulette <i class="material-icons left">casino</i></a
+						>
+					</li>
+					<li>
+						<a href="./thepub.html" class="waves-effect waves-light btn"
+							>Pub <i class="material-icons left">local_hospital</i></a
+						>
+					</li>
+				</ul>
+			</div>
+		</nav>
 
-	<footer class="page-footer">
-    <div>
-      <a href="./about.html" class="credits">About</a>
-    </div>
-	</footer>
-	
-
-    <!-- JS Links -->
-    <script src="assets/script.js"></script>
-  </body>
+		<main>
+			<div class="main container">
+				<div class="col l12">
+					<div class="row ingredHome">
+						<a href= "./ingredientsearch.html" class="col l2 inghomeBtn">
+							<img class= "ingredImg" src="./assets/img/Mixology.jpg" style="width:125px;height:125px">
+						</a>
+						<p class="col l8 homeBarText">Have ingredients and want to explore what to make?  Utilize our ingredient search.</p>
+					</div>
+				</div>
+				<div class="col l12">
+					<div class="row cocktailHome">
+						<a href= "./drinksearch.html" class="col l2 inghomeBtn">
+							<img class= "cocktailImg" src="./assets/img/funDrinks.jpg" style="width:125px;height:125px">
+						</a>
+						<p class="col l8 homeBarText">Know the name of a cocktail?  Search our library for ingredient information and steps to create it.</p>
+					</div>
+				</div>
+				<div class="col l12">
+					<div class="row rouletteHome">
+						<a href= "./roulette.html" class="col l2 inghomeBtn">
+							<img class= "rouletteImg" src="./assets/img/roulette.jpg" style="width:125px;height:125px">
+						</a>
+						<p class="col l8 homeBarText">Don't know what to drink?  Take a gamble with our roulette feature.  Choose from Vodka, Taquila, Gin, Whiskey, Rum or get even riskier with our surprise me feature.</p>
+					</div>
+				</div>
+				<div class="col l12">
+					<div class="row pubHome">
+						<a href= "./thepub.html" class="col l2 inghomeBtn">
+							<img class= "pubImg" src="./assets/img/pintglass.jpg" style="width:125px;height:125px">
+						</a>
+						<p class="col l8 homeBarText">Not a cocktail person?  Perhaps you would enjoy a refreshing brew.  Let us know how potent you like your beer and we'll make a suggestion.</p>
+					</div>
+				</div>
+				
+			</div>
+		</main>
+		<footer class="page-footer">
+			<div>
+				<a href="./about.html" class="credits">About</a>
+			</div>
+		</footer>
+		<!-- Materialize JS -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+		<!-- JQuery link -->
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+		<!-- project JS link -->
+		<script src="./assets/script.js"></script>
+	</body>
 </html>

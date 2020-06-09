@@ -6,6 +6,13 @@ body {
 	background-repeat: no-repeat;
 	background-size: 100%;
 	vertical-align: middle;
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+main {
+	flex: 1 0 auto;
+	margin-top: 100px;
 }
 
 .logo {
@@ -26,30 +33,9 @@ body {
 .page-footer {
 	text-align: center;
 	background-color: #a30707;
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-	height: 2.5rem;
-}
-
-div.transbox {
-	margin-top: 30px;
-	background-color: #ffffff;
-	border: 1px solid black;
-	opacity: 0.4;
-}
-
-div.transbox p {
-	margin: 5%;
-	font-weight: bold;
-	color: #000000;
-	font-size: 25px;
-	font-family: "Times New Roman", Times, serif;
 }
 
 .container {
-	padding: 20px;
-	width: 100%;
 	font-size: 15px;
 	font-family: "Times New Roman", Times, serif;
 }
@@ -107,4 +93,57 @@ div.transbox p {
 	text-align: left;
 	padding: 20px;
 	color: white;
+}
+
+.ingredHome {
+	margin: 10px;
+	border-radius: 25px;
+	background: rgba(255,255,255,0.7);
+}
+
+.cocktailHome {
+	margin: 10px;
+	border-radius: 25px;
+	background: rgba(255,255,255,0.7);
+
+}
+
+.rouletteHome {
+	margin: 10px;
+	border-radius: 25px;
+	background: rgba(255,255,255,0.7);
+}
+
+.pubHome {
+	margin: 10px;
+	border-radius: 25px;
+	background: rgba(255,255,255,0.7);
+}
+
+.homeBarText {
+	font-size: 20px;
+	margin: 50px;
+
+}
+
+.inghomeBtn {
+	margin: 10px;
+	border-radius: 25px;
+	font-weight: bold;
+}
+
+.ingredImg {
+	border-radius: 25px;
+}
+
+.cocktailImg {
+	border-radius: 25px;
+}
+
+.rouletteImg {
+	border-radius: 25px;
+}
+
+.pubImg {
+	border-radius: 25px;
 }

@@ -1,63 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>drinksearch</title>
-    <!-- CSS Links -->
-    <link rel="stylesheet" href="assets/reset.css" />
-    <!-- Materialize CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-    />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <!-- Project specific CSS Links -->
-    <link rel="stylesheet" href="assets/style.css" />
-  </head>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Drink Search</title>
+		<!-- CSS Links -->
+		<link rel="stylesheet" href="assets/reset.css" />
+		<!-- Materialize CSS -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+		/>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+		<link
+			href="https://fonts.googleapis.com/icon?family=Material+Icons"
+			rel="stylesheet"
+		/>
+		<!-- JQuery link -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<!-- Project specific CSS Links -->
+		<link rel="stylesheet" href="assets/style.css" />
+	</head>
 
-  <body>
-    <header class="logo">gitDrunk</header>
-	  <nav>
-		<div class="nav-wrapper">
-		  <ul class="left hide-on-med-and-down">
-			<li><a href="./index.html" class="waves-effect waves-light btn">Home<i class="material-icons left">home</i></a></li>
-			<li><a href="./ingredientsearch.html" class="waves-effect waves-light btn">Suggestions<i class="material-icons left">local_drink</i></a></li>
-			<li><a href="./drinksearch.html" class="waves-effect waves-light btn">Cocktail<i class="material-icons left">local_bar</i></a></li>
-      <li><a href="./roulette.html" class="waves-effect waves-light btn">Roulette <i class="material-icons left">casino</i></a></li>
-      <li><a href="./thepub.html" class="waves-effect waves-light btn">Pub <i class="material-icons left">local_hospital</i></a></li>
-		  </ul>
-		</div>
-	  </nav>
-    <!-- JS Links -->
-    <form class="form-inline d-flex justify-content-center">
-      <div class="form-group mx-sm-3 mb-2">
-        <input
-          id="cocktailInput"
-          type="text"
-          class="form-control whiteText"
-          placeholder="Cocktail"
-        />
-      </div>
-      <button id="cocktailSubBtn" type="submit" class="btn btn-primary mb-2">
-        Submit
-      </button>
-      <ul id="searchResults"></ul>
-    </form>
+	<body>
+		<header class="logo">Drink Search</header>
+		<nav>
+			<div class="nav-wrapper">
+				<ul class="left hide-on-med-and-down">
+					<li>
+						<a href="./index.html" class="waves-effect waves-light btn"
+							>Home<i class="material-icons left">home</i></a
+						>
+					</li>
+					<li>
+						<a
+							href="./ingredientsearch.html"
+							class="waves-effect waves-light btn"
+							>Suggestions<i class="material-icons left">local_drink</i></a
+						>
+					</li>
+					<li>
+						<a href="./drinksearch.html" class="waves-effect waves-light btn"
+							>Cocktail<i class="material-icons left">local_bar</i></a
+						>
+					</li>
+					<li>
+						<a href="./roulette.html" class="waves-effect waves-light btn"
+							>Roulette <i class="material-icons left">casino</i></a
+						>
+					</li>
+					<li>
+						<a href="./thepub.html" class="waves-effect waves-light btn"
+							>Pub <i class="material-icons left">local_hospital</i></a
+						>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<main>
+			<form class="form-inline d-flex justify-content-center">
+				<div class="form-group mx-sm-3 mb-2">
+					<input
+						id="cocktailInput"
+						type="text"
+						class="form-control whiteText"
+						placeholder="Cocktail"
+					/>
+				</div>
+				<button id="cocktailSubBtn" type="button" class="btn btn-primary mb-2">
+					Submit
+				</button>
+				<ul id="searchResults" class="ingResults"></ul>
+			</form>
 
-    <footer class="page-footer">
-      <div>
-        <a href="./about.html" class="credits">About</a>
-      </div>
-    </footer>
-  
-    <!-- JQuery link -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <!-- project js link -->
-    <script src="./assets/script.js"></script>
-  </body>
+			<div class="col l12 container">
+				<div class="featureInfo row">
+					<div class="col l8">
+						<ul id="featureIngredients"></ul>
+						<div class="featureText"></div>
+					</div>
+					<div class="featureImage col l4"></div>
+				</div>
+			</div>
+		</main>
+		<footer class="page-footer">
+			<div>
+				<a href="./about.html" class="credits">About</a>
+			</div>
+		</footer>
+		<!-- Materialize JS -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+		<!-- JQuery link -->
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+		<!-- project JS link -->
+		<script src="./assets/script.js"></script>
+	</body>
 </html>
