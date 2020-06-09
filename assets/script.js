@@ -326,45 +326,86 @@ function getRandom() {
 	});
 }
 // create function for #identifyDrink to pull up information by drink id and display it in .featureText and .featureImage
-//#region Pub Page
 
 // create ABV function to look up beers based on ABV and display options w/ pics
-$(".beerSelect").click(function () {
+$(".beerSelectLow").click(function () {
 	event.preventDefault();
-	//let abv = $(4).attr("abv");
 	let abv = 4;
 
-	getBeer(abv);
+	getBeer1(abv);
 });
 
-function getBeer(abv) {
+$(".beerSelectHigh").click(function () {
+	event.preventDefault();
+	
+	let abv = 3.99;
+
+	getBeer2(abv);
+});
+
+function getBeer1(abv) {
 	var settings = {
 		async: true,
 		crossDomain: true,
-		url: `https://api.punkapi.com/v2/beers?abv_lt=${abv}`,
+		url: `https://api.punkapi.com/v2/beers?abv_lt=`+ abv,
 		method: "GET",
 		headers: {},
 	};
 
 	$.ajax(settings).done(function (response) {
 		let possibleBeers = response;
-		// Randomly chooses a cocktail from the array of drinks containing that liquor
-		//var randomCocktail =
-		// possibleDrinks[Math.floor(Math.random() * possibleDrinks.length)];
-		// response[]
+		
 		let randomBeer =
 			possibleBeers[Math.floor(Math.random() * possibleBeers.length)];
-		// Show random selection in feature box
-		//$(".featureText").text(randomCocktail.strDrink);
-		console.log(randomBeer);
-		console.log(randomBeer.name);
-		console.log(randomBeer.tagline);
-		console.log(randomBeer.first_brewed);
-		console.log(randomBeer.description);
-		console.log(randomBeer.image_url);
-		console.log(randomBeer.abv);
+		
+		$(".beerName").html("Name:"+ " " + randomBeer.name);
+		
+		$(".tagLine").html(randomBeer.tagline);
+		
+		$(".firstBrewed").html("First brewed:"+ " " + randomBeer.first_brewed);
+		
+		$(".beerDesciption").html("Description:"+ " " + randomBeer.description);
+		var image = $(
+			`<img src="${randomBeer.image_url}" width="auto" height="350"/>`
+		);
 
-		// $("");
+		$(".beerImg").html(image);
+		
+		$(".alcByVol").html("ABV:"+ " " + randomBeer.abv);
+
+	});
+};
+
+function getBeer2(abv) {
+		var settings = {
+			async: true,
+			crossDomain: true,
+			url: `https://api.punkapi.com/v2/beers?abv_gt=`+ abv,
+			method: "GET",
+			headers: {},
+		};
+
+	$.ajax(settings).done(function (response) {
+		let possibleBeers = response;
+		
+		let randomBeer =
+			possibleBeers[Math.floor(Math.random() * possibleBeers.length)];
+		
+		$(".beerName").html("Name:"+ " " + randomBeer.name);
+		
+		$(".tagLine").html(randomBeer.tagline);
+		
+		$(".firstBrewed").html("First brewed:"+ " " + randomBeer.first_brewed);
+		
+		$(".beerDesciption").html("Description:"+ " " + randomBeer.description);
+		var image = $(
+			`<img src="${randomBeer.image_url}" width="auto" height="350"/>`
+		);
+
+		$(".beerImg").html(image);
+		
+		$(".alcByVol").html("ABV:"+ " " + randomBeer.abv);
+
 	});
 }
 //#endregion
