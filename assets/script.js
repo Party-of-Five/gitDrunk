@@ -10,28 +10,6 @@ var ingredList = "";
 var usersIngredients = [];
 //#endregion
 
-//#region Load Ingredients
-// Get All the Ingredients from the DB API
-function getAllIngList() {
-	var settings = {
-		url: `https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list`,
-		method: "GET",
-		timeout: 0,
-		headers: {},
-	};
-
-	$.ajax(settings).done(function (response) {
-		let allIng = response.drinks;
-		// Creates a button for each search result
-		for (let i = 0; i < allIng.length; i++) {
-			let IngName = allIng[i].strIngredient1;
-			// render Ingredients to droplist
-			$("#ingredients").append(`<option value="${IngName}"> </option>`);
-		}
-	});
-}
-//#endregion
-
 //#region JS FOR SEARCH BY COCKTAIL
 // When you click the search button
 $("#cocktailSubBtn").click(function (event) {
@@ -68,7 +46,27 @@ function searchCocktail(cocktailVal) {
 //#endregion
 
 //#region Ingredients Page JS
+//#region Load Ingredients
+// Get All the Ingredients from the DB API
+function getAllIngList() {
+	var settings = {
+		url: `https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list`,
+		method: "GET",
+		timeout: 0,
+		headers: {},
+	};
 
+	$.ajax(settings).done(function (response) {
+		let allIng = response.drinks;
+		// Creates a button for each search result
+		for (let i = 0; i < allIng.length; i++) {
+			let IngName = allIng[i].strIngredient1;
+			// render Ingredients to droplist
+			$("#ingredients").append(`<option value="${IngName}"> </option>`);
+		}
+	});
+}
+//#endregion
 $(".ingredientAddBtn").click(function () {
 	// Prevent Onclick event from refreshing page
 	event.preventDefault();
