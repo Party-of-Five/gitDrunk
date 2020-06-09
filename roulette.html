@@ -57,42 +57,56 @@
 				</ul>
 			</div>
 		</nav>
-
-		<div class="container">
-			<div class="row">
-				<!-- liquor selection buttons -->
-				<div class="col l4 pull-s8">
-					<p class="whiteText">
-						Select your base liquor from the below options.
-					</p>
-					<ul>
-						<li>
-							<button data-name="Vodka" id="vodka">Vodka</button>
-						</li>
-						<li>
-							<button data-name="Tequila" id="tequila">Tequila</button>
-						</li>
-						<li><button data-name="Gin" id="gin">Gin</button></li>
-						<li>
-							<button data-name="Whiskey" id="whiskey">Whiskey</button>
-						</li>
-						<li><button data-name="Rum" id="rum">Rum</button></li>
-						<li>
-							<button id="surpriseSelect" class="liquorSelect">
-								Surprise Me
-							</button>
-						</li>
-					</ul>
-				</div>
-				<!-- information on randomly selected cocktail -->
-				<div class="col l12">
-					<div class="featureInfo">
-						<div class="featureText"></div>
-						<div class="featureImage"></div>
+		<main>
+			<div class="container">
+				<div class="row">
+					<!-- liquor selection buttons -->
+					<div class="col l4 pull-s8">
+						<p class="whiteText">
+							Select your base liquor from the below options.
+						</p>
+						<ul>
+							<li>
+								<button type="button" data-name="Vodka" id="vodka">
+									Vodka
+								</button>
+							</li>
+							<li>
+								<button type="button" data-name="Tequila" id="tequila">
+									Tequila
+								</button>
+							</li>
+							<li>
+								<button type="button" data-name="Gin" id="gin">Gin</button>
+							</li>
+							<li>
+								<button type="button" data-name="Whiskey" id="whiskey">
+									Whiskey
+								</button>
+							</li>
+							<li>
+								<button type="button" data-name="Rum" id="rum">Rum</button>
+							</li>
+							<li>
+								<button type="button" id="surpriseSelect" class="liquorSelect">
+									Surprise Me
+								</button>
+							</li>
+						</ul>
+					</div>
+					<!-- information on randomly selected cocktail -->
+					<div class="col l12 container">
+						<div class="featureInfo row">
+							<div class="col l8">
+								<ul id="featureIngredients"></ul>
+								<div class="featureText"></div>
+							</div>
+							<div class="featureImage col l4"></div>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+		</main>
 		<footer class="page-footer">
 			<div>
 				<a href="./about.html" class="credits">About</a>
