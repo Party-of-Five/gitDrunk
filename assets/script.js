@@ -425,15 +425,87 @@ function getRandom() {
     getDrink(randomSurpriseID);
   });
 }
-
 // create function for #identifyDrink to pull up information by drink id and display it in .featureText and .featureImage
 
 // create ABV function to look up beers based on ABV and display options w/ pics
+$(".beerSelectLow").click(function () {
+	event.preventDefault();
+	let abv = 4;
 
-// function ingredientSearch(){numberOfIngredients++)
-// 	numberOfIngredients = 5
-// 	for(i=arrayoFdrinks.lnegth-1;i>-1;i--{
-// 	  if(
-// 	(arrayOfDrinks.indexOf("ingredient",4))>0){
-// 	arrayOfDrinks[i].push(finalListOfDrinks)}
-// 	}
+	getBeer1(abv);
+});
+
+$(".beerSelectHigh").click(function () {
+	event.preventDefault();
+	
+	let abv = 3.99;
+
+	getBeer2(abv);
+});
+
+function getBeer1(abv) {
+	var settings = {
+		async: true,
+		crossDomain: true,
+		url: `https://api.punkapi.com/v2/beers?abv_lt=`+ abv,
+		method: "GET",
+		headers: {},
+	};
+
+	$.ajax(settings).done(function (response) {
+		let possibleBeers = response;
+		
+		let randomBeer =
+			possibleBeers[Math.floor(Math.random() * possibleBeers.length)];
+		
+		$(".beerName").html("Name:"+ " " + randomBeer.name);
+		
+		$(".tagLine").html(randomBeer.tagline);
+		
+		$(".firstBrewed").html("First brewed:"+ " " + randomBeer.first_brewed);
+		
+		$(".beerDesciption").html("Description:"+ " " + randomBeer.description);
+		var image = $(
+			`<img src="${randomBeer.image_url}" width="auto" height="350"/>`
+		);
+
+		$(".beerImg").html(image);
+		
+		$(".alcByVol").html("ABV:"+ " " + randomBeer.abv);
+
+	});
+};
+
+function getBeer2(abv) {
+		var settings = {
+			async: true,
+			crossDomain: true,
+			url: `https://api.punkapi.com/v2/beers?abv_gt=`+ abv,
+			method: "GET",
+			headers: {},
+		};
+
+	$.ajax(settings).done(function (response) {
+		let possibleBeers = response;
+		
+		let randomBeer =
+			possibleBeers[Math.floor(Math.random() * possibleBeers.length)];
+		
+		$(".beerName").html("Name:"+ " " + randomBeer.name);
+		
+		$(".tagLine").html(randomBeer.tagline);
+		
+		$(".firstBrewed").html("First brewed:"+ " " + randomBeer.first_brewed);
+		
+		$(".beerDesciption").html("Description:"+ " " + randomBeer.description);
+		var image = $(
+			`<img src="${randomBeer.image_url}" width="auto" height="350"/>`
+		);
+
+		$(".beerImg").html(image);
+		
+		$(".alcByVol").html("ABV:"+ " " + randomBeer.abv);
+
+	});
+}
+//#endregion
