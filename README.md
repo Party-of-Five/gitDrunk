@@ -36,10 +36,10 @@ SO THAT I don't have to make my own decision
     <li>JQuery</li>
     <li>Draw.io</li>
     <li>Postman</li>
+    <li>< a href='https://materializecss.com/'>Materialize</a></li>
     <br/>
-    <li>https://www.thecocktaildb.com/api.php</li>
-    <li>https://materializecss.com/</li>
-    <li>https://api.punkapi.com/v2/beers</li>
+    <li><a href='https://www.thecocktaildb.com/api.php' target='_blank'>The CocktailDB API</a></li>
+    <li><a href='https://api.punkapi.com/v2/beers' target='_blank'>Punk Beer API</a></li>
 
 </ul>
 <h2>📓 Contributor(s)</h2>
