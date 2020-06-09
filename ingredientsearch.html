@@ -66,7 +66,7 @@
 							Select Ingredient Below
 						</h6>
 						<button class="ingredientAddBtn">Add</button>
-						<button>Clear List</button>
+						<button class="clearList">Clear List</button>
 						<form action="/action_page.php" method="get" id="searchBtn">
 							<input
 								class="ingredientInfo whiteText"
@@ -82,16 +82,18 @@
 					<!-- list of ingredients appended -->
 					<div class="col l8 push-s4 whiteText">
 						<div class="listContainer">
-							<ul class="listIng">
-								<li class="listHeader">List of Ingredients</li>
+							<ul>
+								<p class="listHeader">List of Ingredients</p>
+								<li class="listIng"></li>
 							</ul>
 						</div>
 
 						<!-- list of cocktails -->
 
 						<div class="listContainer">
-							<ul class="ingResults">
-								<li class="listHeader">Select a Drink</li>
+							<ul>
+								<p class="listHeader">Select a Drink</p>
+								<li class="ingResults"></li>
 							</ul>
 						</div>
 					</div>

@@ -29,6 +29,8 @@ function getAllIngList() {
 // When you click the search button
 $("#cocktailSubBtn").click(function (event) {
   event.preventDefault();
+  $(".ingResults").empty();
+  drinksArr = [];
   // Input taken and assigned to variable
   cocktailInput = $("#cocktailInput").val().trim();
   // Call search cocktail function
@@ -75,9 +77,14 @@ $(".ingredientAddBtn").click(function () {
   }
 });
 
+$(".clearList").click(function () {
+  $(".listIng").empty();
+});
+
 $("#ingredientSubBtn").click(function () {
   event.preventDefault();
   drinksArr = [];
+  $(".ingResults").empty();
   // Get Cocktails for each Ingredients >>>>>>>>>
   $(".ingLi").each(function () {
     value = $(this).text();
@@ -90,7 +97,8 @@ $("#ingredientSubBtn").click(function () {
   // console.log(value);
 });
 
-// Search by ingredient function
+// variables to hold the arrays
+
 function searchIngredient(ingredient) {
   var settings = {
     async: true,
@@ -123,7 +131,6 @@ function searchIngredient(ingredient) {
   });
 }
 
-// Function to get all ingredients, measurements, and instructions
 function getDrink(drink) {
   $("#featureIngredients").empty();
   ingredArr = [];
@@ -402,15 +409,9 @@ function getCocktail(liquorChoice) {
       possibleDrinks[Math.floor(Math.random() * possibleDrinks.length)];
     // Show random selection in feature box
     $(".featureText").text(randomCocktail.strDrink);
-
-    // Target ID
-    let randomCocktailID = randomCocktail.idDrink;
-    // TODO line 130 doesn't work because array structure is different - alternative way to pass in ID? or write new function?
-    getDrink(randomCocktailID);
   });
 }
 
-// Surprise me button on click
 $("#surpriseSelect").click(function () {
   event.preventDefault();
 
@@ -433,6 +434,8 @@ function getRandom() {
     $(".featureText").text(randomSurprise);
   });
 }
+
+// create function for #identifyDrink to pull up information by drink id and display it in .featureText and .featureImage
 
 // create ABV function to look up beers based on ABV and display options w/ pics
 
