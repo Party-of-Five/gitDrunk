@@ -7,33 +7,9 @@ var IngSrchCocktailIDs = [];
 var drinksArr = [];
 var ingredArr = [];
 var ingredList = "";
+var usersIngredients = [];
 
 // General Use Functions
-function groupByIDs(acc, current) {
-	// console.log("acc", acc, "current", current);
-
-	if (!acc[current]) {
-		// if (!acc[current]) {
-		acc[current] = 1;
-	} else {
-		acc[current] = Number(acc[current]) + 1;
-	}
-	// console.log("acc", acc);
-	return acc;
-}
-
-async function processArray(array) {
-	// array = $(".ingLi")
-	for (const item of array) {
-		var value = item.innerText;
-		await searchIngredient(value);
-	}
-	// for (let i = 0; i < $(".ingLi").length; i++) {
-	// 	var value = $(".ingLi")[i].innerText;
-	// await searchIngredient(value);
-	// }
-	// console.log("Done!");
-}
 
 //#region JS FOR SEARCH BY COCKTAIL
 // When you click the search button
@@ -97,8 +73,10 @@ $(".ingredientAddBtn").click(function () {
 	// Get Users Ingredients and Only add ingredient if TextArea has a value
 	let value = $(".ingredientInfo").val().trim();
 	if (value === "") {
+		console.log("Give error to user"); //disable the button if empty
 	} else {
 		// Render Ingeredient(s) to Page
+		usersIngredients.push(value);
 		$(".listIng").append(`<li class="ingLi">${value}</li>`);
 		$(".ingredientInfo").val("");
 	}
@@ -108,21 +86,75 @@ $(".clearList").click(function () {
 	$(".listIng").empty();
 });
 
-$("#ingredientSubBtn").click(function () {
+$("#ingredientSubBtn").click(async function () {
 	event.preventDefault();
 	drinksArr = [];
 	$(".ingResults").empty();
 	// Get Cocktails for each Ingredients >>>>>>>>>
-	processArray($(".ingLi"));
+	// Promise.all allows you send in a array of promises, and it will wait until ALL response are done before moving on (if awaited)
+	let responseArray = await Promise.all(
+		usersIngredients.map((item) => searchIngredient(item))
+	);
 	// for (let i = 0; i < $(".ingLi").length; i++) {
 	// 	var value = $(".ingLi")[i].innerText;
 	// 	searchIngredient(value);
 	// }
-	IngSrchCocktailNamesGrped = IngSrchCocktailNames.reduce(groupByIDs, {});
-	IngSrchCocktailIdGrped = IngSrchCocktailIDs.reduce(groupByIDs, {});
+
+	let oneKeyDrinksArray = responseArray.reduce(
+		(acc, current) => {
+			// console.log("acc", acc, "current", current);
+
+			acc.drinks.push(current.drinks);
+			// console.log("acc", acc);
+			return acc;
+		},
+		{ drinks: [] }
+	);
+
+	//research how spread works to concatenate arrays & arrow functions
+	let combinedResponses = oneKeyDrinksArray.drinks.reduce(
+		(a, b) => [...a, ...b],
+		[]
+	);
+
+	//[[1,2 3], [5,6,7]] = [...a, ...b]
+	//[1,2,3 , 5,6,7]
+	let groupByIDs = combinedResponses.reduce((acc, current) => {
+		// console.log("acc", acc, "current", current);
+
+		if (!acc[current.idDrink]) {
+			// if (!acc[current]) {
+
+			acc[current.idDrink] = { rank: 1, ...current };
+		} else {
+			acc[current.idDrink] = {
+				rank: Number(acc[current.idDrink].rank) + 1,
+				...current,
+			};
+		}
+		// console.log("acc", acc);
+		return acc;
+	}, {});
+	console.log("combinedRespones", combinedResponses);
+	console.log("group by Array", groupByIDs);
+
+	// IngSrchCocktailNamesGrped = IngSrchCocktailNames.reduce(groupByIDs, {});
+	// IngSrchCocktailIdGrped = IngSrchCocktailIDs.reduce(groupByIDs, {});
 });
 
-async function searchIngredient(ingredient) {
+// async function processArray(array) {
+// 	// array = $(".ingLi")
+// 	for (const item of array) {
+// 		var value = item.innerText;
+// 		await searchIngredient(value);
+// 	}
+// 	// for (let i = 0; i < $(".ingLi").length; i++) {
+// 	// 	var value = $(".ingLi")[i].innerText;
+// 	// await searchIngredient(value);
+// 	// }
+// 	// console.log("Done!");
+// }
+function searchIngredient(ingredient) {
 	var settings = {
 		async: true,
 		crossDomain: true,
@@ -133,19 +165,20 @@ async function searchIngredient(ingredient) {
 		headers: {},
 	};
 	// await
-	$.ajax(settings).done(function (response) {
-		drinksArr.push(response);
-		var allDrinks = response.drinks;
-		for (let i = 0; i < allDrinks.length; i++) {
-			// Create two arrays one with just CocktailID and 2nd with CocktailName
-			// var drinkObject = {
-			// 	name: allDrinks[i].strDrink,
-			// 	id: allDrinks[i].idDrink,
-			// };
-			// listOfCocktailVal.push(drinkObject);
-			IngSrchCocktailNames.push(allDrinks[i].strDrink);
-			IngSrchCocktailIDs.push(allDrinks[i].idDrink);
-		}
+	return $.ajax(settings).done(function (response) {
+		return response;
+		// drinksArr.push(response);
+		// var allDrinks = response.drinks;
+		// for (let i = 0; i < allDrinks.length; i++) {
+		// 	// Create two arrays one with just CocktailID and 2nd with CocktailName
+		// 	// var drinkObject = {
+		// 	// 	name: allDrinks[i].strDrink,
+		// 	// 	id: allDrinks[i].idDrink,
+		// 	// };
+		// 	// listOfCocktailVal.push(drinkObject);
+		// 	IngSrchCocktailNames.push(allDrinks[i].strDrink);
+		// 	IngSrchCocktailIDs.push(allDrinks[i].idDrink);
+		// }
 		// Creates a button for each Grouped search result
 		// Placeholder -- Add a loop for each item in the Grouped array
 		// for (let i = 0; i < listOfCocktailVal.length; i++) {
