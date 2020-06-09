@@ -9,8 +9,39 @@ var ingredArr = [];
 var ingredList = "";
 var usersIngredients = [];
 //#endregion
-
 //#region JS FOR SEARCH BY COCKTAIL
+document.addEventListener("DOMContentLoaded", function () {
+	var elems = document.querySelectorAll(".sidenav");
+	var instances = M.Sidenav.init(elems, options);
+});
+
+// Or with jQuery
+
+$(document).ready(function () {
+	$(".sidenav").sidenav();
+});
+
+// Get All the Ingredients from the DB API
+function getAllIngList() {
+	var settings = {
+		url: `https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list`,
+		method: "GET",
+		timeout: 0,
+		headers: {},
+	};
+
+	$.ajax(settings).done(function (response) {
+		let allIng = response.drinks;
+		// Creates a button for each search result
+		for (let i = 0; i < allIng.length; i++) {
+			// console.log(allDrinks[i].strDrink);
+			let IngName = allIng[i].strIngredient1;
+			// render Ingredients to droplist
+			$("#ingredients").append(`<option value="${IngName}"> </option>`);
+		}
+	});
+}
+
 // When you click the search button
 $("#cocktailSubBtn").click(function (event) {
 	event.preventDefault();
