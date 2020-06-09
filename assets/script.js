@@ -1,4 +1,4 @@
-// Variables
+//#region  Variables
 var listOfCocktailVal = [];
 var IngSrchCocktailNamesGrped = {};
 var IngSrchCocktailIdGrped = {};
@@ -8,6 +8,7 @@ var drinksArr = [];
 var ingredArr = [];
 var ingredList = "";
 var usersIngredients = [];
+//#endregion
 
 //#region Load Ingredients
 // Get All the Ingredients from the DB API
