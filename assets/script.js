@@ -9,20 +9,7 @@ var ingredArr = [];
 var ingredList = "";
 var usersIngredients = [];
 
-// General Use Functions
-
-//#region JS FOR SEARCH BY COCKTAIL
-// When you click the search button
-$("#cocktailSubBtn").click(function (event) {
-	event.preventDefault();
-	// Input taken and assigned to variable
-	cocktailInput = $("#cocktailInput").val().trim();
-	// Call search cocktail function
-	searchCocktail(cocktailInput);
-});
-//#endregion
-
-//#region Ingredients Page JS
+//#region Load Ingredients
 // Get All the Ingredients from the DB API
 function getAllIngList() {
 	var settings = {
@@ -42,6 +29,17 @@ function getAllIngList() {
 		}
 	});
 }
+//#endregion
+
+//#region JS FOR SEARCH BY COCKTAIL
+// When you click the search button
+$("#cocktailSubBtn").click(function (event) {
+	event.preventDefault();
+	// Input taken and assigned to variable
+	cocktailInput = $("#cocktailInput").val().trim();
+	// Call search cocktail function
+	searchCocktail(cocktailInput);
+});
 
 // Uses the input to search the Cocktail API
 function searchCocktail(cocktailVal) {
@@ -66,6 +64,9 @@ function searchCocktail(cocktailVal) {
 		}
 	});
 }
+//#endregion
+
+//#region Ingredients Page JS
 
 $(".ingredientAddBtn").click(function () {
 	// Prevent Onclick event from refreshing page
@@ -81,7 +82,7 @@ $(".ingredientAddBtn").click(function () {
 		$(".ingredientInfo").val("");
 	}
 });
-
+// Clear Ingredients List
 $(".clearList").click(function () {
 	$(".listIng").empty();
 });
@@ -95,36 +96,22 @@ $("#ingredientSubBtn").click(async function () {
 	let responseArray = await Promise.all(
 		usersIngredients.map((item) => searchIngredient(item))
 	);
-	// for (let i = 0; i < $(".ingLi").length; i++) {
-	// 	var value = $(".ingLi")[i].innerText;
-	// 	searchIngredient(value);
-	// }
 
 	let oneKeyDrinksArray = responseArray.reduce(
 		(acc, current) => {
-			// console.log("acc", acc, "current", current);
-
 			acc.drinks.push(current.drinks);
 			// console.log("acc", acc);
 			return acc;
 		},
 		{ drinks: [] }
 	);
-
-	//research how spread works to concatenate arrays & arrow functions
 	let combinedResponses = oneKeyDrinksArray.drinks.reduce(
 		(a, b) => [...a, ...b],
 		[]
 	);
 
-	//[[1,2 3], [5,6,7]] = [...a, ...b]
-	//[1,2,3 , 5,6,7]
 	let groupByIDs = combinedResponses.reduce((acc, current) => {
-		// console.log("acc", acc, "current", current);
-
 		if (!acc[current.idDrink]) {
-			// if (!acc[current]) {
-
 			acc[current.idDrink] = { rank: 1, ...current };
 		} else {
 			acc[current.idDrink] = {
@@ -132,28 +119,13 @@ $("#ingredientSubBtn").click(async function () {
 				...current,
 			};
 		}
-		// console.log("acc", acc);
 		return acc;
 	}, {});
+
 	console.log("combinedRespones", combinedResponses);
 	console.log("group by Array", groupByIDs);
-
-	// IngSrchCocktailNamesGrped = IngSrchCocktailNames.reduce(groupByIDs, {});
-	// IngSrchCocktailIdGrped = IngSrchCocktailIDs.reduce(groupByIDs, {});
 });
 
-// async function processArray(array) {
-// 	// array = $(".ingLi")
-// 	for (const item of array) {
-// 		var value = item.innerText;
-// 		await searchIngredient(value);
-// 	}
-// 	// for (let i = 0; i < $(".ingLi").length; i++) {
-// 	// 	var value = $(".ingLi")[i].innerText;
-// 	// await searchIngredient(value);
-// 	// }
-// 	// console.log("Done!");
-// }
 function searchIngredient(ingredient) {
 	var settings = {
 		async: true,
@@ -167,31 +139,6 @@ function searchIngredient(ingredient) {
 	// await
 	return $.ajax(settings).done(function (response) {
 		return response;
-		// drinksArr.push(response);
-		// var allDrinks = response.drinks;
-		// for (let i = 0; i < allDrinks.length; i++) {
-		// 	// Create two arrays one with just CocktailID and 2nd with CocktailName
-		// 	// var drinkObject = {
-		// 	// 	name: allDrinks[i].strDrink,
-		// 	// 	id: allDrinks[i].idDrink,
-		// 	// };
-		// 	// listOfCocktailVal.push(drinkObject);
-		// 	IngSrchCocktailNames.push(allDrinks[i].strDrink);
-		// 	IngSrchCocktailIDs.push(allDrinks[i].idDrink);
-		// }
-		// Creates a button for each Grouped search result
-		// Placeholder -- Add a loop for each item in the Grouped array
-		// for (let i = 0; i < listOfCocktailVal.length; i++) {
-		// 	$(".ingResults").append(
-		// 		`<li><button id="identifyDrink${i}" drinkId="${
-		// 			allDrinks[i].idDrink
-		// 		}" onClick="getDrink(${
-		// 			i /*put the actual id or drink name, whatever your getDrink function is taking as a paraemeter, inside here instead of I*/
-		// 		})" type="button">${drinkObject.name}</button></li>`
-		// 	);
-		// }
-		// Group the listOfCocktails by CocktailName and/or ID
-		// listOfCocktailVal.reduce()
 	});
 }
 //#endregion
@@ -556,6 +503,7 @@ function getBeer1(abv) {
 }
 //#endregion
 
+//#region  The Pub
 function getBeer2(abv) {
 	var settings = {
 		async: true,
