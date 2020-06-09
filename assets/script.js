@@ -52,10 +52,9 @@ function searchCocktail(cocktailVal) {
     var allDrinks = response.drinks;
     // Creates a button for each search result
     for (let i = 0; i < allDrinks.length; i++) {
-      // console.log(allDrinks[i].strDrink);
       var drinkName = allDrinks[i].strDrink;
       $(".ingResults").append(
-        `<li><button id="identifyDrink ${i}" onClick="getDrink(${i})" type="button">${drinkName}</button></li>`
+        `<li><button id="identifyDrink ${i}" onClick="getDrink(${allDrinks[i].idDrink})" type="button">${drinkName}</button></li>`
       );
       listOfCocktailVal.push(drinkName);
     }
@@ -72,7 +71,6 @@ $(".ingredientAddBtn").click(function () {
   } else {
     // Render Ingeredient to Page
     $(".listIng").append(`<li class="ingLi">${value}</li>`);
-    // $(".listIng").append("<li class="ingLi">" + value + "</li>");
     $(".ingredientInfo").val("");
   }
 });
@@ -85,19 +83,12 @@ $("#ingredientSubBtn").click(function () {
   event.preventDefault();
   drinksArr = [];
   $(".ingResults").empty();
-  // Get Cocktails for each Ingredients >>>>>>>>>
+  // Get Cocktails for each Ingredients
   $(".ingLi").each(function () {
     value = $(this).text();
-    // Get Cocktails for each Ingredients
-
     searchIngredient(value);
   });
-  console.log(listOfCocktailVal);
-  // value = $(".ingredientInfo").val().trim();
-  // console.log(value);
 });
-
-// variables to hold the arrays
 
 function searchIngredient(ingredient) {
   var settings = {
@@ -114,40 +105,34 @@ function searchIngredient(ingredient) {
     var allDrinks = response.drinks;
     // Creates a button for each search result
     for (let i = 0; i < allDrinks.length; i++) {
-      // console.log(allDrinks[i].strDrink);
       var drinkObject = {
         name: allDrinks[i].strDrink,
         id: allDrinks[i].idDrink,
       };
+      // Creates button that passes in the drink ID onClick
       $(".ingResults").append(
-        `<li><button id="identifyDrink${i}" drinkId="${
-          allDrinks[i].idDrink
-        }" onClick="getDrink(${
-          i /*put the actual id or drink name, whatever your getDrink function is taking as a paraemeter, inside here instead of I*/
-        })" type="button">${drinkObject.name}</button></li>`
+        `<li><button id="identifyDrink${i}" drinkId="${allDrinks[i].idDrink}" onClick="getDrink(${allDrinks[i].idDrink})" type="button">${drinkObject.name}</button></li>`
       );
       listOfCocktailVal.push(drinkObject);
     }
   });
 }
-
+// Takes Drink ID and passes it into API to get ingredients, measurements, etc.
 function getDrink(drink) {
   $("#featureIngredients").empty();
   ingredArr = [];
-  var idLookup = drinksArr[0].drinks[drink].idDrink;
   var settings = {
     async: true,
     crossDomain: true,
     url:
-      "https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=" +
-      idLookup,
+      "https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=" + drink,
     method: "GET",
     headers: {},
   };
 
   $.ajax(settings).done(function (response) {
-    console.log(response);
-    console.log(response.drinks[0].strInstructions);
+    // console.log(response);
+    console.log(response.drinks[0].strDrink);
     $(".featureText").text(response.drinks[0].strInstructions);
     if (
       response.drinks[0].strIngredient1 != null &&
@@ -345,7 +330,7 @@ function getDrink(drink) {
     $("#featureIngredients").innerHTML = "";
     for (var i = 0; i < ingredArr.length; i++) {
       ingredList = "<li>" + ingredArr[i] + "</li>";
-      console.log(ingredList);
+      // console.log(ingredList);
       $("#featureIngredients").append(ingredList);
     }
     var image = $(
@@ -409,10 +394,9 @@ function getCocktail(liquorChoice) {
       possibleDrinks[Math.floor(Math.random() * possibleDrinks.length)];
     // Show random selection in feature box
     $(".featureText").text(randomCocktail.strDrink);
-
     // Target ID
     let randomCocktailID = randomCocktail.idDrink;
-    // TODO line 130 doesn't work because array structure is different - alternative way to pass in ID? or write new function?
+    // Passes Cocktail ID to getDrink function
     getDrink(randomCocktailID);
   });
 }
@@ -437,6 +421,8 @@ function getRandom() {
     let randomSurprise = response.drinks[0].strDrink;
     // Show random selection in feature box
     $(".featureText").text(randomSurprise);
+    let randomSurpriseID = response.drinks[0].idDrink;
+    getDrink(randomSurpriseID);
   });
 }
 
