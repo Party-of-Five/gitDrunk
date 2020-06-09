@@ -32,8 +32,6 @@ function searchCocktail(cocktailVal) {
 	$.ajax(settings).done(function (response) {
 		drinksArr.push(response);
 		var allDrinks = response.drinks;
-		// Creates a button for each search result
-		// Placeholder -- Make sure to pass in Grouped List and Not Full List
 		for (let i = 0; i < allDrinks.length; i++) {
 			var drinkName = allDrinks[i].strDrink;
 			$(".ingResults").append(
