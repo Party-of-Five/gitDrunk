@@ -53,6 +53,7 @@ main {
 	border: 2px solid black;
 	padding: 10px;
 	opacity: 0.7;
+	position: relative;
 }
 
 .featureInfo {
@@ -67,10 +68,10 @@ main {
 	margin-bottom: 10px;
 }
 
-.ingredientSubBtn {
+#ingredientSubBtn {
 	position: absolute;
-	right: 0;
-	bottom: 0;
+	right: 20px;
+	bottom: 10px;
 }
 
 .beer {
