@@ -65,6 +65,7 @@ function getAllIngList() {
 	});
 }
 //#endregion
+
 $(".ingredientAddBtn").click(function () {
 	// Prevent click event from refreshing page
 	event.preventDefault();
@@ -83,7 +84,7 @@ $(".ingredientAddBtn").click(function () {
 $(".clearList").click(function () {
 	$(".listIng").empty();
 });
-
+// Submit Ingredients and Find Drinks
 $("#ingredientSubBtn").click(async function () {
 	event.preventDefault();
 	drinksArr = [];
@@ -120,6 +121,13 @@ $("#ingredientSubBtn").click(async function () {
 
 	console.log("combinedRespones", combinedResponses);
 	console.log("group by Array", groupByIDs);
+	// for (let i = 0; i < groupByIDs.length; i++) {
+	// 	var drinkName = allDrinks[i].strDrink;
+	// 	$(".ingResults").append(
+	// 		`<li><button id="identifyDrink ${i}" onClick="getDrink(${allDrinks[i].idDrink})" type="button">${drinkName}</button></li>`
+	// 	);
+	// 	listOfCocktailVal.push(drinkName);
+	// }
 });
 
 function searchIngredient(ingredient) {
