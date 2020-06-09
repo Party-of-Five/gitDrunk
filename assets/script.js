@@ -37,13 +37,13 @@ function searchCocktail(cocktailVal) {
 			$(".ingResults").append(
 				`<li><button id="identifyDrink ${i}" onClick="getDrink(${i})" type="button">${drinkName}</button></li>`
 			);
-			// listOfCocktailVal.push(drinkName);
 		}
 	});
 }
 //#endregion
 
 //#region Ingredients Page JS
+
 //#region Load Ingredients
 // Get All the Ingredients from the DB API
 function getAllIngList() {
@@ -66,9 +66,9 @@ function getAllIngList() {
 }
 //#endregion
 $(".ingredientAddBtn").click(function () {
-	// Prevent Onclick event from refreshing page
+	// Prevent click event from refreshing page
 	event.preventDefault();
-	// Get Users Ingredients and Only add ingredient if TextArea has a value
+	// Get Users Ingredients & only add ingredient if TextArea has a value
 	let value = $(".ingredientInfo").val().trim();
 	if (value === "") {
 		console.log("Give error to user"); //disable the button if empty
@@ -88,7 +88,7 @@ $("#ingredientSubBtn").click(async function () {
 	event.preventDefault();
 	drinksArr = [];
 	$(".ingResults").empty();
-	// Get Cocktails for each Ingredients >>>>>>>>>
+	// Get Cocktails for each Ingredients
 	// Promise.all allows you send in a array of promises, and it will wait until ALL response are done before moving on (if awaited)
 	let responseArray = await Promise.all(
 		usersIngredients.map((item) => searchIngredient(item))
@@ -97,7 +97,6 @@ $("#ingredientSubBtn").click(async function () {
 	let oneKeyDrinksArray = responseArray.reduce(
 		(acc, current) => {
 			acc.drinks.push(current.drinks);
-			// console.log("acc", acc);
 			return acc;
 		},
 		{ drinks: [] }
