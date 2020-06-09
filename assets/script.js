@@ -132,7 +132,6 @@ function searchIngredient(ingredient) {
 		method: "GET",
 		headers: {},
 	};
-	// await
 	return $.ajax(settings).done(function (response) {
 		return response;
 	});
