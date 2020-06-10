@@ -12,12 +12,20 @@ var IngSrchCocktailIDs = [];
 var drinksArr = [];
 var ingredArr = [];
 var ingredList = "";
+
 var usersIngredients = [];
 //#endregion
 //#region JS FOR SEARCH BY COCKTAIL
 document.addEventListener("DOMContentLoaded", function () {
 	var elems = document.querySelectorAll(".sidenav");
 });
+
+  // Or with jQuery
+
+  $(document).ready(function(){
+    $('.sidenav').sidenav();
+  });
+
 
 // Get All the Ingredients from the DB API
 function getAllIngList() {
