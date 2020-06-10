@@ -26,6 +26,7 @@ $(document).ready(function () {
 // When you click the search button
 $("#cocktailSubBtn").click(function (event) {
   event.preventDefault();
+  $(".ingResults").empty();
   // Input taken and assigned to variable
   cocktailInput = $("#cocktailInput").val().trim();
   // Call search cocktail function
