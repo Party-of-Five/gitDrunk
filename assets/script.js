@@ -5,6 +5,18 @@ var drinksArr = [];
 var ingredArr = [];
 var ingredList = "";
 
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems, options);
+  });
+
+  // Or with jQuery
+
+  $(document).ready(function(){
+    $('.sidenav').sidenav();
+  });
+
+
 // Get All the Ingredients from the DB API
 function getAllIngList() {
   var settings = {
