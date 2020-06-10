@@ -1,8 +1,3 @@
-// Or with jQuery
-
-$(document).ready(function () {
-  $(".sidenav").sidenav();
-});
 //#region  Variables
 var listOfCocktailVal = [];
 var IngSrchCocktailNamesGrped = {};
@@ -20,32 +15,13 @@ document.addEventListener("DOMContentLoaded", function () {
   var elems = document.querySelectorAll(".sidenav");
 });
 
-// Or with jQuery
+// TODO: Or with jQuery (**MOVE TO TOP**)
 
 $(document).ready(function () {
   $(".sidenav").sidenav();
 });
 
-// Get All the Ingredients from the DB API
-function getAllIngList() {
-  var settings = {
-    url: `https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list`,
-    method: "GET",
-    timeout: 0,
-    headers: {},
-  };
-
-  $.ajax(settings).done(function (response) {
-    let allIng = response.drinks;
-    // Creates a button for each search result
-    for (let i = 0; i < allIng.length; i++) {
-      // console.log(allDrinks[i].strDrink);
-      let IngName = allIng[i].strIngredient1;
-      // render Ingredients to droplist
-      $("#ingredients").append(`<option value="${IngName}"> </option>`);
-    }
-  });
-}
+// JS FOR SEARCH BY COCKTAIL PAGE
 
 // When you click the search button
 $("#cocktailSubBtn").click(function (event) {
@@ -78,30 +54,29 @@ function searchCocktail(cocktailVal) {
 }
 //#endregion
 
-//#region Ingredients Page JS
-
 //#region Load Ingredients
 // Get All the Ingredients from the DB API
-// function getAllIngList() {
-// 	var settings = {
-// 		url: `https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list`,
-// 		method: "GET",
-// 		timeout: 0,
-// 		headers: {},
-// 	};
+function getAllIngList() {
+  var settings = {
+    url: `https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list`,
+    method: "GET",
+    timeout: 0,
+    headers: {},
+  };
 
-// 	$.ajax(settings).done(function (response) {
-// 		let allIng = response.drinks;
-// 		// Creates a button for each search result
-// 		for (let i = 0; i < allIng.length; i++) {
-// 			let IngName = allIng[i].strIngredient1;
-// 			// render Ingredients to droplist
-// 			$("#ingredients").append(`<option value="${IngName}"> </option>`);
-// 		}
-// 	});
-// }
+  $.ajax(settings).done(function (response) {
+    let allIng = response.drinks;
+    // Creates a button for each ingredient in the search result
+    for (let i = 0; i < allIng.length; i++) {
+      let IngName = allIng[i].strIngredient1;
+      // render Ingredients to droplist
+      $("#ingredients").append(`<option value="${IngName}"> </option>`);
+    }
+  });
+}
 //#endregion
 
+//#region Ingredients Page JS
 $(".ingredientAddBtn").click(function () {
   // Prevent click event from refreshing page
   event.preventDefault();
@@ -160,9 +135,9 @@ $("#ingredientSubBtn").click(async function () {
     const bandB = b.rank;
 
     let comparison = 0;
-    if (bandA > bandB) {
+    if (bandA < bandB) {
       comparison = 1;
-    } else if (bandA < bandB) {
+    } else if (bandA > bandB) {
       comparison = -1;
     }
     return comparison;
@@ -170,14 +145,15 @@ $("#ingredientSubBtn").click(async function () {
 
   console.log("combinedRespones", combinedResponses);
   console.log("group by Array", groupByIDs);
+  groupByIDs = Object.values(groupByIDs).sort(compare);
   console.log(Object.values(groupByIDs).sort(compare));
-  // for (let i = 0; i < groupByIDs.length; i++) {
-  // 	var drinkName = allDrinks[i].strDrink;
-  // 	$(".ingResults").append(
-  // 		`<li><button id="identifyDrink ${i}" onClick="getDrink(${allDrinks[i].idDrink})" type="button">${drinkName}</button></li>`
-  // 	);
-  // 	listOfCocktailVal.push(drinkName);
-  // }
+  for (let i = 0; i < groupByIDs.length; i++) {
+    var drinkName = groupByIDs[i].strDrink;
+    $(".ingResults").append(
+      `<li><button id="identifyDrink ${i}" onClick="getDrink(${groupByIDs[i].idDrink})" type="button">${drinkName}</button></li>`
+    );
+    listOfCocktailVal.push(drinkName);
+  }
 });
 
 function searchIngredient(ingredient) {
