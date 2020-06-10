@@ -143,10 +143,7 @@ $("#ingredientSubBtn").click(async function () {
     return comparison;
   }
 
-  console.log("combinedRespones", combinedResponses);
-  console.log("group by Array", groupByIDs);
   groupByIDs = Object.values(groupByIDs).sort(compare);
-  console.log(Object.values(groupByIDs).sort(compare));
   for (let i = 0; i < groupByIDs.length; i++) {
     var drinkName = groupByIDs[i].strDrink;
     $(".ingResults").append(
@@ -172,7 +169,7 @@ function searchIngredient(ingredient) {
 }
 //#endregion
 
-//#region Render Ingredients onto page (Please Dry Up)
+//#region Render Ingredients onto page (TODO: Dry Up)
 function getDrink(drink) {
   $("#featureIngredients").empty();
   ingredArr = [];
@@ -480,8 +477,8 @@ function getRandom() {
     getDrink(randomSurpriseID);
   });
 }
-// create function for #identifyDrink to pull up information by drink id and display it in .featureText and .featureImage
 
+// JS FOR PUB PAGE
 // create ABV function to look up beers based on ABV and display options w/ pics
 $(".beerSelectLow").click(function () {
   event.preventDefault();
