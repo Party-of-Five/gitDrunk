@@ -1,3 +1,8 @@
+// Or with jQuery
+
+$(document).ready(function () {
+	$(".sidenav").sidenav();
+});
 //#region  Variables
 var listOfCocktailVal = [];
 var IngSrchCocktailNamesGrped = {};
@@ -12,12 +17,6 @@ var usersIngredients = [];
 //#region JS FOR SEARCH BY COCKTAIL
 document.addEventListener("DOMContentLoaded", function () {
 	var elems = document.querySelectorAll(".sidenav");
-});
-
-// Or with jQuery
-
-$(document).ready(function () {
-	$(".sidenav").sidenav();
 });
 
 // Get All the Ingredients from the DB API
@@ -76,24 +75,24 @@ function searchCocktail(cocktailVal) {
 
 //#region Load Ingredients
 // Get All the Ingredients from the DB API
-function getAllIngList() {
-	var settings = {
-		url: `https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list`,
-		method: "GET",
-		timeout: 0,
-		headers: {},
-	};
+// function getAllIngList() {
+// 	var settings = {
+// 		url: `https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list`,
+// 		method: "GET",
+// 		timeout: 0,
+// 		headers: {},
+// 	};
 
-	$.ajax(settings).done(function (response) {
-		let allIng = response.drinks;
-		// Creates a button for each search result
-		for (let i = 0; i < allIng.length; i++) {
-			let IngName = allIng[i].strIngredient1;
-			// render Ingredients to droplist
-			$("#ingredients").append(`<option value="${IngName}"> </option>`);
-		}
-	});
-}
+// 	$.ajax(settings).done(function (response) {
+// 		let allIng = response.drinks;
+// 		// Creates a button for each search result
+// 		for (let i = 0; i < allIng.length; i++) {
+// 			let IngName = allIng[i].strIngredient1;
+// 			// render Ingredients to droplist
+// 			$("#ingredients").append(`<option value="${IngName}"> </option>`);
+// 		}
+// 	});
+// }
 //#endregion
 
 $(".ingredientAddBtn").click(function () {
@@ -148,9 +147,23 @@ $("#ingredientSubBtn").click(async function () {
 		}
 		return acc;
 	}, {});
+	function compare(a, b) {
+		// Use toUpperCase() to ignore character casing
+		const bandA = a.rank;
+		const bandB = b.rank;
+
+		let comparison = 0;
+		if (bandA > bandB) {
+			comparison = 1;
+		} else if (bandA < bandB) {
+			comparison = -1;
+		}
+		return comparison;
+	}
 
 	console.log("combinedRespones", combinedResponses);
 	console.log("group by Array", groupByIDs);
+	console.log(Object.values(groupByIDs).sort(compare));
 	// for (let i = 0; i < groupByIDs.length; i++) {
 	// 	var drinkName = allDrinks[i].strDrink;
 	// 	$(".ingResults").append(
