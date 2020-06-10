@@ -59,7 +59,7 @@ SO THAT I don't have to make my own decision
 <h3>Michael Srithapin</h3>
 <ul>
     <li><a href='https://github.com/Cranekick50?tab=repositories'>GitHub</a></li>
-    <li><a href='www.linkedin.com/in/michael-srithapin-84a07438' target='_blank'>LinkedIn</a></li>
+    <li><a href='https://www.linkedin.com/in/michael-srithapin-84a07438/' target='_blank'>LinkedIn</a></li>
     <li>michael.srithapin@gmail.com</li>
 </ul>
 <h3>Frazer Hughes</h3>
