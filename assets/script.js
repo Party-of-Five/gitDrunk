@@ -1,22 +1,61 @@
-// JS FOR SEARCH BY COCKTAIL
-// Variables
+//#region  Variables
 var listOfCocktailVal = [];
+var IngSrchCocktailNamesGrped = {};
+var IngSrchCocktailIdGrped = {};
+var IngSrchCocktailNames = [];
+var IngSrchCocktailIDs = [];
 var drinksArr = [];
 var ingredArr = [];
 var ingredList = "";
 
-document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.sidenav');
-    var instances = M.Sidenav.init(elems, options);
+var usersIngredients = [];
+//#endregion
+//#region JS FOR SEARCH BY COCKTAIL
+document.addEventListener("DOMContentLoaded", function () {
+  var elems = document.querySelectorAll(".sidenav");
+});
+
+// TODO: Or with jQuery (**MOVE TO TOP**)
+
+$(document).ready(function () {
+  $(".sidenav").sidenav();
+});
+
+// JS FOR SEARCH BY COCKTAIL PAGE
+
+// When you click the search button
+$("#cocktailSubBtn").click(function (event) {
+  event.preventDefault();
+  $(".ingResults").empty();
+  // Input taken and assigned to variable
+  cocktailInput = $("#cocktailInput").val().trim();
+  // Call search cocktail function
+  searchCocktail(cocktailInput);
+});
+
+// Uses the input to search the Cocktail API
+function searchCocktail(cocktailVal) {
+  var settings = {
+    url: `https://www.thecocktaildb.com/api/json/v2/9973533/search.php?s=${cocktailVal}`,
+    method: "GET",
+    timeout: 0,
+    headers: {},
+  };
+
+  $.ajax(settings).done(function (response) {
+    drinksArr.push(response);
+    var allDrinks = response.drinks;
+    for (let i = 0; i < allDrinks.length; i++) {
+      var drinkName = allDrinks[i].strDrink;
+      $(".ingResults").append(
+        `<li><button id="identifyDrink ${i}" onClick="getDrink(${allDrinks[i].idDrink})" type="button">${drinkName}</button></li>`
+      );
+    }
   });
+}
+//#endregion
 
-  // Or with jQuery
-
-  $(document).ready(function(){
-    $('.sidenav').sidenav();
-  });
-
-
+//#region Load Ingredients
 // Get All the Ingredients from the DB API
 function getAllIngList() {
   var settings = {
@@ -28,78 +67,91 @@ function getAllIngList() {
 
   $.ajax(settings).done(function (response) {
     let allIng = response.drinks;
-    // Creates a button for each search result
+    // Creates a button for each ingredient in the search result
     for (let i = 0; i < allIng.length; i++) {
-      // console.log(allDrinks[i].strDrink);
       let IngName = allIng[i].strIngredient1;
       // render Ingredients to droplist
       $("#ingredients").append(`<option value="${IngName}"> </option>`);
     }
   });
 }
+//#endregion
 
-// When you click the search button
-$("#cocktailSubBtn").click(function (event) {
-  event.preventDefault();
-  $(".ingResults").empty();
-  drinksArr = [];
-  // Input taken and assigned to variable
-  cocktailInput = $("#cocktailInput").val().trim();
-  // Call search cocktail function
-  searchCocktail(cocktailInput);
-});
-
-// Uses the input to search the Coctail API
-function searchCocktail(cocktailVal) {
-  var settings = {
-    url: `https://www.thecocktaildb.com/api/json/v2/9973533/search.php?s=${cocktailVal}`,
-    method: "GET",
-    timeout: 0,
-    headers: {},
-  };
-
-  $.ajax(settings).done(function (response) {
-    // console.log(response);
-    drinksArr.push(response);
-    var allDrinks = response.drinks;
-    // Creates a button for each search result
-    for (let i = 0; i < allDrinks.length; i++) {
-      var drinkName = allDrinks[i].strDrink;
-      $(".ingResults").append(
-        `<li><button id="identifyDrink ${i}" onClick="getDrink(${allDrinks[i].idDrink})" type="button">${drinkName}</button></li>`
-      );
-      listOfCocktailVal.push(drinkName);
-    }
-  });
-}
-
-// JS FOR SEARCH BY INGREDIENT PAGE
-
+//#region Ingredients Page JS
 $(".ingredientAddBtn").click(function () {
+  // Prevent click event from refreshing page
   event.preventDefault();
+  // Get Users Ingredients & only add ingredient if TextArea has a value
   let value = $(".ingredientInfo").val().trim();
-  // Only add ingredient if TextArea has a value
   if (value === "") {
+    console.log("Give error to user"); //disable the button if empty
   } else {
-    // Render Ingeredient to Page
+    // Render Ingeredient(s) to Page
+    usersIngredients.push(value);
     $(".listIng").append(`<li class="ingLi">${value}</li>`);
     $(".ingredientInfo").val("");
   }
 });
-
+// Clear Ingredients List
 $(".clearList").click(function () {
   $(".listIng").empty();
 });
-
-$("#ingredientSubBtn").click(function () {
+// Submit Ingredients and Find Drinks
+$("#ingredientSubBtn").click(async function () {
   event.preventDefault();
   drinksArr = [];
   $(".ingResults").empty();
   // Get Cocktails for each Ingredients
-  $(".ingLi").each(function () {
-    value = $(this).text();
-    searchIngredient(value);
-  });
+  // Promise.all allows you send in a array of promises, and it will wait until ALL response are done before moving on (if awaited)
+  let responseArray = await Promise.all(
+    usersIngredients.map((item) => searchIngredient(item))
+  );
+
+  let oneKeyDrinksArray = responseArray.reduce(
+    (acc, current) => {
+      acc.drinks.push(current.drinks);
+      return acc;
+    },
+    { drinks: [] }
+  );
+  let combinedResponses = oneKeyDrinksArray.drinks.reduce(
+    (a, b) => [...a, ...b],
+    []
+  );
+
+  let groupByIDs = combinedResponses.reduce((acc, current) => {
+    if (!acc[current.idDrink]) {
+      acc[current.idDrink] = { rank: 1, ...current };
+    } else {
+      acc[current.idDrink] = {
+        rank: Number(acc[current.idDrink].rank) + 1,
+        ...current,
+      };
+    }
+    return acc;
+  }, {});
+  function compare(a, b) {
+    // Use toUpperCase() to ignore character casing
+    const bandA = a.rank;
+    const bandB = b.rank;
+
+    let comparison = 0;
+    if (bandA < bandB) {
+      comparison = 1;
+    } else if (bandA > bandB) {
+      comparison = -1;
+    }
+    return comparison;
+  }
+
+  groupByIDs = Object.values(groupByIDs).sort(compare);
+  for (let i = 0; i < groupByIDs.length; i++) {
+    var drinkName = groupByIDs[i].strDrink;
+    $(".ingResults").append(
+      `<li><button id="identifyDrink ${i}" onClick="getDrink(${groupByIDs[i].idDrink})" type="button">${drinkName}</button></li>`
+    );
+    listOfCocktailVal.push(drinkName);
+  }
 });
 
 function searchIngredient(ingredient) {
@@ -112,27 +164,17 @@ function searchIngredient(ingredient) {
     method: "GET",
     headers: {},
   };
-  $.ajax(settings).done(function (response) {
-    drinksArr.push(response);
-    var allDrinks = response.drinks;
-    // Creates a button for each search result
-    for (let i = 0; i < allDrinks.length; i++) {
-      var drinkObject = {
-        name: allDrinks[i].strDrink,
-        id: allDrinks[i].idDrink,
-      };
-      // Creates button that passes in the drink ID onClick
-      $(".ingResults").append(
-        `<li><button id="identifyDrink${i}" drinkId="${allDrinks[i].idDrink}" onClick="getDrink(${allDrinks[i].idDrink})" type="button">${drinkObject.name}</button></li>`
-      );
-      listOfCocktailVal.push(drinkObject);
-    }
+  return $.ajax(settings).done(function (response) {
+    return response;
   });
 }
-// Takes Drink ID and passes it into API to get ingredients, measurements, etc.
+//#endregion
+
+//#region Render Ingredients onto page (TODO: Dry Up)
 function getDrink(drink) {
   $("#featureIngredients").empty();
   ingredArr = [];
+  // var idLookup = drinksArr[0].drinks[drink].idDrink;
   var settings = {
     async: true,
     crossDomain: true,
@@ -143,8 +185,6 @@ function getDrink(drink) {
   };
 
   $.ajax(settings).done(function (response) {
-    // console.log(response);
-    console.log(response.drinks[0].strDrink);
     $(".featureText").text(response.drinks[0].strInstructions);
     if (
       response.drinks[0].strIngredient1 != null &&
@@ -342,7 +382,7 @@ function getDrink(drink) {
     $("#featureIngredients").innerHTML = "";
     for (var i = 0; i < ingredArr.length; i++) {
       ingredList = "<li>" + ingredArr[i] + "</li>";
-      // console.log(ingredList);
+
       $("#featureIngredients").append(ingredList);
     }
     var image = $(
@@ -351,8 +391,9 @@ function getDrink(drink) {
     $(".featureImage").html(image);
   });
 }
+//#endregion
 
-// JS FOR ROULETTE PAGE
+//#region  JS FOR ROULETTE PAGE
 
 // TODO: Dry up code by dynamically generating buttons with on click attached
 
@@ -437,87 +478,87 @@ function getRandom() {
     getDrink(randomSurpriseID);
   });
 }
-// create function for #identifyDrink to pull up information by drink id and display it in .featureText and .featureImage
 
+// JS FOR PUB PAGE
 // create ABV function to look up beers based on ABV and display options w/ pics
 $(".beerSelectLow").click(function () {
-	event.preventDefault();
-	let abv = 4;
+  event.preventDefault();
+  let abv = 4;
 
-	getBeer1(abv);
+  getBeer1(abv);
 });
 
 $(".beerSelectHigh").click(function () {
-	event.preventDefault();
-	
-	let abv = 3.99;
+  event.preventDefault();
 
-	getBeer2(abv);
+  let abv = 3.99;
+
+  getBeer2(abv);
 });
 
 function getBeer1(abv) {
-	var settings = {
-		async: true,
-		crossDomain: true,
-		url: `https://api.punkapi.com/v2/beers?abv_lt=`+ abv,
-		method: "GET",
-		headers: {},
-	};
+  var settings = {
+    async: true,
+    crossDomain: true,
+    url: `https://api.punkapi.com/v2/beers?abv_lt=` + abv,
+    method: "GET",
+    headers: {},
+  };
 
-	$.ajax(settings).done(function (response) {
-		let possibleBeers = response;
-		
-		let randomBeer =
-			possibleBeers[Math.floor(Math.random() * possibleBeers.length)];
-		
-		$(".beerName").html("Name:"+ " " + randomBeer.name);
-		
-		$(".tagLine").html(randomBeer.tagline);
-		
-		$(".firstBrewed").html("First brewed:"+ " " + randomBeer.first_brewed);
-		
-		$(".beerDesciption").html("Description:"+ " " + randomBeer.description);
-		var image = $(
-			`<img src="${randomBeer.image_url}" width="auto" height="350"/>`
-		);
+  $.ajax(settings).done(function (response) {
+    let possibleBeers = response;
 
-		$(".beerImg").html(image);
-		
-		$(".alcByVol").html("ABV:"+ " " + randomBeer.abv);
+    let randomBeer =
+      possibleBeers[Math.floor(Math.random() * possibleBeers.length)];
 
-	});
-};
+    $(".beerName").html("Name:" + " " + randomBeer.name);
 
+    $(".tagLine").html(randomBeer.tagline);
+
+    $(".firstBrewed").html("First brewed:" + " " + randomBeer.first_brewed);
+
+    $(".beerDesciption").html("Description:" + " " + randomBeer.description);
+    var image = $(
+      `<img src="${randomBeer.image_url}" width="auto" height="350"/>`
+    );
+
+    $(".beerImg").html(image);
+
+    $(".alcByVol").html("ABV:" + " " + randomBeer.abv);
+  });
+}
+//#endregion
+
+//#region  The Pub
 function getBeer2(abv) {
-		var settings = {
-			async: true,
-			crossDomain: true,
-			url: `https://api.punkapi.com/v2/beers?abv_gt=`+ abv,
-			method: "GET",
-			headers: {},
-		};
+  var settings = {
+    async: true,
+    crossDomain: true,
+    url: `https://api.punkapi.com/v2/beers?abv_gt=` + abv,
+    method: "GET",
+    headers: {},
+  };
 
-	$.ajax(settings).done(function (response) {
-		let possibleBeers = response;
-		
-		let randomBeer =
-			possibleBeers[Math.floor(Math.random() * possibleBeers.length)];
-		
-		$(".beerName").html("Name:"+ " " + randomBeer.name);
-		
-		$(".tagLine").html(randomBeer.tagline);
-		
-		$(".firstBrewed").html("First brewed:"+ " " + randomBeer.first_brewed);
-		
-		$(".beerDesciption").html("Description:"+ " " + randomBeer.description);
-		var image = $(
-			`<img src="${randomBeer.image_url}" width="auto" height="350"/>`
-		);
+  $.ajax(settings).done(function (response) {
+    let possibleBeers = response;
 
-		$(".beerImg").html(image);
-		
-		$(".alcByVol").html("ABV:"+ " " + randomBeer.abv);
+    let randomBeer =
+      possibleBeers[Math.floor(Math.random() * possibleBeers.length)];
 
-	});
+    $(".beerName").html("Name:" + " " + randomBeer.name);
+
+    $(".tagLine").html(randomBeer.tagline);
+
+    $(".firstBrewed").html("First brewed:" + " " + randomBeer.first_brewed);
+
+    $(".beerDesciption").html("Description:" + " " + randomBeer.description);
+    var image = $(
+      `<img src="${randomBeer.image_url}" width="auto" height="350"/>`
+    );
+
+    $(".beerImg").html(image);
+
+    $(".alcByVol").html("ABV:" + " " + randomBeer.abv);
+  });
 }
 //#endregion
