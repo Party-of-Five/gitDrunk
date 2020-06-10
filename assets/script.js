@@ -1,4 +1,8 @@
 // TODO: $(document).ready(function () {
+
+// Creates the side bar nav from hamburger menu
+$(".sidenav").sidenav();
+
 //#region  Variables
 var listOfCocktailVal = [];
 var IngSrchCocktailNamesGrped = {};
@@ -13,7 +17,6 @@ var usersIngredients = [];
 //#endregion
 
 //#region JS FOR SEARCH BY COCKTAIL
-$(".sidenav").sidenav();
 
 // When you click the search button
 $("#cocktailSubBtn").click(function (event) {
