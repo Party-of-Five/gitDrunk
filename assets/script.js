@@ -1,3 +1,4 @@
+// TODO: $(document).ready(function () {
 //#region  Variables
 var listOfCocktailVal = [];
 var IngSrchCocktailNamesGrped = {};
@@ -10,18 +11,9 @@ var ingredList = "";
 
 var usersIngredients = [];
 //#endregion
+
 //#region JS FOR SEARCH BY COCKTAIL
-document.addEventListener("DOMContentLoaded", function () {
-  var elems = document.querySelectorAll(".sidenav");
-});
-
-// TODO: Or with jQuery (**MOVE TO TOP**)
-
-$(document).ready(function () {
-  $(".sidenav").sidenav();
-});
-
-// JS FOR SEARCH BY COCKTAIL PAGE
+$(".sidenav").sidenav();
 
 // When you click the search button
 $("#cocktailSubBtn").click(function (event) {
@@ -131,7 +123,6 @@ $("#ingredientSubBtn").click(async function () {
     return acc;
   }, {});
   function compare(a, b) {
-    // Use toUpperCase() to ignore character casing
     const bandA = a.rank;
     const bandB = b.rank;
 
@@ -153,7 +144,7 @@ $("#ingredientSubBtn").click(async function () {
     listOfCocktailVal.push(drinkName);
   }
 });
-
+//To be used in the Ingredient Submit Button on click
 function searchIngredient(ingredient) {
   var settings = {
     async: true,
@@ -174,7 +165,6 @@ function searchIngredient(ingredient) {
 function getDrink(drink) {
   $("#featureIngredients").empty();
   ingredArr = [];
-  // var idLookup = drinksArr[0].drinks[drink].idDrink;
   var settings = {
     async: true,
     crossDomain: true,
@@ -397,7 +387,7 @@ function getDrink(drink) {
 
 // TODO: Dry up code by dynamically generating buttons with on click attached
 
-// Assign on click to each liquor button using the data name as a value to pass into the getCocktal function
+// Assign on click to each liquor button using the data name as a value to pass into the getCocktail function
 $("#vodka").click(function () {
   event.preventDefault();
   let liquor = $("#vodka").attr("data-name");
@@ -454,6 +444,7 @@ function getCocktail(liquorChoice) {
   });
 }
 
+// Calls getRandom when surprise button is clicked
 $("#surpriseSelect").click(function () {
   event.preventDefault();
 
@@ -495,7 +486,7 @@ $(".beerSelectHigh").click(function () {
 
   getBeer2(abv);
 });
-
+// Calls API for ABV below a certain value
 function getBeer1(abv) {
   var settings = {
     async: true,
@@ -527,9 +518,7 @@ function getBeer1(abv) {
     $(".alcByVol").html("ABV:" + " " + randomBeer.abv);
   });
 }
-//#endregion
-
-//#region  The Pub
+// Calls API for ABV above a certain value
 function getBeer2(abv) {
   var settings = {
     async: true,
@@ -562,3 +551,4 @@ function getBeer2(abv) {
   });
 }
 //#endregion
+// });
