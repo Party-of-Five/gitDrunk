@@ -388,6 +388,7 @@ function getDrink(drink) {
 		$(".featureImage").html(image);
 		$(".drinkName").html(response.drinks[0].strDrink);
 	});
+
 }
 //#endregion
 
