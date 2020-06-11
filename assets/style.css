@@ -1,233 +1,232 @@
 body {
-	background-color: black;
-	background-image: url("../assets/img/classyDrinks.jpg?raw=true");
-	background-attachment: fixed;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: 100%;
-	vertical-align: middle;
-	display: flex;
-	min-height: 100vh;
-	flex-direction: column;
+  background-color: black;
+  background-image: url("../assets/img/classyDrinks.jpg?raw=true");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  vertical-align: middle;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 main {
-	flex: 1 0 auto;
-	margin-top: 100px;
+  flex: 1 0 auto;
+  margin-top: 100px;
 }
 
 .logo {
-	text-align: center;
-	font-size: 100px;
-	color: white;
-	font-family: "Times New Roman", Times, serif;
+  text-align: center;
+  font-size: 100px;
+  color: white;
+  font-family: "Times New Roman", Times, serif;
 }
 
 .nav-wrapper {
-	background-color: #a30707;
-	margin-bottom: 10px;
+  background-color: #a30707;
+  margin-bottom: 10px;
 }
 
 .btn {
-	background-color: transparent;
+  background-color: transparent;
 }
 
 .page-footer {
-	text-align: center;
-	background-color: #a30707;
+  text-align: center;
+  background-color: #a30707;
 }
 
 .container {
-	font-size: 15px;
-	font-family: "Times New Roman", Times, serif;
+  font-size: 15px;
+  font-family: "Times New Roman", Times, serif;
 }
 
 .whiteText {
-	color: white;
+  color: white;
 }
 
 .listContainer {
-	background-color: #a30707be;
-	height: 250px;
-	overflow: auto;
-	margin: 10px;
-	border-radius: 25px;
-	border: 2px solid black;
-	padding: 10px;
-	opacity: 0.7;
-	position: relative;
+  background-color: #a30707be;
+  height: 250px;
+  overflow: auto;
+  margin: 10px;
+  border-radius: 25px;
+  border: 2px solid black;
+  padding: 10px;
+  opacity: 0.7;
+  position: relative;
 }
 
 .featureInfo {
-	display: flex;
-	flex-direction: column;
-	background-color: #a30707be;
-	height: 75vh;
-	border-radius: 25px;
-	padding: 20px;
+  display: flex;
+  flex-direction: column;
+  background-color: #a30707be;
+  height: 75vh;
+  border-radius: 25px;
+  padding: 20px;
 }
 .row.col.s8 {
-	width: 100%;
-	height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .featureImage.col.s4 {
-	width: 100%;
-	height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .drinkImage {
-	width: 100%;
-	height: 100%
+  width: 100%;
+  height: 100%;
+  padding: 10px;
 }
 
 .listHeader {
-	text-decoration: underline;
-	margin-bottom: 10px;
+  text-decoration: underline;
+  margin-bottom: 10px;
 }
 
 #ingredientSubBtn {
-	position: absolute;
-	right: 20px;
-	bottom: 10px;
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
 }
 
 .beer {
-	background-color: black;
-	background-image: url("../assets/img/pintglass.jpg?raw=true");
-	background-attachment: fixed;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	vertical-align: middle;
+  background-color: black;
+  background-image: url("../assets/img/pintglass.jpg?raw=true");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  vertical-align: middle;
 }
 
 .drinkName {
-	color: white;
-	font-weight: bold;
-	font-size: medium;
+  color: white;
+  font-weight: bold;
+  font-size: medium;
 }
 
 .featureText {
-	text-align: left;
-	padding: 20px;
-	color: white;
+  text-align: left;
+  padding: 20px;
+  color: white;
 }
 
 #featureIngredients {
-	text-align: left;
-	padding: 20px;
-	color: white;
+  text-align: left;
+  padding: 20px;
+  color: white;
 }
 
 .ingredHome {
-	margin: 10px;
-	border-radius: 25px;
-	background: rgba(255, 255, 255, 0.7);
+  margin: 10px;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.7);
 }
 
 .cocktailHome {
-	margin: 10px;
-	border-radius: 25px;
-	background: rgba(255, 255, 255, 0.7);
+  margin: 10px;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.7);
 }
 
 .rouletteHome {
-	margin: 10px;
-	border-radius: 25px;
-	background: rgba(255, 255, 255, 0.7);
+  margin: 10px;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.7);
 }
 
 .pubHome {
-	margin: 10px;
-	border-radius: 25px;
-	background: rgba(255, 255, 255, 0.7);
+  margin: 10px;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.7);
 }
 
 .homeBarText {
-	font-size: 20px;
-	margin: 50px;
+  font-size: 20px;
+  margin: 50px;
 }
 
 .inghomeBtn {
-	margin: 10px;
-	border-radius: 25px;
-	font-weight: bold;
+  margin: 10px;
+  border-radius: 25px;
+  font-weight: bold;
 }
 
 .ingredImg {
-	border-radius: 25px;
+  border-radius: 25px;
 }
 
 .cocktailImg {
-	border-radius: 25px;
+  border-radius: 25px;
 }
 
 .rouletteImg {
-	border-radius: 25px;
+  border-radius: 25px;
 }
 
 .pubImg {
-	border-radius: 25px;
+  border-radius: 25px;
 }
 
 .circleButton {
-	border-radius: 30px;
-	background-color: rgb(233, 78, 78);
-	padding: 5px 9px 5px 9px;
-	margin-right: 5px;
-	font-family: sans-serif;
+  border-radius: 30px;
+  background-color: rgb(233, 78, 78);
+  padding: 5px 9px 5px 9px;
+  margin-right: 5px;
+  font-family: sans-serif;
 }
 
 .buttonSection {
-	padding-top: 15px;
+  padding-top: 15px;
 }
 
 .icon {
-	color: black;
+  color: black;
 }
 .barrel {
-    position: relative;
-    top: 10px; left: 100px;
-    list-style-type: none;
-    margin: 1;
-    padding: 0;
+  position: relative;
+  top: 10px;
+  left: 100px;
+  list-style-type: none;
+  margin: 1;
+  padding: 0;
 }
 .bullet {
-    position: absolute;
-    -webkit-transition: all 0.3s linear;
-    -moz-transition: all 0.3s linear;
-	transition: all 0.3s linear;
-	background-color: #a30707be;
-	font-size:10px;
+  position: absolute;
+  -webkit-transition: all 0.3s linear;
+  -moz-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+  background-color: #a30707be;
+  font-size: 10px;
 }
 
 .sidenav {
-	background-color: #a30707be;
+  background-color: #a30707be;
 }
 
 #featureTextbox {
-	height: 100%;
-	width: 100%;
-	overflow: scroll;
+  height: 100%;
+  width: 100%;
+  overflow: scroll;
 }
 
 .xs12 {
-	margin-bottom: 33%
+  margin-bottom: 33%;
 }
 
 @media only screen and (max-width: 500px) {
-	.barrel {
-		top: -5px;
-		left: 75px;
-	}
+  .barrel {
+    top: -5px;
+    left: 75px;
+  }
 }
 
 @media only screen and (min-width: 750px) {
-	.featureInfo {
-		flex-direction: row;
-    	height: auto;
-	}
+  .featureInfo {
+    flex-direction: row;
+    height: auto;
+  }
 }
-
-
-
