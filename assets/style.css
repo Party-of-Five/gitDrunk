@@ -156,3 +156,22 @@ main {
 .icon {
 	color: black;
 }
+.barrel {
+    position: relative;
+    top: 200px; left: 200px; /*for example purposes only*/
+    list-style-type: none;
+    margin: 1;
+    padding: 0;
+}
+.bullet {
+    position: absolute;
+    -webkit-transition: all 2s linear;
+    -moz-transition: all 2s linear;
+	transition: all 2s linear;
+	background-color: black;
+	font-size:10px;
+}
+
+.sidenav {
+	background-color: #a30707be;
+}
