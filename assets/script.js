@@ -97,11 +97,11 @@ $("#ingredientSubBtn").click(async function () {
 	drinksArr = [];
 	$(".ingResults").empty();
 	// Get Cocktails for each Ingredients
-	// Promise.all allows you send in a array of promises, and it will wait until ALL response are done before moving on (if awaited)
+	// Promise.all allows you send in a array of promises, and it will wait until ALL responses are done before moving on (if awaited)
 	let responseArray = await Promise.all(
 		usersIngredients.map((item) => searchIngredient(item))
 	);
-
+	//  Combine each response into a single drinks array, each response is a nested object
 	let oneKeyDrinksArray = responseArray.reduce(
 		(acc, current) => {
 			acc.drinks.push(current.drinks);
@@ -109,11 +109,12 @@ $("#ingredientSubBtn").click(async function () {
 		},
 		{ drinks: [] }
 	);
+	//Flatten out the drinks responseArray so that each cocktail in the response is now a value in the set object
 	let combinedResponses = oneKeyDrinksArray.drinks.reduce(
 		(a, b) => [...a, ...b],
 		[]
 	);
-
+	// Count how manny times a cocktail shows up in the combined response and store the running total
 	let groupByIDs = combinedResponses.reduce((acc, current) => {
 		if (!acc[current.idDrink]) {
 			acc[current.idDrink] = { rank: 1, ...current };
@@ -125,6 +126,8 @@ $("#ingredientSubBtn").click(async function () {
 		}
 		return acc;
 	}, {});
+
+	//  Compare each Rank (Count) within each value in the object
 	function compare(a, b) {
 		const bandA = a.rank;
 		const bandB = b.rank;
@@ -137,10 +140,11 @@ $("#ingredientSubBtn").click(async function () {
 		}
 		return comparison;
 	}
-
+	// Spread the object's values out so that each item is indexed within an array instead
 	groupByIDs = Object.values(groupByIDs).sort(compare);
 	for (let i = 0; i < groupByIDs.length; i++) {
 		var drinkName = groupByIDs[i].strDrink;
+		// Render the consolidated Cocktails and their respective ranks
 		$(".ingResults").append(
 			`<li class='buttonSection'><span class="circleButton">${groupByIDs[i].rank}</span><button id="identifyDrink ${i}" onClick="getDrink(${groupByIDs[i].idDrink})" type="button">${drinkName}</button></li>`
 		);
