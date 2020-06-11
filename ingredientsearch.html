@@ -1,161 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Ingredient Search</title>
-		<!-- CSS Links -->
-		<link rel="stylesheet" href="assets/reset.css" />
-		<!-- Materialize CSS -->
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-		/>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-		<link
-			href="https://fonts.googleapis.com/icon?family=Material+Icons"
-			rel="stylesheet"
-		/>
-		<!-- JQuery link -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-		<!-- Project specific CSS Links -->
-		<link rel="stylesheet" href="assets/style.css" />
-	</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ingredient Search</title>
+    <!-- CSS Links -->
+    <link rel="stylesheet" href="assets/reset.css" />
+    <!-- Materialize CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!-- JQuery link -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Project specific CSS Links -->
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
 
-	<body onload="getAllIngList()">
-		<header class="logo">Mixology</header>
-		<nav>
-			<div class="nav-wrapper">
-				<a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-				<ul class="left hide-on-med-and-down">
-					<li>
-						<a href="./index.html" class="waves-effect waves-light btn"
-							>Home<i class="material-icons left">home</i></a
-						>
-					</li>
-					<li>
-						<a href="./ingredientsearch.html"
-							class="waves-effect waves-light btn"
-							>Mixology<i class="material-icons left">local_drink</i></a
-						>
-					</li>
-					<li>
-						<a href="./drinksearch.html" class="waves-effect waves-light btn"
-							>Cocktail<i class="material-icons left">local_bar</i></a
-						>
-					</li>
-					<li>
-						<a href="./roulette.html" class="waves-effect waves-light btn"
-							>Roulette <i class="material-icons left">casino</i></a
-						>
-					</li>
-					<li>
-						<a href="./thepub.html" class="waves-effect waves-light btn"
-							>Pub <i class="material-icons left">local_hospital</i></a
-						>
-					</li>
-				</ul>
-			</div>
-		</nav>
-		<ul class="sidenav" id="mobile-demo">
-			<li>
-				<a href="./index.html" class="waves-effect waves-light btn"
-					>Home<i class="material-icons left">home</i></a
-				>
-			</li>
-			<li>
-				<a
-					href="./ingredientsearch.html"
-					class="waves-effect waves-light btn"
-					>Mixology<i class="material-icons left">local_drink</i></a
-				>
-			</li>
-			<li>
-				<a href="./drinksearch.html" class="waves-effect waves-light btn"
-					>Cocktail<i class="material-icons left">local_bar</i></a
-				>
-			</li>
-			<li>
-				<a href="./roulette.html" class="waves-effect waves-light btn"
-					>Roulette <i class="material-icons left">casino</i></a
-				>
-			</li>
-			<li>
-				<a href="./thepub.html" class="waves-effect waves-light btn"
-					>Pub <i class="material-icons left">local_hospital</i></a
-				>
-			</li>
-		</ul>
-		<main>
-			<div class="container">
-				<div class="row">
-					<form action="/action_page.php" method="get" id="searchBtn"></form>
-					<!-- input search box -->
-					<div class="col m4 s4 whiteText">
-						<h6>
-							Select Ingredient Below
-						</h6>
-						<button type="button" class="ingredientAddBtn">Add</button>
-						<button type="button" class="clearList">Clear List</button>
-						
-							<input
-								class="ingredientInfo whiteText"
-								type="text"
-								list="ingredients"
-								name="ingredient"
-								id="ingredient"
-							/>
-							<datalist id="ingredients"> </datalist>
-							
-						
-					</div>
-					<!-- list of ingredients appended -->
-					<div class="col m8 s8 whiteText">
-						<div class="listContainer">
-							<ul>
-								<p class="listHeader">List of Ingredients</p>
-								<li class="listIng"></li>
-							</ul>
-							<input type="submit" id="ingredientSubBtn" />
-						</div>
+  <body onload="getAllIngList()">
+    <header class="logo">Mixology</header>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"
+          ><i class="material-icons">menu</i></a
+        >
+        <ul class="left hide-on-med-and-down">
+          <li>
+            <a href="./index.html" class="waves-effect waves-light btn"
+              >Home<i class="material-icons left">home</i></a
+            >
+          </li>
+          <li>
+            <a
+              href="./ingredientsearch.html"
+              class="waves-effect waves-light btn"
+              >Mixology<i class="material-icons left">local_drink</i></a
+            >
+          </li>
+          <li>
+            <a href="./drinksearch.html" class="waves-effect waves-light btn"
+              >Cocktail<i class="material-icons left">local_bar</i></a
+            >
+          </li>
+          <li>
+            <a href="./roulette.html" class="waves-effect waves-light btn"
+              >Roulette <i class="material-icons left">casino</i></a
+            >
+          </li>
+          <li>
+            <a href="./thepub.html" class="waves-effect waves-light btn"
+              >Pub <i class="material-icons left">local_hospital</i></a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <ul class="sidenav" id="mobile-demo">
+      <li>
+        <a href="./index.html" class="waves-effect waves-light btn"
+          >Home<i class="material-icons left">home</i></a
+        >
+      </li>
+      <li>
+        <a href="./ingredientsearch.html" class="waves-effect waves-light btn"
+          >Mixology<i class="material-icons left">local_drink</i></a
+        >
+      </li>
+      <li>
+        <a href="./drinksearch.html" class="waves-effect waves-light btn"
+          >Cocktail<i class="material-icons left">local_bar</i></a
+        >
+      </li>
+      <li>
+        <a href="./roulette.html" class="waves-effect waves-light btn"
+          >Roulette <i class="material-icons left">casino</i></a
+        >
+      </li>
+      <li>
+        <a href="./thepub.html" class="waves-effect waves-light btn"
+          >Pub <i class="material-icons left">local_hospital</i></a
+        >
+      </li>
+    </ul>
+    <main>
+      <div class="container">
+        <div class="row">
+          <form action="/action_page.php" method="get" id="searchBtn"></form>
+          <!-- input search box -->
+          <div class="col m4 s4 whiteText">
+            <h6>
+              Select Ingredient Below
+            </h6>
+            <button type="button" class="ingredientAddBtn">Add</button>
+            <button type="button" class="clearList">Clear List</button>
 
-						<!-- list of cocktails -->
+            <input
+              class="ingredientInfo whiteText"
+              type="text"
+              list="ingredients"
+              name="ingredient"
+              id="ingredient"
+            />
+            <datalist id="ingredients"> </datalist>
+          </div>
+          <!-- list of ingredients appended -->
+          <div class="col m8 s8 whiteText">
+            <div class="listContainer">
+              <ul>
+                <p class="listHeader">List of Ingredients</p>
+                <li class="listIng"></li>
+              </ul>
+              <input type="submit" id="ingredientSubBtn" />
+            </div>
 
-						<div class="listContainer">
-							<ul>
-								<p class="listHeader">Select a Drink</p>
-								<li class="ingResults"></li>
-							</ul>
-						</div>
-					</div>
-					
-					<!-- information on selected cocktail -->
-					
-				</div>
-				<div class="row">
-					<div class="col m12 container">
-						<div class="featureInfo row">
-							<div class="col l8">
-								<ul id="featureIngredients"></ul>
-								<div class="featureText"></div>
-							</div>
-							<div class="featureImage col m4"></div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</main>
-		<footer class="page-footer">
-			<div>
-				<a href="./about.html" class="credits">About</a>
-			</div>
-		</footer>
-		
-		<!-- JQuery link -->
-		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-		<!-- Materialize JS -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-		<!-- project JS link -->
-		<script src="./assets/script.js"></script>
-	</body>
+            <!-- list of cocktails -->
+
+            <div class="listContainer">
+              <ul>
+                <p class="listHeader">Select a Drink</p>
+                <li class="ingResults"></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- information on selected cocktail -->
+        </div>
+        <div class="row">
+          <div class="col m12 container">
+            <div class="featureInfo row">
+              <div class="col l8">
+                <div class="drinkName"></div>
+                <ul id="featureIngredients"></ul>
+                <div class="featureText"></div>
+              </div>
+              <div class="featureImage col m4"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="page-footer">
+      <div>
+        <a href="./about.html" class="credits">About</a>
+      </div>
+    </footer>
+
+    <!-- JQuery link -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- Materialize JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- project JS link -->
+    <script src="./assets/script.js"></script>
+  </body>
 </html>

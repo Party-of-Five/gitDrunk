@@ -101,6 +101,12 @@ main {
 	vertical-align: middle;
 }
 
+.drinkName {
+	color: white;
+	font-weight: bold;
+	font-size: medium;
+}
+
 .featureText {
 	text-align: left;
 	padding: 20px;
@@ -116,32 +122,30 @@ main {
 .ingredHome {
 	margin: 10px;
 	border-radius: 25px;
-	background: rgba(255,255,255,0.7);
+	background: rgba(255, 255, 255, 0.7);
 }
 
 .cocktailHome {
 	margin: 10px;
 	border-radius: 25px;
-	background: rgba(255,255,255,0.7);
-
+	background: rgba(255, 255, 255, 0.7);
 }
 
 .rouletteHome {
 	margin: 10px;
 	border-radius: 25px;
-	background: rgba(255,255,255,0.7);
+	background: rgba(255, 255, 255, 0.7);
 }
 
 .pubHome {
 	margin: 10px;
 	border-radius: 25px;
-	background: rgba(255,255,255,0.7);
+	background: rgba(255, 255, 255, 0.7);
 }
 
 .homeBarText {
 	font-size: 20px;
 	margin: 50px;
-
 }
 
 .inghomeBtn {
@@ -166,6 +170,21 @@ main {
 	border-radius: 25px;
 }
 
+.circleButton {
+	border-radius: 30px;
+	background-color: rgb(233, 78, 78);
+	padding: 5px 9px 5px 9px;
+	margin-right: 5px;
+	font-family: sans-serif;
+}
+
+.buttonSection {
+	padding-top: 15px;
+}
+
+.icon {
+	color: black;
+}
 .barrel {
     position: relative;
     top: 10px; left: 100px;
