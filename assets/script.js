@@ -142,7 +142,7 @@ $("#ingredientSubBtn").click(async function () {
 	for (let i = 0; i < groupByIDs.length; i++) {
 		var drinkName = groupByIDs[i].strDrink;
 		$(".ingResults").append(
-			`<li class='buttonSection'><button id="identifyDrink ${i}" onClick="getDrink(${groupByIDs[i].idDrink})" type="button">${drinkName}</button><span class="circleButton">${groupByIDs[i].rank}</span></li>`
+			`<li class='buttonSection'><span class="circleButton">${groupByIDs[i].rank}</span><button id="identifyDrink ${i}" onClick="getDrink(${groupByIDs[i].idDrink})" type="button">${drinkName}</button></li>`
 		);
 		listOfCocktailVal.push(drinkName);
 	}
