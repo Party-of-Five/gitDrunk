@@ -382,6 +382,7 @@ function getDrink(drink) {
       `<img src="${response.drinks[0].strDrinkThumb}" width="350" height="350"/>`
     );
     $(".featureImage").html(image);
+    $(".drinkName").html(response.drinks[0].strDrink);
   });
 }
 //#endregion
