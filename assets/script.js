@@ -379,7 +379,7 @@ function getDrink(drink) {
       $("#featureIngredients").append(ingredList);
     }
     var image = $(
-      `<img src="${response.drinks[0].strDrinkThumb}" width="350" height="350"/>`
+      `<img class="drinkImage" src="${response.drinks[0].strDrinkThumb}"/>`
     );
     $(".featureImage").html(image);
   });

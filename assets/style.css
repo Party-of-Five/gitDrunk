@@ -24,6 +24,7 @@ main {
 
 .nav-wrapper {
 	background-color: #a30707;
+	margin-bottom: 10px;
 }
 
 .btn {
@@ -57,10 +58,26 @@ main {
 }
 
 .featureInfo {
+	display: flex;
+	flex-direction: column;
 	background-color: #a30707be;
-	height: 400px;
+	height: 75vh;
 	border-radius: 25px;
 	padding: 20px;
+}
+.row.col.s8 {
+	width: 100%;
+	height: 100%;
+}
+
+.featureImage.col.s4 {
+	width: 100%;
+	height: 100%;
+}
+
+.drinkImage {
+	width: 100%;
+	height: 100%
 }
 
 .listHeader {
@@ -151,20 +168,47 @@ main {
 
 .barrel {
     position: relative;
-    top: 200px; left: 200px; /*for example purposes only*/
+    top: 10px; left: 100px;
     list-style-type: none;
     margin: 1;
     padding: 0;
 }
 .bullet {
     position: absolute;
-    -webkit-transition: all 2s linear;
-    -moz-transition: all 2s linear;
-	transition: all 2s linear;
-	background-color: black;
+    -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s linear;
+	transition: all 0.3s linear;
+	background-color: #a30707be;
 	font-size:10px;
 }
 
 .sidenav {
 	background-color: #a30707be;
 }
+
+#featureTextbox {
+	height: 100%;
+	width: 100%;
+	overflow: scroll;
+}
+
+.xs12 {
+	margin-bottom: 33%
+}
+
+@media only screen and (max-width: 500px) {
+	.barrel {
+		top: -5px;
+		left: 75px;
+	}
+}
+
+@media only screen and (min-width: 750px) {
+	.featureInfo {
+		flex-direction: row;
+    	height: auto;
+	}
+}
+
+
+
