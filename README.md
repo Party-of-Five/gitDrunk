@@ -17,7 +17,7 @@ SO THAT I can make the cocktail I want
 
 AS AN INDECISIVE PERSON that only knows what kind of liquor they want
 I WANT someone to pick a drink/recipe for me
-SO THAT I don't have to make my own decision 
+SO THAT I don't have to make my own decision
 ```
 
 <details>
@@ -79,10 +79,10 @@ https://github.com/Party-of-Five/gitDrunk/projects/1?add_cards_query=is%3Aopen
 
 - GIVEN I am looking to make a cocktail
 - WHEN I open the app
-- THEN I am given the option of 3 pages 
+- THEN I am given the option of 3 pages
 
 - WHEN I want to search by ingredients
-- THEN I can enter what I have 
+- THEN I can enter what I have
 
 - WHEN I click submit
 - THEN I am given a list of possible cocktails
@@ -100,8 +100,8 @@ https://github.com/Party-of-Five/gitDrunk/projects/1?add_cards_query=is%3Aopen
 - THEN I am given 5 base liqour options
 
 - WHEN I click my preferred liquor
-- THEN I am given a random cocktail recipe using that liquor 
+- THEN I am given a random cocktail recipe using that liquor
 
 <h2>🎉 The following animation demonstrates the application's functionality:</h2>
 
-![PlaceHolder](TBD)
+![PlaceHolder](./assets/img/gitDrunk.gif)
