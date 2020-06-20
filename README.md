@@ -36,8 +36,7 @@ SO THAT I don't have to make my own decision
     <li>JQuery</li>
     <li>Draw.io</li>
     <li>Postman</li>
-    <li>< a href='https://materializecss.com/'>Materialize</a></li>
-    <br/>
+    <li><a href='https://materializecss.com/'>Materialize</a></li>
     <li><a href='https://www.thecocktaildb.com/api.php' target='_blank'>The CocktailDB API</a></li>
     <li><a href='https://api.punkapi.com/v2/beers' target='_blank'>Punk Beer API</a></li>
 
@@ -103,6 +102,6 @@ https://github.com/Party-of-Five/gitDrunk/projects/1?add_cards_query=is%3Aopen
 - WHEN I click my preferred liquor
 - THEN I am given a random cocktail recipe using that liquor 
 
-<h2>🎉 The following animation demonstrates the application functionality:</h2>
+<h2>🎉 The following animation demonstrates the application's functionality:</h2>
 
 ![PlaceHolder](TBD)
